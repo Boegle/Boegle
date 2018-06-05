@@ -19,7 +19,7 @@ npm start
 
 Standard port is 3000
 ```
-localhost:4000
+localhost:3000
 ```
 
 
