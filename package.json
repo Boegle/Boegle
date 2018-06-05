@@ -27,8 +27,10 @@
     "ejs": "^2.6.1",
     "eslint": "^4.19.1",
     "express": "^4.16.3",
+    "node-fetch": "^2.1.2",
     "nodemon": "^1.17.5",
     "postcss-cli": "^5.0.0",
-    "rollup": "^0.59.4"
+    "rollup": "^0.59.4",
+    "xml2js": "^0.4.19"
   }
 }
