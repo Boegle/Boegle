@@ -11,6 +11,6 @@ app.use(express.static('src'))
 
 app.use('/', routes)
 
-app.listen(3000 || process.env.HOST, () => {
+app.listen(process.env.HOST || 3000, () => {
   console.log('Example app listening on port 3000!')
 })
