@@ -12,6 +12,13 @@ Install all dependencies
 npm install
 ```
 
+Create .env file in directory and add your preferences
+```
+HOST = 3000
+PUBLIC_KEY = public key name
+SECTRET_KEY = secret key name
+```
+
 Start application
 ```
 npm start
