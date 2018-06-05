@@ -1,0 +1,34 @@
+{
+  "name": "Boegle",
+  "version": "1.0.0",
+  "description": "Amsterdam OBA | To search a book",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint app.js",
+    "rollup": "rollup src/js/main.js --o dist/js/bundle.js --f iife",
+    "css": "postcss src/styles/style.css -o dist/styles/style.css",
+    "nodemon": "nodemon --inspect app.js",
+    "start": "npm run rollup & npm run css & npm run lint & npm run nodemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Boegle/Boegle.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Boegle/Boegle/issues"
+  },
+  "homepage": "https://github.com/Boegle/Boegle#readme",
+  "devDependencies": {
+    "dotenv": "^6.0.0",
+    "ejs": "^2.6.1",
+    "eslint": "^4.19.1",
+    "express": "^4.16.3",
+    "nodemon": "^1.17.5",
+    "postcss-cli": "^5.0.0",
+    "rollup": "^0.59.4"
+  }
+}
