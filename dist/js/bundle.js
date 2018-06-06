@@ -5,10 +5,8 @@
     console.log('test');
   }
 
-  let io;
-
   const socket = {
-    io: io(),
+    io: io(), // eslint-disable-line no-undef
     init: function() {
       console.log('socket init complete...');
       this.io;
