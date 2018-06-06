@@ -1,7 +1,10 @@
+import{socket} from './socket.js'
+
 let bookForm = {
   init: function() {
     console.log('bookForm init complete')
     document.querySelector('form').addEventListener('submit', this.search)
+    socket.init()
   },
   search: function(el) {
     el.preventDefault()
@@ -24,7 +27,10 @@ let bookForm = {
       year: input[2].value,
       genres: genres
     }
+
     console.log(givenSearchValues)
+
+    socket.io.emit('searchValues', givenSearchValues)
   }
 }
 
