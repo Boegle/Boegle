@@ -32,5 +32,8 @@
     "postcss-cli": "^5.0.0",
     "rollup": "^0.59.4",
     "xml2js": "^0.4.19"
+  },
+  "dependencies": {
+    "socket.io": "^2.1.1"
   }
 }
