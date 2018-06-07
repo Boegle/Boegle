@@ -20,7 +20,7 @@ let bookForm = {
     })
 
     const givenSearchValues = {
-      title: input[0].value,
+      q: input[0].value,
       author: input[1].value,
       language: select[0].value,
       age: select[1].value,

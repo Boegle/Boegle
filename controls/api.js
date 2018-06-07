@@ -9,8 +9,9 @@ const path = 'search'
 const baseUrl = 'https://zoeken.oba.nl/api/v1/' + path + '/'
 const search = 'q=boek'
 
-function getData() {
-  return fetch(baseUrl + '/?authorization=' + publicKey + '&' + search)
+function getData(data) {
+  console.log(data)
+  return fetch(baseUrl + '/?authorization=' + publicKey + '&refine=true&' + search)
     .then((response) => response.text())
     .then((xml) => parseString(xml, (err, data) => console.log(data.aquabrowser)))
     .catch((error) => console.log(error))
