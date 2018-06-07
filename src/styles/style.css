@@ -1,18 +1,16 @@
 /* -----------------LOADER----------------- */
 
-#loaderBook{
+#loaderBook {
   height: 15em;
   perspective: 1500px;
 }
 
-#loaderCover{
+#loaderCover {
   will-change: transform;
   position: absolute;
   transform-origin: left;
   margin-left: 10em;
   z-index: 2;
-
-/*  Styling  */
   background-color: red;
   height: 14em;
   width: 10em;
@@ -20,19 +18,19 @@
   animation: flip 1.2s forwards infinite;
 }
 
-#loaderCover h1{
+#loaderCover h1 {
   text-align: center;
   font-family: sans-serif;
   color: white;
 }
 
-#loaderCover img{
+#loaderCover img {
   width: 8em;
   margin-top: 1em;
   margin-left: 0.5em;
 }
 
-#loaderBack{
+#loaderBack {
   position: absolute;
   transform-origin: left;
   margin-left: 10em;
@@ -53,7 +51,7 @@
   color: white;
 }
 
-.loaderPage{
+.loaderPage {
   position: absolute;
   background-color: white;
   height: 12em;
@@ -69,10 +67,10 @@
   animation: flip 1.2s forwards infinite;
 }
 
-@keyframes flip{
-  0%{transform: rotateY(0deg);
-  }
-  80%{
+@keyframes flip {
+  0% {
+    transform: rotateY(0deg);
+  } 80% {
     transform: rotateY(-180deg);
     z-index: 1;
   } 100% {
@@ -80,27 +78,27 @@
   }
 }
 
-.loaderPage:nth-of-type(2){
+.loaderPage:nth-of-type(2) {
   animation-delay: 50ms;
 }
 
-.loaderPage:nth-of-type(3){
+.loaderPage:nth-of-type(3) {
   animation-delay: 100ms;
 }
 
-.loaderPage:nth-of-type(4){
+.loaderPage:nth-of-type(4) {
   animation-delay: 150ms;
 }
 
-.loaderPage:nth-of-type(5){
+.loaderPage:nth-of-type(5) {
   animation-delay: 200ms;
 }
 
-.loaderPage:nth-of-type(6){
+.loaderPage:nth-of-type(6) {
   animation-delay: 250ms;
 }
 
-.loaderPage:nth-of-type(7){
+.loaderPage:nth-of-type(7) { 
   animation-delay: 300ms;
 }
 
