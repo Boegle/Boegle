@@ -20,11 +20,12 @@ let bookForm = {
     })
 
     const givenSearchValues = {
-      q: input[0].value,
+      url: 'search',
+      title: input[0].value,
       author: input[1].value,
       language: select[0].value,
       age: select[1].value,
-      year: input[2].value,
+      pubYear: input[2].value,
       genres: genres
     }
 

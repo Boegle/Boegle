@@ -5,13 +5,48 @@ const parseString = require('xml2js').parseString
 env.config()
 
 const publicKey = process.env.PUBLIC_KEY
-const path = 'search'
-const baseUrl = 'https://zoeken.oba.nl/api/v1/' + path + '/'
-const search = 'q=boek'
+let path, search
 
 function getData(data) {
   console.log(data)
-  return fetch(baseUrl + '/?authorization=' + publicKey + '&refine=true&' + search)
+  if(data.url === 'search') {
+    path = data.url
+    search = 'refine=true&facet=Type(book)'
+
+    if(data.title === '') {
+      search += '&q=boek'
+    } else {
+      search += '&q=' + data.title
+    }
+
+    if(data.author) {
+      search += '&facet=Auteur(' + data.author + ')'
+    }
+
+    if(data.language) {
+      search += '&facet=Language(' + data.language + ')'
+    }
+
+    if(data.age) {
+      search += '&facet=Doelgroep(' + data.age + ')'
+    }
+
+    if(data.pubYear) {
+      search += '&facet=pubYear(' + data.pubYear + ')'
+    }
+
+    if(data.genres.length > 0) {
+      data.genres.forEach((genre) => {
+        search += '&facet=Genre(' + genre + ')'
+      })
+    }
+  }
+
+  const baseUrl = 'https://zoeken.oba.nl/api/v1/' + path + '/'
+
+  console.log(search)
+
+  return fetch(baseUrl + '/?authorization=' + publicKey + '&' + search)
     .then((response) => response.text())
     .then((xml) => parseString(xml, (err, data) => console.log(data.aquabrowser)))
     .catch((error) => console.log(error))
