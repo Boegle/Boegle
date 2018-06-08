@@ -13,6 +13,8 @@ let bookForm = {
     const checkboxes = document.querySelectorAll('#checkboxes input')
     const genres = []
 
+    console.log('test')
+
     checkboxes.forEach((checkbox) => {
       if (checkbox.checked) {
         genres.push(checkbox.value)
@@ -28,9 +30,6 @@ let bookForm = {
       pubYear: input[2].value,
       genres: genres
     }
-
-    console.log(givenSearchValues)
-
     socket.io.emit('searchValues', givenSearchValues)
   }
 }
