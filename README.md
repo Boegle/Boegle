@@ -3,7 +3,8 @@ Amsterdam OBA | To search a book
 
 ## Table of contents
 
-[Getting started](##getting_started)
+- [Getting started](##getting_started)
+- [Progression](##progression)
 
 ## Getting started
 
@@ -29,4 +30,6 @@ Standard port is 3000
 localhost:3000
 ```
 
+## Progression
 
+*The progression section gives a weekly insight to what the team is working on, what for problems we've encountered and how we've dealth with the problems during our project.*
