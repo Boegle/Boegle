@@ -37,7 +37,7 @@ localhost:3000
 
 ### Week1
 
-The focus of the first week lays on understanding and debriefing the client problem. From there we're creating a user story and and a user scenario that gives us an idea what the visitors of the OBA wants and how the perfect scenario would be. And last but not least creating a concept for solving this solution.
+The focus of the first week lays on understanding and debriefing the client problem. From there we're creating an user story and and an user scenario that gives us an idea what the visitors of the OBA wants and how the perfect scenario would be. And last but not least creating a concept for solving this solution.
 
 #### User story
 
@@ -49,7 +49,7 @@ The high school student is looking for a book, of which he or she no longer know
 
 #### Concept
 
-To comes with a concept for solving the problem, we first generate ideas that are enable to solve this problem. 
+To comes up with a concept, we first generate ideas that are enable to solve this problem. 
 
 <details>
 <summary>Click: to see mindmap of the ideas</summary>
@@ -59,7 +59,7 @@ To comes with a concept for solving the problem, we first generate ideas that ar
 After generating ideas, every member created their own concept of a web application that will solve the problem. The concept is than shown to the team and at the end of the day the team will pick an aspect of a concept that is suited for solving the problem really wel.
 
 <details>
-<summary>Click: to concepts</summary>
+<summary>Click: to see concepts</summary>
 <p>Wall of generated concept</p>
 <img src='readme_assets/wall-of-generated-concept.jpg' alt="Wall of generated concept of every member">
 
