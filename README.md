@@ -46,3 +46,23 @@ The high school student comes in the OBA and is looking for a book. With a descr
 #### User scenario
 
 The high school student is looking for a book, of which he or she no longer knows the title and the writer. Through a web application, the student can find the book in the OBA.
+
+#### Concept
+
+To comes with a concept for solving the problem, we first generate ideas that are enable to solve this problem. 
+
+<details>
+<summary>Click: to see mindmap of the ideas</summary>
+<img src='readme_assets/mindmap.PNG' alt="Mind map of generated ideas">
+</details>
+
+After generating ideas, every member created their own concept of a web application that will solve the problem. The concept is than shown to the team and at the end of the day the team will pick an aspect of a concept that is suited for solving the problem really wel.
+
+<details>
+<summary>Click: to concepts</summary>
+<p>Wall of generated concept</p>
+<img src='readme_assets/wall-of-generated-concept.jpg' alt="Wall of generated concept of every member">
+
+<p>Zoomed in on a concept</p>
+<img src='readme_assets/concept-one.jpg' alt="A zoomed in photo of one of the concept">
+</details>
