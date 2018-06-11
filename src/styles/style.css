@@ -28,7 +28,11 @@
 }
 
 .animation {
-  animation: pageFlip 2s forwards
+  animation: pageFlip 2s alternate forwards;
+}
+
+.animationReverse {
+  animation: pageFlipReverse 2s;
 }
 
 .cover {
@@ -91,11 +95,22 @@
 }
 
 @keyframes pageFlip {
-  from{transform: rotateY(0deg);
+  from{
+    transform: rotateY(0deg);
   }
   to{
     transform: rotateY(-180deg);
     z-index: 1
+  }
+}
+
+@keyframes pageFlipReverse {
+  from{
+    transform: rotateY(-180deg);
+    z-index: 1;
+  }
+  to{
+    transform: rotateY(0deg);
   }
 }
 
@@ -109,6 +124,11 @@
   bottom: 2em;
   text-align: center;
   width: 100vw;
+  opacity: 1;
+}
+
+.invisable{
+  opacity: 0;
 }
 
 
