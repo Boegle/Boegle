@@ -3,43 +3,7 @@
 <h1>test</h1>
 <h2>ey</h2>
 
-<form id="bookInfo" class="">
-  <fieldset>
-    <label for="title">Titel</label>
-    <input id="title" type="text" name="" value="" placeholder="De GVR">
-    <label for="auteur">Auteur</label>
-    <input id="auteur" type="text" name="" value="" placeholder="Roald Dahl">
-    <select id="language" class="" name="">
-      <option value="">Kies Taal</option>
-      <option value="ger">Duits</option>
-      <option value="eng">Engels</option>
-      <option value="fre">Frans</option>
-      <option value="dut">Nederlands</option>
-    </select>
-    <select id="age" class="" name="">
-      <option value="">Kies Doelgroep</option>
-      <option value="ageYouth">Jeugd</option>
-      <option value="ageYoungAdult">Jong-volwassenen</option>
-      <option value="ageAdult">Volwassenen</option>
-    </select>
-    <label for="year">Jaar van uitgave</label>
-    <input id="year" type="number" name="" value="" placeholder="bijv. 2018">
-  </fieldset>
-  <fieldset id="checkboxes">
-    <legend>Genre</legend>
-    <label for="romantisch">romantisch</label>
-    <input id="romantisch" type="checkbox" name="" value="romantisch-verhaal">
-    <label for="detective">detective</label>
-    <input id="detective" type="checkbox" name="" value="detective">
-    <label for="humor">humor</label>
-    <input id="humor" type="checkbox" name="" value="humor">
-    <label for="thriller">thriller</label>
-    <input id="thriller" type="checkbox" name="" value="thriller">
-    <label for="verhalenbundel">verhalenbundel</label>
-    <input id="verhalenbundel" type="checkbox" name="" value="verhalenbundel">
-  </fieldset>
-  <input id="submit" type="submit" name="" value="submit">
-</form>
+<% include ./components/form %>
 
 <% include ./components/book %>
 
