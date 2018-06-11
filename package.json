@@ -8,8 +8,9 @@
     "lint": "eslint app.js",
     "rollup": "rollup src/js/main.js --o dist/js/bundle.js --f iife",
     "css": "postcss src/styles/style.css -o dist/styles/style.css",
-    "nodemon": "nodemon --inspect app.js",
-    "start": "npm run rollup & npm run css & npm run lint & npm run nodemon"
+    "nodemon": "nodemon --inspect app.js --ignore dist/**",
+    "start": "npm run lint & npm run watch",
+    "watch": "nodemon --watch /src/** -e css,js -x \"npm run rollup & npm run css & npm run nodemon\""
   },
   "repository": {
     "type": "git",
@@ -27,8 +28,13 @@
     "ejs": "^2.6.1",
     "eslint": "^4.19.1",
     "express": "^4.16.3",
+    "node-fetch": "^2.1.2",
     "nodemon": "^1.17.5",
     "postcss-cli": "^5.0.0",
-    "rollup": "^0.59.4"
+    "rollup": "^0.59.4",
+    "xml2js": "^0.4.19"
+  },
+  "dependencies": {
+    "socket.io": "^2.1.1"
   }
 }

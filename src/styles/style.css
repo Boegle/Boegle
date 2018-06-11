@@ -1,0 +1,105 @@
+/* -----------------LOADER----------------- */
+
+#loaderBook {
+  height: 15em;
+  perspective: 1500px;
+}
+
+#loaderCover {
+  will-change: transform;
+  position: absolute;
+  transform-origin: left;
+  margin-left: 10em;
+  z-index: 2;
+  background-color: red;
+  height: 14em;
+  width: 10em;
+  border-radius: 1em 2em 2em 1em;
+  animation: flip 1.2s forwards infinite;
+}
+
+#loaderCover h1 {
+  text-align: center;
+  font-family: sans-serif;
+  color: white;
+}
+
+#loaderCover img {
+  width: 8em;
+  margin-top: 1em;
+  margin-left: 0.5em;
+}
+
+#loaderBack {
+  position: absolute;
+  transform-origin: left;
+  margin-left: 10em;
+  background-color: red;
+  height: 14em;
+  width: 10em;
+  border-radius: 1em 2em 2em 1em;
+
+  animation: flip 1.2s forwards infinite;
+  animation-delay: 350ms;
+  text-align: center;
+}
+
+#loaderBack p {
+  margin: 0;
+  padding: 0;
+  margin: 1em;
+  color: white;
+}
+
+.loaderPage {
+  position: absolute;
+  background-color: white;
+  height: 12em;
+  width: 9em;
+  top: 0.75em;
+  margin-left: 10em;
+  padding-top: 0.5em;
+  border-radius: 0.5em 1em 1em 0.5em;
+  z-index: 1;
+  transform-origin: left;
+  background-color: white;
+  will-change: transform;
+  animation: flip 1.2s forwards infinite;
+}
+
+@keyframes flip {
+  0% {
+    transform: rotateY(0deg);
+  } 80% {
+    transform: rotateY(-180deg);
+    z-index: 1;
+  } 100% {
+    transform: rotateY(-360deg);
+  }
+}
+
+.loaderPage:nth-of-type(2) {
+  animation-delay: 50ms;
+}
+
+.loaderPage:nth-of-type(3) {
+  animation-delay: 100ms;
+}
+
+.loaderPage:nth-of-type(4) {
+  animation-delay: 150ms;
+}
+
+.loaderPage:nth-of-type(5) {
+  animation-delay: 200ms;
+}
+
+.loaderPage:nth-of-type(6) {
+  animation-delay: 250ms;
+}
+
+.loaderPage:nth-of-type(7) {
+  animation-delay: 300ms;
+}
+
+/* -----------------END LOADER----------------- */
