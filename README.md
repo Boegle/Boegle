@@ -37,7 +37,7 @@ localhost:3000
 
 ### Week1
 
-The focus of the first week lays on understanding and debriefing the client problem. From there we're creating an user story and and an user scenario that gives us an idea what the visitors of the OBA wants and how the perfect scenario would be. And last but not least creating a concept for solving this solution.
+The focus of the first week lays on understanding and debriefing the client problem. From there we're creating an user story and an user scenario that gives us an idea what the visitors of the OBA wants and how the perfect scenario would be. And last but not least creating a concept for solving this solution.
 
 #### User story
 
