@@ -28,7 +28,11 @@
 }
 
 .animation {
-  animation: pageFlip 2s forwards
+  animation: pageFlip 2s alternate forwards;
+}
+
+.animationReverse {
+  animation: pageFlipReverse 2s;
 }
 
 .cover {
@@ -91,7 +95,8 @@
 }
 
 @keyframes pageFlip {
-  from{transform: rotateY(0deg);
+  from{
+    transform: rotateY(0deg);
   }
   to{
     transform: rotateY(-180deg);
@@ -99,8 +104,19 @@
   }
 }
 
+@keyframes pageFlipReverse {
+  from{
+    transform: rotateY(-180deg);
+    z-index: 1;
+  }
+  to{
+    transform: rotateY(0deg);
+  }
+}
+
 
 /* -----------------BOOK END----------------- */
+
 /* -----------------BUTTONS----------------- */
 
 #buttons {
@@ -108,10 +124,16 @@
   bottom: 2em;
   text-align: center;
   width: 100vw;
+  opacity: 1;
+}
+
+.invisable{
+  opacity: 0;
 }
 
 
 /* -----------------BUTTONS END----------------- */
+
 /* -----------------LOADER----------------- */
 
 #loaderBook {
@@ -217,4 +239,162 @@
   animation-delay: 300ms;
 }
 
-/* -----------------LOADER END----------------- */
+/* -----------------END LOADER----------------- */
+
+/* -----------------DETAIL----------------- */
+
+#detailBook {
+  display: flex;
+  height: 92vh;
+  flex-wrap: wrap;
+  position: relative;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  position: fixed;
+}
+
+.detailCover {
+  width: 60%;
+  height: auto;
+  padding: 1rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  padding: 5em 1em 5em 5em;
+  max-height: 87vh;
+}
+
+.detailCover img {
+  max-width: 100%;
+  height: auto;
+  max-height:100%;
+  object-fit: contain;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.detailCover div {
+  position: relative;
+  width: auto;
+  display: flex;
+}
+
+.detailCover div:after {
+  content:"";
+  display:block;
+  width:4px;
+  height:100%;
+  background:rgba(0,0,0,0.2);
+  box-shadow: 1px 0 3px rgba(0,0,0,1) inset, 1px 0 0
+              rgba(0,0,0,0.3), 2px 0 0  rgba(255,255,255,.3);
+  border-left:1px solid rgba(0,0,0,0.3);
+  position:absolute;
+  top:0;
+  left:0;
+  border-top-left-radius: 4px 5px;
+  border-bottom-left-radius: 4px 5px;
+  transform: rotateY(-60deg);
+}
+
+.detailInformation {
+  width: 40%;
+  height: auto;
+  padding: 4rem 7rem 4rem 1rem;
+  max-height: 87vh;
+}
+
+.detailInformation h1 {
+  font-size: calc(100vw*0.05);
+  margin-top: 0;
+  margin-bottom: 0.1rem;
+  font-weight: bold;
+  line-height: 0.9;
+}
+
+.detailInformation p:nth-of-type(1) {
+  font-size: calc(100vw*0.015);
+  margin-top: 2rem;
+}
+
+.detailInformation p:nth-of-type(2) {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.detailInformation p:nth-of-type(3) {
+  font-size: 1.3em;
+}
+
+.detailInformation p:nth-of-type(4) {
+  color: #03b555;
+  font-size: 1.1em;
+  margin-top: 4em;
+}
+
+
+.detailInformation button {
+  text-align: center;
+  color: #0C5;
+  padding: 20px 0;
+  width: 14em;
+  height: 4em;
+  background-color: #03b555;
+  border: 1px solid #0D6;
+  color: #FFF;
+  font-size: 1.1em;
+  margin-top: 1rem;
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.detailInformation button:hover,
+.detailInformation button:focus {
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+#detailRecommendation {
+  position: relative;
+  z-index: 4;
+  width: 100%;
+  display: flex;
+  background-color: #ececec;
+  bottom: -54em;
+  height: auto;
+  justify-content: space-around;
+  padding-top: 1.2rem;
+  padding-bottom: 1.2rem;
+}
+
+#detailRecommendation section img {
+  width: 100%;
+  height: 22em;
+}
+
+#detailRecommendation section {
+  width: 100%;
+  max-width: 17em;
+  margin: 2rem;
+  transition: 1s all;
+  background-color: #FFFFFF;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+#detailRecommendation section p {
+  max-width: 11em;
+  font-size: 1.4em;
+  font-weight: 700;
+  padding: 2rem;
+}
+
+#detailRecommendation section a{
+  color: #000000;
+  display: block;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+#detailRecommendation section a:hover,
+#detailRecommendation section a:focus {
+  cursor: pointer;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+/* -----------------END DETAIL----------------- */
