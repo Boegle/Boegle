@@ -11,3 +11,5 @@ let app = {
 }
 
 app.init()
+
+console.log('test2')
