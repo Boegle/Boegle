@@ -1,13 +1,14 @@
 const fetch = require('node-fetch')
 const env = require('dotenv')
 const parseString = require('xml2js').parseString
+const processData = require('./process')
 
 env.config()
 
 const publicKey = process.env.PUBLIC_KEY
 let path, search
 
-function getData(data) {
+function getData(io, socket, data) {
   console.log(data)
   if(data.url === 'search') {
     path = data.url
@@ -48,7 +49,7 @@ function getData(data) {
 
   return fetch(baseUrl + '/?authorization=' + publicKey + '&' + search)
     .then((response) => response.text())
-    .then((xml) => parseString(xml, (err, data) => console.log(data.aquabrowser)))
+    .then((xml) => parseString(xml, (err, parsedData) => processData(io, socket, data, parsedData)))
     .catch((error) => console.log(error))
 }
 

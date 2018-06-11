@@ -3,6 +3,7 @@ const socket = {
   init: function() {
     console.log('socket init complete...')
     this.io
+    this.io.on('searchCount', (data) => console.log(data))
   }
 }
 
