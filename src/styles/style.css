@@ -1,6 +1,123 @@
+*{
+  font-family: avenir;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* -----------------BOOK COMPONTENT----------------- */
+
+#book {
+  width: 100em;
+  height: 100em;
+  perspective: 10000px;
+}
+
+.page {
+  background-image: url("https://img.freepik.com/free-photo/grunge-wall-texture_1194-5384.jpg?size=338&ext=jpg");
+  position: absolute;
+  /* background-color: white; */
+  height: 24em;
+  width: 18em;
+  top:1.5em;
+  margin-left: 20em;
+  padding-top: 0.5em;
+  border-radius: 0.5em 1em 1em 0.5em;
+  z-index: 1;
+  transform-origin: left;
+}
+
+.animation {
+  animation: pageFlip 2s forwards
+}
+
+.cover {
+  background-image: none;
+  z-index: 2;
+  top: -.3em;
+  background-color: lightblue;
+  height: 28em;
+  width: 20em;
+  border-radius: 1em 2em 2em 1em;
+}
+
+.cover header input {
+  margin: 2rem 1rem 0 1rem;
+  border: none;
+  background-color: lightblue;
+  font-size: 3em;
+  width: 18rem;
+  text-align: center;
+}
+
+.cover header input:nth-child(2) {
+  font-size: 2em;
+  margin: 0 1rem;
+  color: gray;
+}
+
+.cover header input:last-of-type {
+  margin: 1rem 40%;
+  width: 20%;
+}
+
+.cover header label {
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  margin-top: -1em;
+}
+
+.cover footer{
+  position: absolute;
+  bottom: 1em;
+}
+
+.cover footer input {
+  margin: 0 1rem 1rem 1rem;
+  border: none;
+  background-color: lightblue;
+  font-size: 1em;
+  width: 18rem;
+  text-align: center;
+}
+
+.back {
+  z-index: 0;
+}
+
+.mirror {
+  transform: scaleX(-1);
+}
+
+@keyframes pageFlip {
+  from{transform: rotateY(0deg);
+  }
+  to{
+    transform: rotateY(-180deg);
+    z-index: 1
+  }
+}
+
+
+/* -----------------BOOK END----------------- */
+
+/* -----------------BUTTONS----------------- */
+
+#buttons {
+  position: fixed;
+  bottom: 2em;
+  text-align: center;
+  width: 100vw;
+}
+
+
+/* -----------------BUTTONS END----------------- */
+
 /* -----------------LOADER----------------- */
 
 #loaderBook {
+  transform: scale(0.4);
   height: 15em;
   perspective: 1500px;
 }
