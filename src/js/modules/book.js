@@ -1,4 +1,4 @@
-var mainBook = {
+const mainBook = {
   init: function() {
     console.log('tekfposjgpodsjposdjgpodjst')
     document.querySelector('#book .cover').addEventListener('click', this.flipPage)
