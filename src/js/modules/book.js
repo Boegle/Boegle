@@ -24,7 +24,6 @@ const mainBook = {
       document.querySelectorAll('.page')[3].classList.add('animation')
     } else if (this.flipCount == 3) {
       document.querySelectorAll('#book .page').forEach((page) => {
-        // page.classList.remove('animation')
         page.classList.add('animationReverse')
       })
     }
