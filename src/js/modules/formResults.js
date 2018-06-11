@@ -23,7 +23,7 @@ let bookForm = {
     pages: document.querySelector('#pages'),
     summary: document.querySelector('#summary'),
     coverColor: document.querySelector('#coverColor'),
-    coverSummary: document.querySelector('#coverSummary')
+    coverDescription: document.querySelector('#coverDescription')
   },
   search: function(el) {
     el.preventDefault()
@@ -49,7 +49,7 @@ let bookForm = {
       pages: bookForm.select.pages.value,
       summary: bookForm.select.summary.value,
       coverColor: bookForm.select.coverColor.value,
-      coverSummary: bookForm.select.coverSummary.value
+      coverDescription: bookForm.select.coverDescription.value
     }
     socket.io.emit('searchValues', givenSearchValues)
   }
