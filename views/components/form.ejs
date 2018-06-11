@@ -1,0 +1,61 @@
+<form id="bookInfo">
+  <fieldset>
+    <label for="title">Titel</label>
+    <input id="title" type="text" placeholder="De GVR">
+    <label for="author">Auteur</label>
+    <input id="author" type="text" placeholder="Roald Dahl">
+    <select id="language">
+      <option>Kies Taal</option>
+      <option value="ger">Duits</option>
+      <option value="eng">Engels</option>
+      <option value="fre">Frans</option>
+      <option value="dut">Nederlands</option>
+    </select>
+    <select id="age">
+      <option>Kies Doelgroep</option>
+      <option value="ageYouth">Jeugd</option>
+      <option value="ageYoungAdult">Jong-volwassenen</option>
+      <option value="ageAdult">Volwassenen</option>
+    </select>
+    <label for="year">Jaar van uitgave</label>
+    <input id="year" type="number" placeholder="bijv. 2018">
+  </fieldset>
+  <fieldset id="checkboxes">
+    <legend>Genre</legend>
+    <label for="romantisch">romantisch</label>
+    <input id="romantisch" type="checkbox" value="romantisch-verhaal">
+    <label for="detective">detective</label>
+    <input id="detective" type="checkbox" value="detective">
+    <label for="humor">humor</label>
+    <input id="humor" type="checkbox" value="humor">
+    <label for="thriller">thriller</label>
+    <input id="thriller" type="checkbox" value="thriller">
+    <label for="verhalenbundel">verhalenbundel</label>
+    <input id="verhalenbundel" type="checkbox" value="verhalenbundel">
+  </fieldset>
+  <fieldset>
+    <legend>Filter</legend>
+      <label for="illustrator">2e auteur/illustrator</label>
+      <input id="illustrator" type="text" placeholder="Illustrator">
+      <select id="illustrations">
+        <option>Soort illustraties</option>
+        <option value="black">Zwart/wit illustraties</option>
+        <option value="color">Gekleurde illustraties</option>
+        <option value="none">Geen illustraties</option>
+      </select>
+      <label for="publisher">Uitgever</label>
+      <input id="publisher" type="text" placeholder="Uitgever">
+      <label for="pages">Aantal pagina's +/-</label>
+      <input id="pages" type="number" placeholder="bijv. 200">
+      <label for="summary">Samenvatting</label>
+      <textarea id="summary" cols="30" rows="10"></textarea>
+  </fieldset>
+  <fieldset>
+    <legend>Kaft</legend>
+    <label for="coverColor">Kleur van de kaft</label>
+    <input id="coverColor" type="color">
+    <label for="coverDescription">Omschrijving kaft</label>
+    <textarea id="coverDescription" cols="30" rows="10"></textarea>
+  </fieldset>
+  <input id="submit" type="submit" value="submit">
+</form>
