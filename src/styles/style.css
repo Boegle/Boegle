@@ -1,3 +1,5 @@
+/* -----------------GLOBAL----------------- */
+
 :root{
   --cover-translateY: 0;
   --bookBottom-scale: 0;
@@ -10,6 +12,15 @@
   box-sizing: border-box;
 }
 
+/* -----------------GLOBAL END----------------- */
+/* -----------------HEADER----------------- */
+body > header img{
+  width: 10rem;
+  margin: 1em 0 0 1em;
+}
+
+
+/* -----------------HEADER END----------------- */
 /* -----------------BOOK COMPONTENT----------------- */
 
 #book {
@@ -34,9 +45,9 @@
 }
 
 .page {
-  background-image: url("https://img.freepik.com/free-photo/grunge-wall-texture_1194-5384.jpg?size=338&ext=jpg");
+  /* background-image: url("https://img.freepik.com/free-photo/grunge-wall-texture_1194-5384.jpg?size=338&ext=jpg"); */
   position: absolute;
-  background-color: white;
+  background-color: #f3f0f0;
   height: 24em;
   width: 18em;
   top:1.5em;
@@ -49,6 +60,8 @@
 .page div{
   width: 80%;
   margin: 1em 10% 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .page:last-of-type div{
@@ -73,7 +86,7 @@
   background-image: none;
   z-index: 2;
   top: -.3em;
-  background-color: lightblue;
+  background-color: red;
   height: 28em;
   width: 20em;
   border-radius: 1em 2em 2em 1em;
@@ -83,16 +96,28 @@
 .cover header input {
   margin: 2rem 1rem 0 1rem;
   border: none;
-  background-color: lightblue;
+  background-color: red;
   font-size: 3em;
   width: 18rem;
   text-align: center;
 }
 
+.cover:first-of-type input {
+  color: white;
+}
+
+.cover input::placeholder  {
+  color: #f3f0f0;
+  opacity: 1;
+}
+
+.cover input:-ms-input-placeholder{
+  color: #f3f0f0;
+}
+
 .cover header input:nth-child(2) {
   font-size: 2em;
   margin: 0 1rem;
-  color: gray;
 }
 
 .cover header input:last-of-type {
@@ -115,32 +140,16 @@
 .cover footer input {
   margin: 0 1rem 1rem 1rem;
   border: none;
-  background-color: lightblue;
+  background-color: red;
   font-size: 1em;
   width: 18rem;
   text-align: center;
 }
 
-.bookBottom {
-  border-left: 1em solid lightblue;
-  background-color: lime;
-  border-bottom: 1em solid lightblue;
-  transform: perspective(100px) rotateX(-40deg);
-  transform-origin: bottom;
-  width: 14.6em;
-  height: 2.8em;
-  position: absolute;
-  bottom: 0;
-  background-color: white;
-  margin-left: 0.2rem;
-  border-radius: 0.3em 0 0.3em 0.3em;
-  opacity: 0;
-}
-
 .bookBottomTwo {
   background-color: #f3f0f0;
-  border-left: 1em solid lightblue;
-  border-bottom: 0.5em solid lightblue;
+  border-left: 1em solid red;
+  border-bottom: 0.5em solid red;
   border-radius: 0.3em 0 0.3em 0.3em;
   height: 10em;
   margin: 0!important;
@@ -264,7 +273,6 @@
   border-radius: 0.5em 1em 1em 0.5em;
   z-index: 1;
   transform-origin: left;
-  background-color: white;
   will-change: transform;
   animation: flip 1.2s forwards infinite;
 }
@@ -467,5 +475,3 @@
 .none {
   display: none;
 }
-
-
