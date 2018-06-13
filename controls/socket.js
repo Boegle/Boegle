@@ -1,10 +1,12 @@
 const api = require('./api')
 
-function socket(io) {
-  io.on('connection', (socket) => {
-    console.log(socket.id + ' is connected')
-    socket.on('searchValues', (data) => api.getData(io, socket, data))
-  })
+const socketIO = {
+  init: function(io) {
+    io.on('connection', (socket) => {
+      console.log(socket.id + ' is connected')
+      socket.on('searchValues', (data) => api.getUrl(io, socket, data))
+    })
+  }
 }
 
-module.exports = socket
+module.exports = socketIO
