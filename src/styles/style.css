@@ -8,6 +8,8 @@
 /* -----------------BOOK COMPONTENT----------------- */
 
 #book {
+  display: flex;
+  justify-content: center;
   height: 30em;
   position: relative;
   perspective: 10000px;
@@ -26,15 +28,18 @@
   height: 24em;
   width: 18em;
   top:1.5em;
-  margin-left: 20em;
+  /* margin-left: 20em; */
   padding-top: 0.5em;
   border-radius: 0.5em 1em 1em 0.5em;
   z-index: 1;
   transform-origin: left;
 }
 
+.insidePage{
+  margin-left: -1em;
+}
+
 .page div{
-  background-color: red;
   width: 80%;
   margin: 1em 10% 0;
 }
