@@ -8,9 +8,15 @@
 /* -----------------BOOK COMPONTENT----------------- */
 
 #book {
-  width: 100em;
-  height: 100em;
+  height: 30em;
+  position: relative;
   perspective: 10000px;
+  transition: all 1s;
+}
+
+#book.inDepth {
+  transform-origin: bottom;
+  transform: perspective(200px) rotateX(20deg) scale(2);
 }
 
 .page {
@@ -25,6 +31,18 @@
   border-radius: 0.5em 1em 1em 0.5em;
   z-index: 1;
   transform-origin: left;
+}
+
+.page div{
+  background-color: red;
+  width: 80%;
+  margin: 1em 10% 0;
+}
+
+.page:last-of-type div{
+  background-color: red;
+  width: 80%;
+  margin: 2em 10% 0;
 }
 
 .animation {
