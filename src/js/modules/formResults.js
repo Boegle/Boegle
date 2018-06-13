@@ -4,32 +4,53 @@ let bookForm = {
   init: function() {
     console.log('bookForm init complete')
     document.querySelector('form').addEventListener('submit', this.search)
+    bookForm.select.inputs.forEach(input => input.addEventListener('change', bookForm.search))
+    bookForm.select.selects.forEach(select => select.addEventListener('change', bookForm.search))
     socket.init()
+  },
+  select: {
+    inputs: document.querySelectorAll('#bookInfo input'),
+    selects: document.querySelectorAll('#bookInfo select'),
+    checkboxes: document.querySelectorAll('#checkboxes input'),
+    title: document.querySelector('#title'),
+    author: document.querySelector('#author'),
+    language: document.querySelector('#language'),
+    age: document.querySelector('#age'),
+    year: document.querySelector('#year'),
+    illustrator: document.querySelector('#illustrator'),
+    illustrations: document.querySelector('#illustrations'),
+    publisher: document.querySelector('#publisher'),
+    pages: document.querySelector('#pages'),
+    summary: document.querySelector('#summary'),
+    coverColor: document.querySelector('#coverColor'),
+    coverDescription: document.querySelector('#coverDescription')
   },
   search: function(el) {
     el.preventDefault()
-    const input = document.querySelectorAll('#bookInfo input')
-    const select = document.querySelectorAll('#bookInfo select')
-    const checkboxes = document.querySelectorAll('#checkboxes input')
     const genres = []
 
-    checkboxes.forEach((checkbox) => {
+    bookForm.select.checkboxes.forEach((checkbox) => {
       if (checkbox.checked) {
         genres.push(checkbox.value)
       }
     })
 
     const givenSearchValues = {
-      title: input[0].value,
-      author: input[1].value,
-      language: select[0].value,
-      age: select[1].value,
-      year: input[2].value,
-      genres: genres
+      url: 'search',
+      title: bookForm.select.title.value,
+      author: bookForm.select.author.value,
+      language: bookForm.select.language.value,
+      age: bookForm.select.age.value,
+      pubYear: bookForm.select.year.value,
+      genres: genres,
+      illustrator: bookForm.select.illustrator.value,
+      illustrations: bookForm.select.illustrations.value,
+      publisher: bookForm.select.publisher.value,
+      pages: bookForm.select.pages.value,
+      summary: bookForm.select.summary.value,
+      coverColor: bookForm.select.coverColor.value,
+      coverDescription: bookForm.select.coverDescription.value
     }
-
-    console.log(givenSearchValues)
-
     socket.io.emit('searchValues', givenSearchValues)
   }
 }
