@@ -1,4 +1,5 @@
 <section id="book">
+  <form id="bookInfo">
   <article class="cover page">
     <header>
       <input id="title" type="text" name="" value="" placeholder="titel">
@@ -9,8 +10,11 @@
     <footer>
       <input id="publisher" type="text" name="" value="" placeholder="uitgever">
     </footer>
+    <div class="bookBottomTwo">
+
+    </div>
   </article>
-  <article class="page">
+  <article class="page insidePage">
     <div class="mirror">
       <select id="language" class="" name="">
         <option value="">Kies Taal</option>
@@ -33,7 +37,7 @@
       <input id="pages" type="number" name="" value="" placeholder="bijv. 200">
     </div>
   </article>
-  <article class="page">
+  <article class="page insidePage">
     <div class="">
       <label for="summary">Samenvatting</label>
       <textarea name="summary" id="summary" cols="30" rows="10"></textarea>
@@ -43,14 +47,33 @@
         <option value="color">Gekleurde illustraties</option>
         <option value="no">Geen illustraties</option>
       </select>
-      <input id="submit" type="submit" name="" value="submit">
     </div>
   </article>
   <article class="cover back page">
-
+    <div class="mirror">
+      <fieldset id="checkboxes">
+        <legend>Genre</legend>
+          <label for="romantisch">romantisch</label>
+          <input id="romantisch" type="checkbox" name="" value="romantisch-verhaal">
+          <label for="detective">detective</label>
+          <input id="detective" type="checkbox" name="" value="detective">
+          <label for="humor">humor</label>
+          <input id="humor" type="checkbox" name="" value="humor">
+          <label for="thriller">thriller</label>
+          <input id="thriller" type="checkbox" name="" value="thriller">
+          <label for="verhalenbundel">verhalenbundel</label>
+          <input id="verhalenbundel" type="checkbox" name="" value="verhalenbundel">
+        </fieldset>
+      <input id="submit" type="submit" name="" value="submit">
+    </div>
   </article>
+  <div class="bookBottom">
 
+  </div>
+  </form>
 </section>
+<p id="pageSlideIndicator"></p>
+<input type="range" min="1" max="10" value="1" id="pageSlider">
 <section id="buttons">
   <a href="#" id="back">Terug</a>
   <a href="#" id="next">Volgende</a>
