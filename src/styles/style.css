@@ -13,12 +13,15 @@
 /* -----------------BOOK COMPONTENT----------------- */
 
 #book {
-  display: flex;
-  justify-content: center;
   height: 30em;
   position: relative;
   perspective: 10000px;
   transition: all 1s;
+}
+
+#book form {
+  display: flex;
+  justify-content: center;
 }
 
 #book.inDepth {
@@ -43,10 +46,6 @@
   transform-origin: left;
 }
 
-.insidePage{
-  margin-left: -1em;
-}
-
 .page div{
   width: 80%;
   margin: 1em 10% 0;
@@ -55,6 +54,10 @@
 .page:last-of-type div{
   width: 80%;
   margin: 2em 10% 0;
+}
+
+.insidePage {
+  margin-left: -1em;
 }
 
 .animation {
