@@ -4,10 +4,10 @@ const mainBook = {
     document.querySelectorAll('#buttons a').forEach((button) => {
       button.addEventListener('click', this.flipPage)
     })
-    document.querySelector('pageSlider').addEventListener('change', () => {
+    document.querySelector('#pageSlider').addEventListener('change', () => {
       let value = document.querySelector('#pageSlider').value
-      document.querySelectorAll('cover')[0].style.setProperty('--cover-translateY', '-' + parseInt(value / 100) + 'em')
-      document.querySelectorAll('bookBottomTwo')[0].style.setProperty('--bookBottom-scale', 1 + parseInt(value /100))
+      document.querySelectorAll('.cover')[0].style.setProperty('--cover-translateY', '-' + parseInt(value / 100) + 'em')
+      document.querySelectorAll('.bookBottomTwo')[0].style.setProperty('--bookBottom-scale', 1 + parseInt(value /100))
       console.log(value)
       document.querySelectorAll('.page').forEach((page) => {
         page.classList.add('none')

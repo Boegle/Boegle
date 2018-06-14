@@ -1,6 +1,6 @@
 import{socket} from './socket.js'
 
-let bookForm = {
+const bookForm = {
   init: function() {
     console.log('bookForm init complete')
     document.querySelector('form').addEventListener('submit', this.search)
@@ -22,8 +22,7 @@ let bookForm = {
     publisher: document.querySelector('#publisher'),
     pages: document.querySelector('#pages'),
     summary: document.querySelector('#summary'),
-    coverColor: document.querySelector('#coverColor'),
-    coverDescription: document.querySelector('#coverDescription')
+    coverColor: document.querySelector('#coverColor')
   },
   search: function(el) {
     el.preventDefault()
@@ -48,8 +47,7 @@ let bookForm = {
       publisher: bookForm.select.publisher.value,
       pages: bookForm.select.pages.value,
       summary: bookForm.select.summary.value,
-      coverColor: bookForm.select.coverColor.value,
-      coverDescription: bookForm.select.coverDescription.value
+      coverColor: bookForm.select.coverColor.value
     }
     socket.io.emit('searchValues', givenSearchValues)
   }
