@@ -248,7 +248,6 @@
 .result-container{
   display: flex;
   flex-wrap: wrap;
-  /* animation: flip-result 1s ease-in-out forwards; */
   width: 100%;
   position: relative;
   perspective: 70em;
@@ -257,11 +256,26 @@
   transform-origin: bottom;
   transform: perspective(10em) rotateX(10deg);
   transition: all 1s;
-  transition-delay: 1s
+  animation: flip-result 1s ease-in-out forwards;
+  animation-delay: 2s;
+}
+
+@keyframes flip-result {
+  100%{
+    transform: perspective(140em) rotateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes result-show-opacity {
+  100%{
+    opacity: 1;
+  }
 }
 
 .result-container.active{
   transform: none;
+  transition-delay: 1s;
 }
 
 .result-top-title{
@@ -278,12 +292,16 @@
   margin: 2rem;
   transition: 1s all;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  animation: result-show-opacity 0.2s forwards;
+  opacity: 0;
+  animation-delay: 1s;
 }
 
 .result-item img{
+  display: flex;
   width: 100%;
   height: 14em;
-  background-color: white;
+  background-color: rgba(0, 0, 0, 0.15);
 }
 
 .result-item .result-title{
@@ -293,17 +311,6 @@
   background-color: white;
 }
 
-@keyframes flip-result {
-  0%{
-    transform: perspective(10em) rotateX(10deg)
-  }
-
-  100%{
-    transform: perspective(10em) rotateX(0)
-  }
-}
-
-
 .result-page{
   display: flex;
   flex-wrap: wrap;
@@ -311,7 +318,6 @@
 }
 
 .result-page.right{
-  opacity: 0;
   transition: all 1s;
 }
 
@@ -319,8 +325,8 @@
   justify-content: flex-end;
   transition: all 1s;
   transform-origin: right;
-  transform: rotateY(180deg);
-  opacity: 0;
+  transform: rotateY(-180deg);
+  animation: flip-result 2s forwards ease-in-out;
 }
 
 .result-page.left.active, .result-page.right.active{
@@ -356,10 +362,11 @@
 }
 
 .book-left{
-  transform: rotateY(180deg);
+  transform: rotateY(-180deg);
   transform-origin: right;
   z-index: 1;
   position: relative;
+  animation: flip-result 2s forwards ease-in-out;
 }
 
 .book-left.active{
@@ -367,11 +374,30 @@
   z-index: 0;
 }
 
+.result-navigation{
+  display: flex;
+  width: 100%;
+}
 
+.result-navigation button {
+  padding: 1rem;
+  background-color: #03b555;
+  border: none;
+}
 
+.result-navigation .next-result{
+  margin-left: auto;
+}
+
+.results {
+  display: none;
+}
+
+.results.active{
+  display: flex;
+}
 
 /*---------RESULT PAGE END----------------- */
-/* -----------------END LOADER----------------- */
 
 /* -----------------DETAIL----------------- */
 
