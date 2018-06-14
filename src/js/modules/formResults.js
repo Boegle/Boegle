@@ -3,9 +3,11 @@ import{socket} from './socket.js'
 const bookForm = {
   init: function() {
     console.log('bookForm init complete')
-    document.querySelector('form').addEventListener('submit', this.search)
-    bookForm.select.inputs.forEach(input => input.addEventListener('change', bookForm.search))
-    bookForm.select.selects.forEach(select => select.addEventListener('change', bookForm.search))
+    if(document.querySelector('form')) {
+      document.querySelector('form').addEventListener('submit', this.search)
+      bookForm.select.inputs.forEach(input => input.addEventListener('change', bookForm.search))
+      bookForm.select.selects.forEach(select => select.addEventListener('change', bookForm.search))
+    }
     socket.init()
   },
   select: {

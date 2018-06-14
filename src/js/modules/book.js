@@ -1,20 +1,22 @@
 const mainBook = {
   init: function() {
     console.log('appelsap')
-    document.querySelectorAll('#buttons a').forEach((button) => {
-      button.addEventListener('click', this.flipPage)
-    })
-    document.querySelector('#pageSlider').addEventListener('change', () => {
-      let value = document.querySelector('#pageSlider').value
-      document.querySelectorAll('.cover')[0].style.setProperty('--cover-translateY', '-' + parseInt(value / 100) + 'em')
-      document.querySelectorAll('.bookBottomTwo')[0].style.setProperty('--bookBottom-scale', 1 + parseInt(value /100))
-      console.log(value)
-      document.querySelectorAll('.page').forEach((page) => {
-        page.classList.add('none')
+    if(document.querySelector('#book')) {
+      document.querySelectorAll('#buttons button').forEach((button) => {
+        button.addEventListener('click', this.flipPage)
       })
-      document.querySelectorAll('.page')[0].classList.remove('none')
-      document.querySelector('#pageSlideIndicator').innerHTML = value
-    })
+      document.querySelector('#pageSlider').addEventListener('change', () => {
+        let value = document.querySelector('#pageSlider').value
+        document.querySelectorAll('.cover')[0].style.setProperty('--cover-translateY', '-' + parseInt(value / 100) + 'em')
+        document.querySelectorAll('.bookBottomTwo')[0].style.setProperty('--bookBottom-scale', 1 + parseInt(value /100))
+        console.log(value)
+        document.querySelectorAll('.page').forEach((page) => {
+          page.classList.add('none')
+        })
+        document.querySelectorAll('.page')[0].classList.remove('none')
+        document.querySelector('#pageSlideIndicator').innerHTML = value
+      })
+    }
   },
   flipCount: 0,
   flipPage: function() {
