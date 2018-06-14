@@ -15,7 +15,7 @@
 /* -----------------HEADER----------------- */
 
 body {
-  font-family: avenir;
+  font-family: avenir,sans-serif;
 }
 
 body > header img {
