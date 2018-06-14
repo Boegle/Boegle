@@ -4,16 +4,16 @@ const mainBook = {
     document.querySelectorAll('#buttons a').forEach((button) => {
       button.addEventListener('click', this.flipPage)
     })
-    document.getElementById('pageSlider').addEventListener('change', () => {
-      let value = document.getElementById('pageSlider').value
-      document.getElementsByClassName('cover')[0].style.setProperty('--cover-translateY', '-' + parseInt(value / 100) + 'em')
-      document.getElementsByClassName('bookBottomTwo')[0].style.setProperty('--bookBottom-scale', 1 + parseInt(value /100))
+    document.querySelector('pageSlider').addEventListener('change', () => {
+      let value = document.querySelector('#pageSlider').value
+      document.querySelectorAll('cover')[0].style.setProperty('--cover-translateY', '-' + parseInt(value / 100) + 'em')
+      document.querySelectorAll('bookBottomTwo')[0].style.setProperty('--bookBottom-scale', 1 + parseInt(value /100))
       console.log(value)
       document.querySelectorAll('.page').forEach((page) => {
         page.classList.add('none')
       })
-      document.getElementsByClassName('page')[0].classList.remove('none')
-      document.getElementById('pageSlideIndicator').innerHTML = value
+      document.querySelectorAll('.page')[0].classList.remove('none')
+      document.querySelector('#pageSlideIndicator').innerHTML = value
     })
   },
   flipCount: 0,
@@ -44,7 +44,7 @@ const mainBook = {
         setTimeout(() => {
           document.querySelector('#range').classList.add('sliderSlidesIn')
           document.querySelectorAll('#sideNav li')[3].classList.add('checked')
-          document.getElementsByClassName('bookBottomTwo')[0].style.setProperty('--bookBottom-scale', 1)
+          document.querySelector('.bookBottomTwo').style.setProperty('--bookBottom-scale', 1)
           document.querySelector('#book').classList.add('inDepth')
 
           console.log('sapje')
