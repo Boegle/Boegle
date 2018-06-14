@@ -245,6 +245,7 @@
 
 #detailBook {
   display: flex;
+  flex-wrap: wrap;
   height: 92vh;
   flex-wrap: wrap;
   position: relative;
@@ -259,7 +260,7 @@
   text-align: center;
   display: flex;
   justify-content: center;
-  padding: 5em 1em 5em 5em;
+  padding: 5rem 1rem 5rem 5rem;
   max-height: 87vh;
 }
 
@@ -296,6 +297,7 @@
 
 .detailInformation {
   width: 40%;
+  /* max-width: 40%; */
   height: auto;
   padding: 4rem 7rem 4rem 1rem;
   max-height: 87vh;
@@ -355,6 +357,7 @@
   z-index: 4;
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   background-color: #ececec;
   bottom: -54em;
   height: auto;
@@ -398,3 +401,65 @@
 }
 
 /* -----------------END DETAIL----------------- */
+
+@media screen and (max-width: 70em) {
+  #detailBook {
+    position: initial;
+    box-shadow: none;
+    height: auto;
+  }
+
+  .detailCover {
+    padding: 5rem 1rem 1rem 1rem;
+    width: 100%;
+  }
+
+  .detailInformation {
+    width: 100%;
+    padding: 7rem 7rem 5rem 7rem;
+  }
+
+  .detailInformation h1 {
+    font-size: calc(100vw*0.09);
+  }
+
+  .detailInformation p:nth-of-type(1) {
+    font-size: calc(100vw*0.04);
+  }
+
+  .detailInformation p:nth-of-type(2) {
+    font-size: 2.3em;
+  }
+
+  .detailInformation p:nth-of-type(4) {
+    font-size: 2.3em;
+    margin-top: 3em;
+  }
+
+  .detailInformation button {
+    font-size: 2.3em;
+  }
+
+  #detailRecommendation section p {
+    font-size: 2.3em;
+  }
+
+  #detailRecommendation {
+    position: initial;
+  }
+
+  .detailCover img {
+    width: 100%;
+    height:100%;
+  }
+
+  .detailCover div {
+    width: 67%;
+  }
+
+  .detailInformation p:nth-of-type(3) {
+    font-size: 2.3em;
+}
+
+
+}
