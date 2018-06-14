@@ -254,7 +254,6 @@ li:hover a, li:focus-within a{
 }
 
 li div + p {
-  heigt:100%;
   text-align: center;
   width: 6em;
   font-size: 1.2em;
