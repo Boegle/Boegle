@@ -1,6 +1,7 @@
 import{test} from './modules/test.js'
 import{bookForm} from './modules/formResults.js'
 import{mainBook} from './modules/book.js'
+import{result} from './modules/result.js'
 
 
 let app = {
@@ -9,6 +10,7 @@ let app = {
     test()
     bookForm.init()
     mainBook.init()
+    result.init()
   }
 }
 
