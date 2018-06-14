@@ -1,10 +1,10 @@
 const result = {
-  init: function () {
+  init: function() {
     this.currentPage.page = 0
     this.next()
     this.back()
   },
-  next: function () {
+  next: function() {
     const nextButton = document.querySelector('.next-result')
     const self = this
 
@@ -24,7 +24,7 @@ const result = {
       }
     })
   },
-  back: function () {
+  back: function() {
     const backButton = document.querySelector('.previous-result')
     const self = this
 
