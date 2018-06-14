@@ -1,46 +1,52 @@
 const result = {
-  init: function() {
+  init: function () {
+    this.currentPage.page = 0
     this.next()
     this.back()
   },
-  next: function() {
+  next: function () {
     const nextButton = document.querySelector('.next-result')
+    const self = this
 
-    nextButton.addEventListener('click', function(){
-      const page = document.querySelector('.book-page.book-left')
-      page.classList.add('active')
+    nextButton.addEventListener('click', function () {
+      const resultsContainer = document.querySelectorAll('.results')
 
-      const resultPage = document.querySelectorAll('.result-page')
+      let currentPage = self.currentPage.page
+      let nextPage = currentPage + 1
 
-      resultPage.forEach(function(i){
-        i.classList.add('active')
-      })
-
-      const resultContainer = document.querySelector('.result-container')
-      resultContainer.classList.add('active')
+      //Check if the next result page exit. If exist make it active
+      if (resultsContainer[nextPage] != undefined) {
+        resultsContainer.forEach((i) => {
+          i.classList.remove('active')
+        })
+        resultsContainer[nextPage].classList.add('active')
+        self.currentPage.page = nextPage
+      }
     })
   },
-  back: function() {
-    const nextButton = document.querySelector('.previous-result')
+  back: function () {
+    const backButton = document.querySelector('.previous-result')
+    const self = this
 
-    nextButton.addEventListener('click', function(){
-      const resultContainer = document.querySelector('.result-container')
-      resultContainer.classList.remove('active')
+    backButton.addEventListener('click', function () {
+      const resultsContainer = document.querySelectorAll('.results')
 
-      const resultPage = document.querySelectorAll('.result-page')
+      let currentPage = self.currentPage.page
+      let previousPage = currentPage - 1
 
-      resultPage.forEach(function(i){
-        i.classList.remove('active')
-      })
+      /*Check first if the resultpage exist. If it exist make it than active*/
+      if (resultsContainer[previousPage]) {
 
-      const page = document.querySelector('.book-page.book-left')
-      page.classList.remove('active')
+        resultsContainer.forEach((i) => {
+          i.classList.remove('active')
+        })
 
-
-
-
+        resultsContainer[previousPage].classList.add('active')
+        self.currentPage.page = previousPage
+      }
     })
-  }
+  },
+  currentPage: {}
 }
 
 export {
