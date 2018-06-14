@@ -190,7 +190,122 @@ body > header img{
 }
 
 /* -----------------BOOK END----------------- */
+/* -----------------SIDE MENU----------------- */
 
+nav{
+  transform: scale(1.75);
+  transform-origin: right;
+  position: fixed;
+  right: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  margin: auto 0;
+}
+
+ul{
+  margin: 0;
+/*   background-color: red; */
+  display: flex;
+  flex-direction: column;
+}
+
+li:first-of-type{
+  margin-top: 0.5em;
+/*   border-radius: 0.6em 0 0 0 ; */
+}
+
+li:last-of-type{
+  margin-bottom: 0.5em;
+/*   border-radius: 0 0 0 0.6em; */
+}
+
+li{
+  cursor: pointer;
+  border: solid 1px rgba(0,0,45,.1);
+  list-style: none;
+  margin: 0 0 0 -1em;
+  background-color: white;
+  height: 5em;
+  width: 11em;
+  transform: translateX(6em);
+  display: flex;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+li div{
+  width: 5em;
+}
+
+li:hover, li:focus-within{
+ transform: translateX(0);
+ background-color: gray;
+}
+
+li:hover, li:focus-within, .checked{
+ transform: translateX(0);
+}
+
+li:hover a, li:focus-within a{
+ color: white;
+}
+
+li div + p {
+  heigt:100%;
+/*   background-color: red; */
+  text-align: center;
+  width: 6em;
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-top: 1em;
+  font-family: avenir;
+  color: white;
+}
+
+a{text-decoration: none;
+color: black;   }
+
+svg{
+  width: 60%;
+  margin: 20%;
+}
+
+/* -----------------SIDE MENU END----------------- */
+/* -----------------RANGE SLIDER----------------- */
+
+#range{
+  top: 0;
+  position: absolute;
+  width: 10em;
+  display: flex;
+  height: 100%;
+  left: 10%;
+  justify-content: center;
+  flex-direction: column;
+  transform: translateX(-250%);
+  transition: all 1s ease-in-out;
+}
+
+#range p {
+  color: black;
+  justify-content: center;
+  display: flex;
+  color: black;
+  flex-direction: column;
+}
+
+#range input {
+  /* transform: scale(3) rotate(270deg); */
+}
+
+.sliderSlidesIn {
+  transform: translateX(0)!important;
+}
+
+/* -----------------RANGE SLIDER END----------------- */
 /* -----------------BUTTONS----------------- */
 
 #buttons {
@@ -207,13 +322,15 @@ body > header img{
 
 
 /* -----------------BUTTONS END----------------- */
-
 /* -----------------LOADER----------------- */
 
 #loaderBook {
+  display: flex;
   transform: scale(0.4);
   height: 15em;
   perspective: 1500px;
+  justify-content: center;
+  margin-right: 4em;
 }
 
 #loaderCover {
@@ -473,5 +590,5 @@ body > header img{
 /* -----------------HACKS----------------- */
 
 .none {
-  display: none;
+  display: none!important;
 }

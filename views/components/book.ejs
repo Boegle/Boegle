@@ -2,8 +2,8 @@
   <form id="bookInfo">
     <article class="cover page">
       <header>
-        <input id="title" type="text" name="" value="" placeholder="titel">
-        <input id="author" type="text" name="" value="" placeholder="auteur">
+        <input id="title" type="text" value="" placeholder="titel">
+        <input id="author" type="text" placeholder="auteur">
         <input id="coverColor" type="color" name="">
         <label for="coverColor">Kaftkleur</label>
       </header>
@@ -30,11 +30,11 @@
         <option value="ageAdult">Volwassenen</option>
       </select>
         <label for="year">Jaar van uitgave</label>
-        <input id="year" type="number" name="" value="" placeholder="bijv. 2018" min="1700" max="2018">
+        <input id="year" type="number" placeholder="bijv. 2018" min="1700" max="2018">
         <label for="illustrator">2e auteur/illustrator</label>
-        <input id="illustrator" type="text" name="" value="" placeholder="Illustrator">
+        <input id="illustrator" type="text" placeholder="Illustrator">
         <label for="pages">Aantal pagina's +/-</label>
-        <input id="pages" type="number" name="" value="" placeholder="bijv. 200">
+        <input id="pages" type="number" placeholder="bijv. 200">
       </div>
     </article>
     <article class="page insidePage">
@@ -71,8 +71,10 @@
     </article>
   </form>
 </section>
-<p id="pageSlideIndicator"></p>
-<input type="range" min="1" max="10" value="1" id="pageSlider">
+<section id="range">
+  <p id="pageSlideIndicator"></p>
+  <input type="range" min="0" max="500" value="1" id="pageSlider">
+</section>
 <section id="buttons">
   <a href="#" id="back">Terug</a>
   <a href="#" id="next">Volgende</a>
