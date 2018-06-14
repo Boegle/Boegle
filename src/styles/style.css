@@ -1,30 +1,79 @@
+/* -----------------GLOBAL----------------- */
+
+:root{
+  --cover-translateY: 0;
+  --bookBottom-scale: 0;
+}
+
 *{
-  font-family: avenir;
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
+/* -----------------GLOBAL END----------------- */
+/* -----------------HEADER----------------- */
+
+body {
+  font-family: avenir;
+}
+
+body > header img {
+  width: 10rem;
+  margin: 1em 0 0 1em;
+}
+
+
+/* -----------------HEADER END----------------- */
 /* -----------------BOOK COMPONTENT----------------- */
 
 #book {
-  width: 100em;
-  height: 100em;
+  height: 30em;
+  position: relative;
   perspective: 10000px;
+  transition: all 1s;
+}
+
+#book form {
+  display: flex;
+  justify-content: center;
+}
+
+#book.inDepth {
+  transform-origin: bottom;
+  transform: perspective(200px) rotateX(20deg) scale(2);
+}
+
+#book.inDepth .bookBottom{
+  opacity: 0;
 }
 
 .page {
-  background-image: url("https://img.freepik.com/free-photo/grunge-wall-texture_1194-5384.jpg?size=338&ext=jpg");
   position: absolute;
-  /* background-color: white; */
+  background-color: #f3f0f0;
   height: 24em;
   width: 18em;
   top:1.5em;
-  margin-left: 20em;
   padding-top: 0.5em;
   border-radius: 0.5em 1em 1em 0.5em;
   z-index: 1;
   transform-origin: left;
+}
+
+.page div{
+  width: 80%;
+  margin: 1em 10% 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.page:last-of-type div{
+  width: 80%;
+  margin: 2em 10% 0;
+}
+
+.insidePage {
+  margin-left: -1em;
 }
 
 .animation {
@@ -36,28 +85,42 @@
 }
 
 .cover {
+  transform: translateY(var(--cover-translateY));
   background-image: none;
   z-index: 2;
   top: -.3em;
-  background-color: lightblue;
+  background-color: red;
   height: 28em;
   width: 20em;
   border-radius: 1em 2em 2em 1em;
+  transition: all 0.5s ease-in-out;
 }
 
 .cover header input {
   margin: 2rem 1rem 0 1rem;
   border: none;
-  background-color: lightblue;
+  background-color: red;
   font-size: 3em;
   width: 18rem;
   text-align: center;
 }
 
+.cover:first-of-type input {
+  color: white;
+}
+
+.cover input::placeholder  {
+  color: #f3f0f0;
+  opacity: 1;
+}
+
+.cover input:-ms-input-placeholder{
+  color: #f3f0f0;
+}
+
 .cover header input:nth-child(2) {
   font-size: 2em;
   margin: 0 1rem;
-  color: gray;
 }
 
 .cover header input:last-of-type {
@@ -67,7 +130,7 @@
 
 .cover header label {
   text-align: center;
-  position: absolute;
+  display: block;
   width: 100%;
   margin-top: -1em;
 }
@@ -80,10 +143,25 @@
 .cover footer input {
   margin: 0 1rem 1rem 1rem;
   border: none;
-  background-color: lightblue;
+  background-color: red;
   font-size: 1em;
   width: 18rem;
   text-align: center;
+}
+
+.bookBottomTwo {
+  background-color: #f3f0f0;
+  border-left: 1em solid red;
+  border-bottom: 0.5em solid red;
+  border-radius: 0.3em 0 0.3em 0.3em;
+  height: 10em;
+  margin: 0!important;
+  width: 98%!important;
+  bottom: -9.2em;
+  position: absolute;
+  transition: all 0.5s ease-in-out;
+  transform-origin: top;
+  transform: perspective(40em) rotateX(-64deg) scaleY(var(--bookBottom-scale));
 }
 
 .back {
@@ -114,9 +192,120 @@
   }
 }
 
-
 /* -----------------BOOK END----------------- */
+/* -----------------SIDE MENU----------------- */
 
+nav{
+  transform: scale(1.75);
+  transform-origin: right;
+  position: fixed;
+  right: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  margin: auto 0;
+}
+
+ul{
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+li:first-of-type{
+  margin-top: 0.5em;
+}
+
+li:last-of-type{
+  margin-bottom: 0.5em;
+}
+
+li{
+  cursor: pointer;
+  border: solid 1px rgba(0,0,45,.1);
+  list-style: none;
+  margin: 0 0 0 -1em;
+  background-color: white;
+  height: 5em;
+  width: 11em;
+  transform: translateX(6em);
+  display: flex;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+li div{
+  width: 5em;
+}
+
+li:hover, li:focus-within{
+ transform: translateX(0);
+ background-color: gray;
+}
+
+li:hover, li:focus-within, .checked{
+ transform: translateX(0);
+}
+
+li:hover a, li:focus-within a{
+ color: white;
+}
+
+li div + p {
+  heigt:100%;
+  text-align: center;
+  width: 6em;
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-top: 1em;
+  font-family: avenir;
+  color: white;
+}
+
+a{text-decoration: none;
+color: black;   }
+
+svg{
+  width: 60%;
+  margin: 20%;
+}
+
+/* -----------------SIDE MENU END----------------- */
+/* -----------------RANGE SLIDER----------------- */
+
+#range{
+  top: 0;
+  position: absolute;
+  width: 10em;
+  display: flex;
+  height: 100%;
+  left: 10%;
+  justify-content: center;
+  flex-direction: column;
+  transform: translateX(-250%);
+  transition: all 1s ease-in-out;
+}
+
+#range p {
+  color: black;
+  justify-content: center;
+  display: flex;
+  color: black;
+  flex-direction: column;
+}
+
+#range input {
+  /* transform: scale(3) rotate(270deg); */
+  /* For later use. Dont remove */
+}
+
+.sliderSlidesIn {
+  transform: translateX(0)!important;
+}
+
+/* -----------------RANGE SLIDER END----------------- */
 /* -----------------BUTTONS----------------- */
 
 #buttons {
@@ -133,13 +322,15 @@
 
 
 /* -----------------BUTTONS END----------------- */
-
 /* -----------------LOADER----------------- */
 
 #loaderBook {
+  display: flex;
   transform: scale(0.4);
   height: 15em;
   perspective: 1500px;
+  justify-content: center;
+  margin-right: 4em;
 }
 
 #loaderCover {
@@ -199,7 +390,6 @@
   border-radius: 0.5em 1em 1em 0.5em;
   z-index: 1;
   transform-origin: left;
-  background-color: white;
   will-change: transform;
   animation: flip 1.2s forwards infinite;
 }
@@ -240,8 +430,6 @@
 }
 
 /* -----------------LOADER END----------------- */
-
-
 
 /* -----------------RESULT PAGE START----------------- */
 
@@ -403,6 +591,7 @@
 
 #detailBook {
   display: flex;
+  flex-wrap: wrap;
   height: 92vh;
   flex-wrap: wrap;
   position: relative;
@@ -417,14 +606,12 @@
   text-align: center;
   display: flex;
   justify-content: center;
-  padding: 5em 1em 5em 5em;
+  padding: 5rem 1rem 5rem 5rem;
   max-height: 87vh;
 }
 
 .detailCover img {
   max-width: 100%;
-  height: auto;
-  max-height:100%;
   object-fit: contain;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
@@ -436,17 +623,17 @@
 }
 
 .detailCover div:after {
-  content:"";
-  display:block;
-  width:4px;
-  height:100%;
-  background:rgba(0,0,0,0.2);
+  content: "";
+  display: block;
+  width: 4px;
+  height: 100%;
+  background: rgba(0,0,0,0.2);
   box-shadow: 1px 0 3px rgba(0,0,0,1) inset, 1px 0 0
               rgba(0,0,0,0.3), 2px 0 0  rgba(255,255,255,.3);
-  border-left:1px solid rgba(0,0,0,0.3);
-  position:absolute;
-  top:0;
-  left:0;
+  border-left: 1px solid rgba(0,0,0,0.3);
+  position: absolute;
+  top: 0;
+  left: 0;
   border-top-left-radius: 4px 5px;
   border-bottom-left-radius: 4px 5px;
   transform: rotateY(-60deg);
@@ -513,6 +700,7 @@
   z-index: 4;
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   background-color: #ececec;
   bottom: -54em;
   height: auto;
@@ -556,3 +744,74 @@
 }
 
 /* -----------------END DETAIL----------------- */
+
+/* -----------------RESPONSIVENESS----------------- */
+
+@media screen and (max-width: 70em) {
+
+    #detailBook {
+      position: initial;
+      box-shadow: none;
+      height: auto;
+    }
+
+    .detailCover {
+      padding: 5rem 1rem 1rem 1rem;
+      width: 100%;
+    }
+
+    .detailInformation {
+      width: 100%;
+      padding: 7rem 7rem 5rem 7rem;
+    }
+
+    .detailInformation h1 {
+      font-size: calc(100vw*0.09);
+    }
+
+    .detailInformation p:nth-of-type(1) {
+      font-size: calc(100vw*0.04);
+    }
+
+    .detailInformation p:nth-of-type(2) {
+      font-size: 2.3em;
+    }
+
+    .detailInformation p:nth-of-type(4) {
+      font-size: 2.3em;
+      margin-top: 3em;
+    }
+
+    .detailInformation button {
+      font-size: 2.3em;
+    }
+
+    #detailRecommendation section p {
+      font-size: 2.3em;
+    }
+
+    #detailRecommendation {
+      position: initial;
+    }
+
+    .detailCover img {
+      width: 100%;
+      height:100%;
+    }
+
+    .detailCover div {
+      width: 67%;
+    }
+
+    .detailInformation p:nth-of-type(3) {
+      font-size: 2.3em;
+  }
+}
+
+/* -----------------END RESPONSIVENESS----------------- */
+
+/* -----------------HACKS----------------- */
+
+.none {
+  display: none!important;
+}
