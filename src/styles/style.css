@@ -229,8 +229,8 @@ li{
   margin: 0 0 0 -1em;
   background-color: white;
   height: 5em;
-  width: 11em;
-  transform: translateX(6em);
+  width: 14em;
+  transform: translateX(9em);
   display: flex;
   transition: all 0.3s ease-in-out;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
@@ -254,7 +254,6 @@ li:hover a, li:focus-within a{
 }
 
 li div + p {
-  heigt:100%;
   text-align: center;
   width: 6em;
   font-size: 1.2em;
@@ -314,6 +313,30 @@ svg{
   text-align: center;
   width: 100vw;
   opacity: 1;
+}
+
+#buttons a {
+  text-decoration: none;
+  color: black;
+  padding: 1rem 2rem;
+  margin: 0 auto;
+  color: white;
+  border-radius: em;
+  width: 10em;
+  display: inline-block;
+  background-color: red;
+  border: 1px solid red;
+}
+
+#buttons button {
+  padding: 1rem 2rem;
+  border: 1px solid black;
+  font-size: 1rem;
+}
+
+#buttons button:hover {
+  color: white;
+  background-color: black;
 }
 
 .invisable{
