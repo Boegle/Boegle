@@ -1,8 +1,10 @@
 const result = {
   init: function() {
-    this.currentPage.page = 0
-    this.next()
-    this.back()
+    if(document.querySelector('.result-container')) {
+      this.currentPage.page = 0
+      this.next()
+      this.back()
+    }
   },
   next: function() {
     const nextButton = document.querySelector('.next-result')
