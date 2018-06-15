@@ -315,7 +315,7 @@ svg{
   opacity: 1;
 }
 
-#buttons a {
+#buttons button {
   text-decoration: none;
   color: black;
   padding: 1rem 2rem;
@@ -326,15 +326,15 @@ svg{
   display: inline-block;
   background-color: red;
   border: 1px solid red;
-}
-
-#buttons button {
-  padding: 1rem 2rem;
-  border: 1px solid black;
   font-size: 1rem;
 }
 
-#buttons button:hover {
+#buttons a {
+  padding: 1rem 2rem;
+  border: 1px solid black;
+}
+
+#buttons a:hover {
   color: white;
   background-color: black;
 }
