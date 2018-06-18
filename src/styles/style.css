@@ -551,7 +551,7 @@ svg{
   animation: flip-result 2s forwards ease-in-out;
 }
 
-@media(max-width: 55.4em){
+@media(max-width: 55.4em) {
   .result-container{
     padding: 0;
   }
