@@ -555,7 +555,7 @@ svg{
   .result-container{
     padding: 0;
   }
-  
+
   .result-page{
     width: 100%;
   }
@@ -612,9 +612,18 @@ svg{
 
 .result-navigation {
   display: flex;
-  width: 90vw;
+  flex-wrap: wrap;
+  width: 100%;
   position: fixed;
-  top: 70vh;
+  bottom: 2rem;
+  padding: 0 1rem;
+}
+
+@media (max-width: 21.875em) {
+  .result-navigation button{
+    width: 100%;
+    margin-bottom: 0.7rem;
+  }
 }
 
 .result-navigation button {
