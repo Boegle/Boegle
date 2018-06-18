@@ -1,6 +1,6 @@
 const result = {
   init: function() {
-    if (document.querySelector('.result-container')) {
+    if(document.querySelector('.result-container')) {
       this.currentPage.page = 0
       this.next()
       this.back()
@@ -11,7 +11,7 @@ const result = {
     const nextButton = document.querySelector('.next-result')
     const self = this
 
-    nextButton.addEventListener('click', function () {
+    nextButton.addEventListener('click', function() {
       const resultsContainer = document.querySelectorAll('.results')
       document.querySelector('.previous-result').classList.remove('inactive')
 
@@ -25,7 +25,7 @@ const result = {
       }
 
       //Check if the next result page exit. If exist make it active
-      if (resultsContainer[nextPage] != undefined) {
+      if(resultsContainer[nextPage] != undefined) {
         resultsContainer.forEach((i) => {
           i.classList.remove('active')
         })
@@ -38,7 +38,7 @@ const result = {
     const backButton = document.querySelector('.previous-result')
     const self = this
 
-    backButton.addEventListener('click', function () {
+    backButton.addEventListener('click', function() {
       const resultsContainer = document.querySelectorAll('.results')
 
       let currentPage = self.currentPage.page
@@ -48,13 +48,12 @@ const result = {
       document.querySelector('.next-result').classList.remove('inactive')
 
       //If the user is on the first page, make the previous button in-active
-      if (previousPage == 0) {
-        console.log(previousPage)
+      if(previousPage == 0) {
         document.querySelector('.previous-result').classList.add('inactive')
       }
 
       /*Check first if the resultpage exist. If it exist make it than active*/
-      if (resultsContainer[previousPage]) {
+      if(resultsContainer[previousPage]) {
         resultsContainer.forEach((i) => {
           i.classList.remove('active')
         })
