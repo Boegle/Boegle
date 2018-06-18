@@ -551,6 +551,20 @@ svg{
   animation: flip-result 2s forwards ease-in-out;
 }
 
+@media(max-width: 55.4em){
+  .result-container{
+    padding: 0;
+  }
+  
+  .result-page{
+    width: 100%;
+  }
+
+  .result-page.left, .result-page.right{
+    justify-content: center;
+  }
+}
+
 .result-page.left.active, .result-page.right.active {
   transform: none;
   opacity: 1;
@@ -598,7 +612,9 @@ svg{
 
 .result-navigation {
   display: flex;
-  width: 100%;
+  width: 90vw;
+  position: fixed;
+  top: 70vh;
 }
 
 .result-navigation button {
@@ -630,8 +646,8 @@ svg{
 
 .results.active {
   display: flex;
+  flex-wrap: wrap;
 }
-
 /*---------RESULT PAGE END----------------- */
 /* -----------------DETAIL----------------- */
 
