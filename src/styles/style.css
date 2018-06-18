@@ -862,3 +862,8 @@ svg{
   opacity: 0;
   pointer-events: none;
 }
+
+.noresult {
+  opacity: 1;
+  pointer-events: none;
+}
