@@ -23,7 +23,10 @@ const api = {
   },
   dataObj: {},
   getUrl: function (io, socket, data)  {
-    if(data.url === 'search') {
+
+    const baseUrl = 'https://zoeken.oba.nl/api/v1/'
+
+    if(data) {
       path = data.url
       search = 'refine=true&facet=Type(book)'
   
@@ -54,11 +57,13 @@ const api = {
           search += '&facet=Genre(' + genre + ')'
         })
       }
+    } else {
+      path = 'details'
+      let detailUrl = baseUrl + path + '/?authorization=' + publicKey + '&'
+      return detailUrl
     }
-  
-    const baseUrl = 'https://zoeken.oba.nl/api/v1/' + path
 
-    data.url = baseUrl + '/?authorization=' + publicKey + '&' + search
+    data.url = baseUrl + path + '/?authorization=' + publicKey + '&' + search
     api.dataObj = data
     api.getData(io, socket, data)
   }
