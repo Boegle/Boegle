@@ -16,6 +16,12 @@ const api = {
       .then((processedData) => processData.send(io, socket, processedData))
       .catch((error) => console.log(error))
   },
+  getResults: function(data) {
+    return fetch(data.url)
+      .then((response) => response.text())
+      .then((xml) => processData.init(xml))
+  },
+  dataObj: {},
   getUrl: function (io, socket, data)  {
     if(data.url === 'search') {
       path = data.url
@@ -53,7 +59,7 @@ const api = {
     const baseUrl = 'https://zoeken.oba.nl/api/v1/' + path
 
     data.url = baseUrl + '/?authorization=' + publicKey + '&' + search
-  
+    api.dataObj = data
     api.getData(io, socket, data)
   }
 }
