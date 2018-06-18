@@ -24,9 +24,9 @@ body > header img {
 }
 
 header {
-  position: fixed;
-  width: 100%;
-  z-index: 1;
+  position: relative;
+  position: sticky;
+  top: 0;
 }
 
 
