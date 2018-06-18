@@ -620,7 +620,7 @@ svg{
 }
 
 @media (max-width: 21.875em) {
-  .result-navigation button{
+  .result-navigation button {
     width: 100%;
     margin-bottom: 0.7rem;
   }
