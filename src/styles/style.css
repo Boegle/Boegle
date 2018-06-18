@@ -604,6 +604,7 @@ svg{
   background-color: red;
   border: none;
   font-size: 1rem;
+  transition: all 0.2s;
 }
 
 .result-navigation button:hover, .result-navigation button:focus{
@@ -612,9 +613,10 @@ svg{
   color: white;
 }
 
-.result-navigation .next-result {
+.next-result {
   margin-left: auto;
 }
+
 
 .results {
   display: none;
@@ -851,4 +853,9 @@ svg{
 
 .none {
   display: none!important;
+}
+
+.inactive{
+  opacity: 0;
+  pointer-events: none;
 }
