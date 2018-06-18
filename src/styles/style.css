@@ -556,11 +556,11 @@ svg{
     padding: 0;
   }
 
-  .result-page{
+  .result-page {
     width: 100%;
   }
 
-  .result-page.left, .result-page.right{
+  .result-page.left, .result-page.right {
     justify-content: center;
   }
 }
