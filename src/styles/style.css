@@ -23,6 +23,12 @@ body > header img {
   margin: 1em 0 0 1em;
 }
 
+header {
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+}
+
 
 /* -----------------HEADER END----------------- */
 /* -----------------BOOK COMPONTENT----------------- */
@@ -632,11 +638,9 @@ svg{
 #detailBook {
   display: flex;
   flex-wrap: wrap;
-  height: 92vh;
   flex-wrap: wrap;
   position: relative;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  position: fixed;
 }
 
 .detailCover {
@@ -647,19 +651,18 @@ svg{
   display: flex;
   justify-content: center;
   padding: 5rem 1rem 5rem 5rem;
-  max-height: 87vh;
 }
 
 .detailCover img {
-  max-width: 100%;
-  object-fit: contain;
+  width: 100%;
+  max-width: 33em;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  object-fit: contain;
 }
 
 .detailCover div {
   position: relative;
   width: auto;
-  display: flex;
 }
 
 .detailCover div:after {
@@ -682,8 +685,9 @@ svg{
 .detailInformation {
   width: 40%;
   height: auto;
-  padding: 4rem 7rem 4rem 1rem;
-  max-height: 87vh;
+  padding-top: 4rem;
+  padding-right: 3rem;
+  padding-bottom: 3rem;
 }
 
 .detailInformation h1 {
@@ -742,7 +746,6 @@ svg{
   display: flex;
   flex-wrap: wrap;
   background-color: #ececec;
-  bottom: -54em;
   height: auto;
   justify-content: space-around;
   padding-top: 1.2rem;
