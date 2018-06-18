@@ -8,12 +8,11 @@ router.get('/', (req, res) => {
 })
 
 router.get('/result', (req, res) => {
-  console.log(api.dataObj)
   api.getResults(api.dataObj)
     .then((data) => {    
       let resultNumber = Number(data.aquabrowser.meta[0].count[0])
       let pages = Math.ceil(resultNumber / 20)
-      console.log(resultNumber, pages)
+      console.log(resultNumber, pages, data)
       if(pages < 6) {
         return processData.resultPage(data)
       } else {
@@ -22,12 +21,24 @@ router.get('/result', (req, res) => {
     })
     .then((processedData) => {
       console.log(processedData)
-      res.render('result', processedData)
+      res.render('result', {
+        data: processedData
+      })
     })
 })
 
-router.get('/detail', (req, res) => {
-  res.render('detail')
+router.get('/book/:id', (req, res) => { 
+  let detailUrl = {}
+  detailUrl.url = api.getUrl() + 'id=|oba-catalogus|' + req.params.id
+  console.log(detailUrl)
+  api.getResults(detailUrl)
+    .then((data) => processData.detailPage(data))
+    .then((processedData) => {
+      console.log(processedData)
+      res.render('detail', {
+        data: processedData
+      })
+    })
 })
 
 module.exports = router
