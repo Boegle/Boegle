@@ -23,6 +23,12 @@ body > header img {
   margin: 1em 0 0 1em;
 }
 
+header {
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+}
+
 
 /* -----------------HEADER END----------------- */
 /* -----------------BOOK COMPONTENT----------------- */
@@ -500,11 +506,16 @@ svg{
   width: 100%;
   max-width: 14em;
   margin: 2rem;
-  transition: 1s all;
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   animation: result-show-opacity 0.2s forwards;
+  background-color: white;
   opacity: 0;
   animation-delay: 1s;
+}
+
+.result-item:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
 .result-item img {
@@ -513,6 +524,7 @@ svg{
   height: 14em;
   background-color: rgba(0, 0, 0, 0.15);
 }
+
 
 .result-item .result-title {
   font-weight: 700;
@@ -590,14 +602,27 @@ svg{
 }
 
 .result-navigation button {
-  padding: 1rem;
-  background-color: #03b555;
+  text-decoration: none;
+  color: black;
+  padding: 1rem 2rem;
+  color: white;
+  min-width: 10em;
+  background-color: red;
   border: none;
+  font-size: 1rem;
+  transition: all 0.2s;
 }
 
-.result-navigation .next-result {
+.result-navigation button:hover, .result-navigation button:focus {
+  cursor: pointer;
+  background-color: black;
+  color: white;
+}
+
+.next-result {
   margin-left: auto;
 }
+
 
 .results {
   display: none;
@@ -613,11 +638,9 @@ svg{
 #detailBook {
   display: flex;
   flex-wrap: wrap;
-  height: 92vh;
   flex-wrap: wrap;
   position: relative;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  position: fixed;
 }
 
 .detailCover {
@@ -628,19 +651,18 @@ svg{
   display: flex;
   justify-content: center;
   padding: 5rem 1rem 5rem 5rem;
-  max-height: 87vh;
 }
 
 .detailCover img {
-  max-width: 100%;
-  object-fit: contain;
+  width: 100%;
+  max-width: 33em;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  object-fit: contain;
 }
 
 .detailCover div {
   position: relative;
   width: auto;
-  display: flex;
 }
 
 .detailCover div:after {
@@ -663,8 +685,9 @@ svg{
 .detailInformation {
   width: 40%;
   height: auto;
-  padding: 4rem 7rem 4rem 1rem;
-  max-height: 87vh;
+  padding-top: 4rem;
+  padding-right: 3rem;
+  padding-bottom: 3rem;
 }
 
 .detailInformation h1 {
@@ -723,7 +746,6 @@ svg{
   display: flex;
   flex-wrap: wrap;
   background-color: #ececec;
-  bottom: -54em;
   height: auto;
   justify-content: space-around;
   padding-top: 1.2rem;
@@ -834,4 +856,9 @@ svg{
 
 .none {
   display: none!important;
+}
+
+.inactive {
+  opacity: 0;
+  pointer-events: none;
 }
