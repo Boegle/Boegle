@@ -20,7 +20,7 @@ const result = {
 
       //If the user is on the last page on the result page, add inactive state
       //to the next result button
-      if(nextPage == resultsContainer.length-1){
+      if (nextPage == resultsContainer.length - 1) {
         document.querySelector('.next-result').classList.add('inactive')
       }
 
@@ -48,7 +48,7 @@ const result = {
       document.querySelector('.next-result').classList.remove('inactive')
 
       //If the user is on the first page, make the previous button in-active
-      if(previousPage == 0){
+      if (previousPage == 0) {
         console.log(previousPage)
         document.querySelector('.previous-result').classList.add('inactive')
       }
@@ -60,12 +60,9 @@ const result = {
         })
         resultsContainer[previousPage].classList.add('active')
         self.currentPage.page = previousPage
-      } 
-      else {
+      } else {
         document.querySelector('.previous-result').classList.add('inactive')
       }
-
-
     })
   },
   currentPage: {}
