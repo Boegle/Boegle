@@ -607,7 +607,7 @@ svg{
   transition: all 0.2s;
 }
 
-.result-navigation button:hover, .result-navigation button:focus{
+.result-navigation button:hover, .result-navigation button:focus {
   cursor: pointer;
   background-color: black;
   color: white;

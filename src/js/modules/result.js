@@ -1,5 +1,5 @@
 const result = {
-  init: function () {
+  init: function() {
     if (document.querySelector('.result-container')) {
       this.currentPage.page = 0
       this.next()
@@ -7,7 +7,7 @@ const result = {
       document.querySelector('.previous-result').classList.add('inactive')
     }
   },
-  next: function () {
+  next: function() {
     const nextButton = document.querySelector('.next-result')
     const self = this
 
@@ -34,7 +34,7 @@ const result = {
       }
     })
   },
-  back: function () {
+  back: function() {
     const backButton = document.querySelector('.previous-result')
     const self = this
 
