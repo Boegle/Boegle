@@ -468,11 +468,11 @@ svg{
 
 .result-container {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   width: 100%;
   position: relative;
   perspective: 70em;
-  padding: 7rem;
   padding-top: 1rem;
   transform-origin: bottom;
   transform: perspective(10em) rotateX(10deg);
@@ -542,6 +542,7 @@ svg{
   display: flex;
   flex-wrap: wrap;
   width: 50%;
+  max-width: 40em;
 }
 
 .result-page.right {
@@ -656,11 +657,12 @@ svg{
 
 .results {
   display: none;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .results.active {
   display: flex;
-  flex-wrap: wrap;
 }
 /*---------RESULT PAGE END----------------- */
 /* -----------------DETAIL----------------- */
