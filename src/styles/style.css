@@ -556,6 +556,20 @@ svg{
   animation: flip-result 2s forwards ease-in-out;
 }
 
+@media(max-width: 55.4em) {
+  .result-container {
+    padding: 0;
+  }
+
+  .result-page {
+    width: 100%;
+  }
+
+  .result-page.left, .result-page.right {
+    justify-content: center;
+  }
+}
+
 .result-page.left.active, .result-page.right.active {
   transform: none;
   opacity: 1;
@@ -603,7 +617,18 @@ svg{
 
 .result-navigation {
   display: flex;
+  flex-wrap: wrap;
   width: 100%;
+  position: fixed;
+  bottom: 2rem;
+  padding: 0 1rem;
+}
+
+@media (max-width: 21.875em) {
+  .result-navigation button {
+    width: 100%;
+    margin-bottom: 0.7rem;
+  }
 }
 
 .result-navigation button {
@@ -635,8 +660,8 @@ svg{
 
 .results.active {
   display: flex;
+  flex-wrap: wrap;
 }
-
 /*---------RESULT PAGE END----------------- */
 /* -----------------DETAIL----------------- */
 
@@ -914,5 +939,10 @@ svg{
 
 .inactive {
   opacity: 0;
+  pointer-events: none;
+}
+
+.noresult {
+  opacity: 1;
   pointer-events: none;
 }

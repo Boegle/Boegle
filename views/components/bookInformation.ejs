@@ -1,17 +1,14 @@
 <main id="detailBook">
   <section class="detailCover">
     <div>
-      <img src="https://s.s-bol.com/imgbase0/imagebase3/large/FC/3/8/8/1/666811883.jpg" alt="Cover of the book" />
+      <img src="https://nbc.acc1.bibliotheek.nl/thumbnail?uri=http%3A%2F%2Fdata.bibliotheek.nl%2Fggc%2Fppn%2F<%= data.ppn %>&width=1024&token=fe58476d" alt="Cover of the book" />
     </div>
   </section>
   <article class="detailInformation">
-    <h1>Harry Potter en de steen der wijzen</h1>
-    <p>J.K. Rowling | Jan Meng</p>
+    <h1><%= data.title %></h1>
+    <p><%= data.author %></p>
     <p>pagina's | Rubinstein Publishing | 2000</p>
-    <p>
-      Na de dood van zijn ouders woont Harry Potter in de bezemkast bij zijn zeer onvriendelijke tante en oom;
-      op zijn elfde hoort hij dat hij een tovenaar is
-    </p>
+    <p><%= data.summary %></p>
     <p>
       Beschikbaar
     </p>
