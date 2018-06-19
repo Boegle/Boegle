@@ -1,5 +1,6 @@
 const mainBook = {
   init: function() {
+    this.whatButtonsToShow()
     console.log('appelsap')
 
     document.querySelector('input[type=color]').addEventListener('change', function(){
@@ -40,21 +41,24 @@ const mainBook = {
         mainBook.flipCount --
       }
     } else {
-      console.log(this.id)
       let flipTo = this.id
       flipTo = flipTo.split('state')
       mainBook.flipCount = flipTo[1]
-
     }
     console.log('van' + mainBook.currentState)
     console.log('naar' + mainBook.flipCount)
     mainBook.actualFlipPage()
+    mainBook.sideMenuUpdate()
+    mainBook.whatButtonsToShow()
   },
   actualFlipPage: function() {
     if (this.currentState == 3) {
       document.body.style.setProperty('--animationTime', '2s')
     } else {
       document.body.style.setProperty('--animationTimeTilt', '1s')
+      this.selectors.page.forEach((page) => {
+        page.classList.remove('none')
+      })
     }
     if (this.currentState == 0 && this.flipCount == 1) {
       this.selectors.page[0].classList.add('animation')
@@ -168,14 +172,20 @@ const mainBook = {
       this.selectors.page[0].classList.add('animation')
     }
   },
-  sideMenu: function() {
-    for(var i=0; i<document.querySelectorAll('li').length; i++){
-      document.querySelectorAll('li')[i].addEventListener('click', function(){
-        for(i=0; i<document.querySelectorAll('li').length; i++){
-          document.querySelectorAll('li')[i].classList.remove('checked')
-          this.classList.add('checked')
-        }
-      })
+  sideMenuUpdate: function() {
+    this.selectors.listItem.forEach((li) => {
+      li.classList.remove('checked')
+    })
+    this.selectors.listItem[this.flipCount].classList.add('checked')
+  },
+  whatButtonsToShow: function(){
+    if (this.currentState == 0) {
+      document.querySelector('#back').classList.add('none')
+    } else if (this.currentState == 3) {
+      document.querySelector('#next').classList.add('none')
+    } else {
+      document.querySelector('#next').classList.remove('none')
+      document.querySelector('#back').classList.remove('none')
     }
   }
 }
