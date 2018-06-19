@@ -13,23 +13,25 @@ const processData = {
     return data
   },
   resultPage: function(data) {    
+    console.log(data)
     let dataObj = data.aquabrowser.results[0].result.map((result) => {
-
-      let s = result.titles[0]['short-title'][0]._
-      let n = s.indexOf(':')
-      s = s.substring(0, n != -1 ? n : s.length)
-
-      console.log(s)
-
+      let ppn = ''
       let title = result.titles[0]['short-title'][0]._
       let titleIndex = title.indexOf(':')
       title = title.substring(0, titleIndex != -1 ? titleIndex : title.length)
-
+      console.log(result.identifiers)
+      if(result.identifiers[0]['ppn-id']) {
+        ppn = result.identifiers[0]['ppn-id'][0]._
+      }
+      
       return {
         title: title,
         author: result.authors[0]['main-author'][0]._,
-        ppn: result.identifiers[0]['ppn-id'][0]._,
-        obaId: result.id[0].$.nativeid,
+        publisher: 'lemniscaat',
+        year: '2016',
+        pages: '252',
+        ppn: ppn,
+        obaId: result.id[0].$.nativeid
       }
     })
     return dataObj
