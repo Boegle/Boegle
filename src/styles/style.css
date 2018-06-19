@@ -544,6 +544,11 @@ svg{
   width: 50%;
   max-width: 40em;
 }
+@media(min-width: 81.25em){
+  .result-page{
+    width: 40em;
+  }
+}
 
 .result-page.right {
   transition: all 1s;
