@@ -3,7 +3,7 @@ const mainBook = {
     this.whatButtonsToShow()
     console.log('appelsap')
 
-    document.querySelector('input[type=color]').addEventListener('change', function(){
+    document.querySelector('input[type=color]').addEventListener('change', () => {
       console.log(this.value)
       document.body.style.setProperty('--bookColor', this.value)
     })
@@ -178,7 +178,7 @@ const mainBook = {
     })
     this.selectors.listItem[this.flipCount].classList.add('checked')
   },
-  whatButtonsToShow: function(){
+  whatButtonsToShow: function() {
     if (this.currentState == 0) {
       document.querySelector('#back').classList.add('none')
     } else if (this.currentState == 3) {
