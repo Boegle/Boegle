@@ -534,6 +534,7 @@ svg{
   font-size: 1.2em;
   padding: 1.2rem;
   background-color: white;
+  min-height: 5em;
 }
 
 .result-page {
