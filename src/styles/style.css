@@ -472,7 +472,7 @@ svg{
   flex-wrap: wrap;
   width: 100%;
   position: relative;
-  perspective: 70em;
+  perspective: 140em;
   padding-top: 1rem;
   transform-origin: bottom;
   transform: perspective(10em) rotateX(10deg);
@@ -510,14 +510,17 @@ svg{
   width: 100%;
   max-width: 14em;
   margin: 2rem;
-  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-  animation: result-show-opacity 0.2s forwards;
-  background-color: white;
-  opacity: 0;
+  /* animation: result-show-opacity 0.4s forwards; */
 }
 
-.result-item:hover {
+.result-item a {
+  display: flex;
+  flex-wrap: wrap;
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.result-item a:hover, .result-item a:focus{
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
@@ -525,7 +528,7 @@ svg{
   display: flex;
   width: 100%;
   height: 14em;
-  background-color: rgba(0, 0, 0, 0.15);
+  background-color:rgb(167, 167, 167);
 }
 
 
@@ -535,6 +538,7 @@ svg{
   padding: 1.2rem;
   background-color: white;
   min-height: 5em;
+  width: 100%;
 }
 
 .result-page {
