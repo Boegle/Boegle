@@ -477,13 +477,12 @@ svg{
   transform-origin: bottom;
   transform: perspective(10em) rotateX(10deg);
   transition: all 1s;
-  animation: flip-result 1s ease-in-out forwards;
-  animation-delay: 2s;
+  animation: flip-result 0.7s ease-in-out forwards;
 }
 
 @keyframes flip-result {
   100%{
-    transform: perspective(140em) rotateX(0);
+    transform: perspective(700em) rotateX(0);
     opacity: 1;
   }
 }
@@ -516,7 +515,6 @@ svg{
   animation: result-show-opacity 0.2s forwards;
   background-color: white;
   opacity: 0;
-  animation-delay: 1s;
 }
 
 .result-item:hover {
@@ -559,7 +557,8 @@ svg{
   transition: all 1s;
   transform-origin: right;
   transform: rotateY(-180deg);
-  animation: flip-result 2s forwards ease-in-out;
+  animation: flip-result 0.7s forwards ease-in-out;
+  z-index: 2;
 }
 
 @media(max-width: 55.4em) {
@@ -586,7 +585,7 @@ svg{
   position: absolute;
   content: '';
   /* background-color: rgb(87, 64, 64); */
-  height: 140vh;
+  height: 100vh;
   width: 100%;
   z-index: -1;
   transform: perspective(20em) rotateX(20deg);
@@ -594,7 +593,7 @@ svg{
   bottom: 0;
   left: 0;
   /* box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22); */
-  perspective: 60em;
+  perspective: 40vw;
 }
 
 .result-book-background .book-page {
@@ -613,7 +612,7 @@ svg{
   transform-origin: right;
   z-index: 1;
   position: relative;
-  animation: flip-result 2s forwards ease-in-out;
+  animation: flip-result 0.7s forwards ease-in-out;
 }
 
 .book-left.active {
