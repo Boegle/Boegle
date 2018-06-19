@@ -3,6 +3,10 @@
 :root{
   --cover-translateY: 0;
   --bookBottom-scale: 0;
+  --bookColor: red;
+  --animationTime: 2s;
+  --animationTimeTilt: 1s;
+
 }
 
 *{
@@ -77,11 +81,11 @@ body > header img {
 }
 
 .animation {
-  animation: pageFlip 2s alternate forwards;
+  animation: pageFlip var(--animationTime) alternate forwards;
 }
 
 .animationReverse {
-  animation: pageFlipReverse 2s;
+  animation: pageFlipReverse var(--animationTime);
 }
 
 .cover {
@@ -89,7 +93,7 @@ body > header img {
   background-image: none;
   z-index: 2;
   top: -.3em;
-  background-color: red;
+  background-color: var(--bookColor);
   height: 28em;
   width: 20em;
   border-radius: 1em 2em 2em 1em;
@@ -99,7 +103,8 @@ body > header img {
 .cover header input {
   margin: 2rem 1rem 0 1rem;
   border: none;
-  background-color: red;
+  background-color: var(--bookColor);
+  transition: all 0.5s ease-in-out;
   font-size: 3em;
   width: 18rem;
   text-align: center;
@@ -143,7 +148,8 @@ body > header img {
 .cover footer input {
   margin: 0 1rem 1rem 1rem;
   border: none;
-  background-color: red;
+  background-color: var(--bookColor);
+  transition: all 0.5s ease-in-out;
   font-size: 1em;
   width: 18rem;
   text-align: center;
@@ -151,8 +157,8 @@ body > header img {
 
 .bookBottomTwo {
   background-color: #f3f0f0;
-  border-left: 1em solid red;
-  border-bottom: 0.5em solid red;
+  border-left: 1em solid var(--bookColor);
+  border-bottom: 0.5em solid var(--bookColor);
   border-radius: 0.3em 0 0.3em 0.3em;
   height: 10em;
   margin: 0!important;
@@ -259,7 +265,6 @@ li div + p {
   font-size: 1.2em;
   font-weight: bold;
   margin-top: 1em;
-  font-family: avenir;
   color: white;
 }
 
