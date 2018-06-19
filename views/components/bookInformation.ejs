@@ -8,12 +8,22 @@
     <h1><%= data.title %></h1>
     <h2><%= data.undertitle %></h2>
     <p><%= data.author %></p>
-    <p>pagina's | Rubinstein Publishing | 2000</p>
+    <p><%= data.pages %> pagina's | <%= data.publisher %> | <%= data.year %></p>
     <p><%= data.summary %></p>
-    <p>
-      Beschikbaar
-    </p>
-    <button>Zie locaties</button>
+
+    <% let available = function(element) {
+      return element.availability === 'true'
+    }
+    if(availability.some(available)) { %>
+
+      <p>Beschikbaar in een OBA vestiging</p>
+      <button>Zie locaties</button>
+
+    <% } else { %>
+      <p class="unavailable">Niet Beschikbaar bij de OBA</p>
+      <button disabled>Zie locaties</button>
+   <% } %>
+
   </article>
   <a class="scrollIndicator" href="#detailRecommendation"><span></span>Scroll</a>
 </main>

@@ -1,27 +1,26 @@
 <aside id="detailRecommendation">
   <h2>Alternatieve boeken</h2>
-  <section>
-    <a href="">
-      <img src="http://cdn3.vox-cdn.com/assets/4242181/lord_of_the_rings_book_cover_by_mrstingyjr-d5vwgct.jpg" alt="" />
-      <p>The lord of the rings</p>
-    </a>
-  </section>
-  <section>
-    <a href="">
-      <img src="http://cdn3.vox-cdn.com/assets/4242181/lord_of_the_rings_book_cover_by_mrstingyjr-d5vwgct.jpg" alt="" />
-      <p>The lord of the rings</p>
-    </a>
-  </section>
-  <section>
-    <a href="">
-      <img src="http://cdn3.vox-cdn.com/assets/4242181/lord_of_the_rings_book_cover_by_mrstingyjr-d5vwgct.jpg" alt="" />
-      <p>The lord of the rings</p>
-    </a>
-  </section>
-  <section>
-    <a href="">
-      <img src="http://cdn3.vox-cdn.com/assets/4242181/lord_of_the_rings_book_cover_by_mrstingyjr-d5vwgct.jpg" alt="" />
-      <p>The lord of the rings</p>
-    </a>
-  </section>
+
+  <%
+  
+  let numberArray = []
+
+  for(i = 0; i < 4; i++) {
+    let randomNumber = Math.floor(Math.random() * 20)
+    let randomNumberTwo = Math.floor(Math.random() * 20)
+    if(!numberArray.some((number) => randomNumber === number)) {
+      numberArray.push(randomNumber)
+    }
+  }
+
+  console.log(numberArray)
+
+  numberArray.forEach((number) => { %>
+    <section>
+      <a href="<%= alternativeData[number].obaId %>">
+        <img src="https://nbc.acc1.bibliotheek.nl/thumbnail?uri=http%3A%2F%2Fdata.bibliotheek.nl%2Fggc%2Fppn%2F<%= alternativeData[number].ppn %>&width=1024&token=fe58476d" alt="" />
+        <p><%= alternativeData[number].title %></p>
+      </a>
+    </section>
+   <% }) %>
 </aside>
