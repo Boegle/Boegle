@@ -473,22 +473,21 @@ svg{
 
 .result-container {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   width: 100%;
   position: relative;
-  perspective: 70em;
-  padding: 7rem;
+  perspective: 140em;
   padding-top: 1rem;
   transform-origin: bottom;
   transform: perspective(10em) rotateX(10deg);
   transition: all 1s;
-  animation: flip-result 1s ease-in-out forwards;
-  animation-delay: 2s;
+  animation: flip-result 0.7s ease-in-out forwards;
 }
 
 @keyframes flip-result {
   100%{
-    transform: perspective(140em) rotateX(0);
+    transform: perspective(700em) rotateX(0);
     opacity: 1;
   }
 }
@@ -516,15 +515,17 @@ svg{
   width: 100%;
   max-width: 14em;
   margin: 2rem;
-  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-  animation: result-show-opacity 0.2s forwards;
-  background-color: white;
-  opacity: 0;
-  animation-delay: 1s;
+  /* animation: result-show-opacity 0.4s forwards; */
 }
 
-.result-item:hover {
+.result-item a {
+  display: flex;
+  flex-wrap: wrap;
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.result-item a:hover, .result-item a:focus{
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
@@ -532,7 +533,7 @@ svg{
   display: flex;
   width: 100%;
   height: 14em;
-  background-color: rgba(0, 0, 0, 0.15);
+  background-color:rgb(167, 167, 167);
 }
 
 
@@ -541,12 +542,20 @@ svg{
   font-size: 1.2em;
   padding: 1.2rem;
   background-color: white;
+  min-height: 5em;
+  width: 100%;
 }
 
 .result-page {
   display: flex;
   flex-wrap: wrap;
   width: 50%;
+  max-width: 40em;
+}
+@media(min-width: 81.25em){
+  .result-page{
+    width: 40em;
+  }
 }
 
 .result-page.right {
@@ -558,7 +567,8 @@ svg{
   transition: all 1s;
   transform-origin: right;
   transform: rotateY(-180deg);
-  animation: flip-result 2s forwards ease-in-out;
+  animation: flip-result 0.7s forwards ease-in-out;
+  z-index: 2;
 }
 
 @media(max-width: 55.4em) {
@@ -585,7 +595,7 @@ svg{
   position: absolute;
   content: '';
   /* background-color: rgb(87, 64, 64); */
-  height: 140vh;
+  height: 100vh;
   width: 100%;
   z-index: -1;
   transform: perspective(20em) rotateX(20deg);
@@ -593,7 +603,7 @@ svg{
   bottom: 0;
   left: 0;
   /* box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22); */
-  perspective: 60em;
+  perspective: 40vw;
 }
 
 .result-book-background .book-page {
@@ -612,7 +622,7 @@ svg{
   transform-origin: right;
   z-index: 1;
   position: relative;
-  animation: flip-result 2s forwards ease-in-out;
+  animation: flip-result 0.7s forwards ease-in-out;
 }
 
 .book-left.active {
@@ -661,11 +671,12 @@ svg{
 
 .results {
   display: none;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .results.active {
   display: flex;
-  flex-wrap: wrap;
 }
 /*---------RESULT PAGE END----------------- */
 /* -----------------DETAIL----------------- */
