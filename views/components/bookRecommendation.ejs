@@ -4,10 +4,11 @@
   <%
   
   let numberArray = []
+  let loop = alternativeData.length
 
   for(i = 0; i < 4; i++) {
-    let randomNumber = Math.floor(Math.random() * 20)
-    let randomNumberTwo = Math.floor(Math.random() * 20)
+    let randomNumber = Math.floor(Math.random() * loop)
+    let randomNumberTwo = Math.floor(Math.random() * loop)
     if(!numberArray.some((number) => randomNumber === number)) {
       numberArray.push(randomNumber)
     }
