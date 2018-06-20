@@ -16,8 +16,8 @@ const api = {
       .then((processedData) => processData.send(io, socket, processedData))
       .catch((error) => console.log(error))
   },
-  getResults: function(data) {
-    return fetch(data.url)
+  getResults: function(url) {
+    return fetch(url)
       .then((response) => response.text())
       .then((xml) => processData.init(xml))
   },
@@ -57,13 +57,22 @@ const api = {
           search += '&facet=Genre(' + genre + ')'
         })
       }
-    } else {
-      path = 'details'
-      let detailUrl = baseUrl + path + '/?authorization=' + publicKey + '&'
+    } else if(io === 'details') {
+      path = io
+      let detailUrl = baseUrl + path + '/?authorization=' + publicKey + '&id=' + socket
       return detailUrl
+    } else if(io === 'search') {
+      path = io
+      let searchUrl = baseUrl + path + '/?authorization=' + publicKey + '&facet=Type(book)&q=' + socket
+      console.log(searchUrl)
+      return searchUrl
+    } else if(io === 'availability') {
+      path = io
+      let searchUrl = baseUrl + path + '/?authorization=' + publicKey + '&id=' + socket
+      return searchUrl
     }
 
-    data.url = baseUrl + path + '/?authorization=' + publicKey + '&' + search
+    data.url = baseUrl + path + '/?authorization=' + publicKey + '&' + search 
     api.dataObj = data
     api.getData(io, socket, data)
   }
