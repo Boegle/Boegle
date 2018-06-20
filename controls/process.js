@@ -9,14 +9,11 @@ const processData = {
     return parsedData    
   },
   result: function(data, parsedData) {
-    console.log(parsedData)
     data.resultNumber = Number(parsedData.aquabrowser.meta[0].count[0])
     return data
   },
   resultPage: function(data) {    
-    console.log(data)
     let dataObj = data.aquabrowser.results[0].result.map((result) => {
-      console.log(result)
       let ppn = ''
       let title = ''
       if(result.titles[0]['short-title']) {
@@ -43,7 +40,6 @@ const processData = {
     return dataObj
   },
   detailPage: function(data) {
-    console.log(data.aquabrowser)
     let summary = ''
     let ppn = ''
     let publisher = []
