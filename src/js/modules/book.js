@@ -3,9 +3,9 @@ const mainBook = {
     this.whatButtonsToShow()
     console.log('appelsap')
 
-    document.querySelector('input[type=color]').addEventListener('change', () => {
-      console.log(this.value)
-      document.body.style.setProperty('--bookColor', this.value)
+    document.querySelector('#coverColor').addEventListener('change', () => {
+      let that = document.querySelector('#coverColor').value
+      document.body.style.setProperty('--bookColor', that)
     })
 
     this.selectors.listItem.forEach((state) => {
