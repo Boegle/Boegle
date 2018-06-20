@@ -1,31 +1,31 @@
 const mainBook = {
   init: function() {
-    this.whatButtonsToShow()
-    console.log('appelsap')
-
-    document.querySelector('#coverColor').addEventListener('change', () => {
-      let that = document.querySelector('#coverColor').value
-      document.body.style.setProperty('--bookColor', that)
-    })
-
-    this.selectors.listItem.forEach((state) => {
-      state.addEventListener('click', this.flipPage)
-    })
-
-    document.querySelectorAll('#buttons button').forEach((button) => {
-      button.addEventListener('click', this.flipPage)
-    })
-    document.querySelector('#pageSlider').addEventListener('change', () => {
-      let value = document.querySelector('#pageSlider').value
-      document.querySelectorAll('.cover')[0].style.setProperty('--cover-translateY', '-' + parseInt(value / 100) + 'em')
-      document.querySelectorAll('.bookBottomTwo')[0].style.setProperty('--bookBottom-scale', 1 + parseInt(value / 100))
-      console.log(value)
-      this.selectors.page.forEach((page) => {
-        page.classList.add('none')
+    if(document.querySelector('form')) {
+      this.whatButtonsToShow()
+      document.querySelector('#coverColor').addEventListener('change', () => {
+        let that = document.querySelector('#coverColor').value
+        document.body.style.setProperty('--bookColor', that)
       })
-      this.selectors.page[0].classList.remove('none')
-      document.querySelector('#pageSlideIndicator').innerHTML = value
-    })
+
+      this.selectors.listItem.forEach((state) => {
+        state.addEventListener('click', this.flipPage)
+      })
+
+      document.querySelectorAll('#buttons button').forEach((button) => {
+        button.addEventListener('click', this.flipPage)
+      })
+      document.querySelector('#pageSlider').addEventListener('change', () => {
+        let value = document.querySelector('#pageSlider').value
+        document.querySelectorAll('.cover')[0].style.setProperty('--cover-translateY', '-' + parseInt(value / 100) + 'em')
+        document.querySelectorAll('.bookBottomTwo')[0].style.setProperty('--bookBottom-scale', 1 + parseInt(value / 100))
+        console.log(value)
+        this.selectors.page.forEach((page) => {
+          page.classList.add('none')
+        })
+        this.selectors.page[0].classList.remove('none')
+        document.querySelector('#pageSlideIndicator').innerHTML = value
+      })
+    }
   },
   selectors : {
     page: document.querySelectorAll('.page'),

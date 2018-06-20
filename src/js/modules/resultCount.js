@@ -21,7 +21,6 @@ const result = {
     } else {
       resultButton.classList.add('inactive')
     }
-    console.log(data)
   }
 }
 

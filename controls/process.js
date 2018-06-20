@@ -96,8 +96,6 @@ const processData = {
       topic = titleTopic
     }
 
-    console.log(topic)
-
     if(data.aquabrowser.publication[0].publishers[0]['publisher']) {
       data.aquabrowser.publication[0].publishers[0]['publisher'].forEach(onePublisher => {
         if(onePublisher._) {
@@ -123,10 +121,8 @@ const processData = {
     }
   },
   availability: function(data) {
-    console.log(data)
     if(data.aquabrowser.locations) {
       let dataObj = data.aquabrowser.locations[0].location.map((location) => {
-        console.log(location)
         return {
           location: location.$.name,
           availability: location.$.available

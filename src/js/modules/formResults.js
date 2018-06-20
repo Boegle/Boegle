@@ -2,7 +2,6 @@ import{socket} from './socket.js'
 
 const bookForm = {
   init: function() {
-    console.log('bookForm init complete')
     if(document.querySelector('form')) {
       bookForm.select.inputs.forEach(input => input.addEventListener('change', bookForm.search))
       bookForm.select.selects.forEach(select => select.addEventListener('change', bookForm.search))
@@ -49,9 +48,6 @@ const bookForm = {
       summary: bookForm.select.summary.value,
       coverColor: bookForm.select.coverColor.value
     }
-
-    console.log(givenSearchValues)
-
     socket.io.emit('searchValues', givenSearchValues)
   }
 }

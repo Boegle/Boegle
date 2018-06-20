@@ -15,12 +15,10 @@ router.get('/result', (req, res) => {
       if(pages < 6) {
         return processData.resultPage(data)
       } else {
-        console.log('Get results...')
         return processData.resultPage(data)
       }
     })
     .then((processedData) => {
-      console.log(processedData)
       res.render('result', {
         data: processedData
       })
