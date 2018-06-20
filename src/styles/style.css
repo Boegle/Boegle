@@ -1,6 +1,6 @@
 /* -----------------GLOBAL----------------- */
 
-:root{
+:root {
   --cover-translateY: 0;
   --bookBottom-scale: 0;
   --bookColor: red;
@@ -9,7 +9,7 @@
 
 }
 
-*{
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -59,7 +59,7 @@ header {
   transform: perspective(200px) rotateX(20deg) scale(2);
 }
 
-#book.inDepth .bookBottom{
+#book.inDepth .bookBottom {
   opacity: 0;
 }
 
@@ -75,14 +75,14 @@ header {
   transform-origin: left;
 }
 
-.page div{
+.page div {
   width: 80%;
   margin: 1em 10% 0;
   display: flex;
   flex-direction: column;
 }
 
-.page:last-of-type div{
+.page:last-of-type div {
   width: 80%;
   margin: 2em 10% 0;
 }
@@ -130,7 +130,7 @@ header {
   opacity: 1;
 }
 
-.cover input:-ms-input-placeholder{
+.cover input:-ms-input-placeholder {
   color: #f3f0f0;
 }
 
@@ -151,7 +151,7 @@ header {
   margin-top: -1em;
 }
 
-.cover footer{
+.cover footer {
   position: absolute;
   bottom: 1em;
 }
@@ -225,21 +225,21 @@ nav{
   margin: auto 0;
 }
 
-ul{
+ul {
   margin: 0;
   display: flex;
   flex-direction: column;
 }
 
-li:first-of-type{
+li:first-of-type {
   margin-top: 0.5em;
 }
 
-li:last-of-type{
+li:last-of-type {
   margin-bottom: 0.5em;
 }
 
-li{
+li {
   cursor: pointer;
   border: solid 1px rgba(0,0,45,.1);
   list-style: none;
@@ -253,20 +253,20 @@ li{
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 
-li div{
+li div {
   width: 5em;
 }
 
-li:hover, li:focus-within{
+li:hover, li:focus-within {
  transform: translateX(0);
  background-color: gray;
 }
 
-li:hover, li:focus-within, .checked{
+li:hover, li:focus-within, .checked {
  transform: translateX(0);
 }
 
-li:hover a, li:focus-within a{
+li:hover a, li:focus-within a {
  color: white;
 }
 
@@ -279,10 +279,12 @@ li div + p {
   color: white;
 }
 
-a{text-decoration: none;
-color: black;   }
+a {
+  text-decoration: none;
+  color: black;
+}
 
-svg{
+svg {
   width: 60%;
   margin: 20%;
 }
@@ -290,7 +292,7 @@ svg{
 /* -----------------SIDE MENU END----------------- */
 /* -----------------RANGE SLIDER----------------- */
 
-#range{
+#range {
   top: 0;
   position: absolute;
   width: 10em;
@@ -355,7 +357,7 @@ svg{
   background-color: black;
 }
 
-.invisable{
+.invisable {
   opacity: 0;
 }
 
@@ -554,8 +556,9 @@ svg{
   width: 50%;
   max-width: 40em;
 }
-@media(min-width: 81.25em){
-  .result-page{
+
+@media(min-width: 81.25em) {
+  .result-page {
     width: 40em;
   }
 }
@@ -596,7 +599,6 @@ svg{
   display: flex;
   position: absolute;
   content: '';
-  /* background-color: rgb(87, 64, 64); */
   height: 100vh;
   width: 100%;
   z-index: -1;
@@ -604,7 +606,6 @@ svg{
   transform-origin: bottom;
   bottom: 0;
   left: 0;
-  /* box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22); */
   perspective: 40vw;
 }
 
@@ -904,13 +905,13 @@ svg{
     }
 
     .detailCover {
-      padding: 5rem 1rem 1rem 1rem;
+      padding: 0 1rem 1rem 1rem;
       width: 100%;
     }
 
     .detailInformation {
       width: 100%;
-      padding: 4rem 4rem 3rem 3rem;
+      padding: 1rem 4rem 3rem 3rem;
     }
 
     .detailInformation h1 {
@@ -955,11 +956,7 @@ svg{
       font-size: 1.3em;
   }
 
-  .scrollIndicator {
-    display: none;
-  }
-
-  .scrollIndicator span {
+  #scrollContainer {
     display: none;
   }
 }
