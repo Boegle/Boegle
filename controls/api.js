@@ -59,20 +59,20 @@ const api = {
       }
     } else if(io === 'details') {
       path = io
-      let detailUrl = baseUrl + path + '/?authorization=' + publicKey + '&id=|oba-catalogus|' + socket
+      let detailUrl = baseUrl + path + '/?authorization=' + publicKey + '&id=' + socket
       return detailUrl
     } else if(io === 'search') {
       path = io
-      let searchUrl = baseUrl + path + '/?authorization=' + publicKey + '&q=' + socket
+      let searchUrl = baseUrl + path + '/?authorization=' + publicKey + '&facet=Type(book)&q=' + socket
       console.log(searchUrl)
       return searchUrl
     } else if(io === 'availability') {
       path = io
-      let searchUrl = baseUrl + path + '/?authorization=' + publicKey + '&id=|oba-catalogus|' + socket
+      let searchUrl = baseUrl + path + '/?authorization=' + publicKey + '&id=' + socket
       return searchUrl
     }
 
-    data.url = baseUrl + path + '/?authorization=' + publicKey + '&' + search
+    data.url = baseUrl + path + '/?authorization=' + publicKey + '&' + search 
     api.dataObj = data
     api.getData(io, socket, data)
   }
