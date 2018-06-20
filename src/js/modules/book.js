@@ -49,7 +49,6 @@ const mainBook = {
     console.log('naar' + mainBook.flipCount)
     mainBook.actualFlipPage()
     mainBook.sideMenuUpdate()
-    mainBook.whatButtonsToShow()
   },
   actualFlipPage: function() {
     if (this.currentState == 3) {
@@ -161,6 +160,7 @@ const mainBook = {
         page.classList.remove('animationReverse')
       })
     } else if (this.currentState == 3 && this.flipCount == 1) {
+      this.currentState = 1
       this.selectors.page.forEach((page) => {
         page.classList.remove('animationReverse')
       })
@@ -171,6 +171,7 @@ const mainBook = {
       this.selectors.page[1].classList.add('animation')
       this.selectors.page[0].classList.add('animation')
     }
+    this.whatButtonsToShow()
   },
   sideMenuUpdate: function() {
     this.selectors.listItem.forEach((li) => {
@@ -179,9 +180,9 @@ const mainBook = {
     this.selectors.listItem[this.flipCount].classList.add('checked')
   },
   whatButtonsToShow: function() {
-    if (this.currentState == 0) {
+    if (this.flipCount == 0) {
       document.querySelector('#back').classList.add('none')
-    } else if (this.currentState == 3) {
+    } else if (this.flipCount == 3) {
       document.querySelector('#next').classList.add('none')
     } else {
       document.querySelector('#next').classList.remove('none')
