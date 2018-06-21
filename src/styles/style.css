@@ -198,6 +198,7 @@ textarea {
   font-size: 1rem;
   border: none;
   background-image: repeating-linear-gradient(#ccc, #ccc 2px, #f3f0f0 2px, #f3f0f0 calc(1rem + 4px));
+  /* Based on https://www.quackit.com/css/codes/patterns/css_background_stripes.cfm */
   outline: 0;
   resize: none;
 }

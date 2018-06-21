@@ -2,13 +2,13 @@
   <form id="bookInfo">
     <article class="cover page">
       <header>
-        <input id="title" type="text" value="" placeholder="titel">
+        <input id="title" type="text" placeholder="titel">
         <input id="author" type="text" placeholder="auteur">
-        <input id="coverColor" type="color" name="">
+        <input id="coverColor" type="color">
         <label for="coverColor">Kaftkleur</label>
       </header>
       <footer>
-        <input id="publisher" type="text" name="" value="" placeholder="uitgever">
+        <input id="publisher" type="text" placeholder="uitgever">
       </footer>
       <div class="bookBottomTwo">
       </div>
@@ -16,7 +16,7 @@
     <article class="page insidePage">
       <div class="mirror">
         <div class="select">
-          <select id="language" class="" name="">
+          <select id="language">
             <option value="none">Kies Taal</option>
             <option value="ger">Duits</option>
             <option value="eng">Engels</option>
@@ -25,7 +25,7 @@
           </select>
         </div>
         <div class="select">
-          <select id="age" class="" name="">
+          <select id="age">
             <option value="none">Kies Doelgroep</option>
             <option value="ageYouth">Jeugd</option>
             <option value="ageYoungAdult">Jong-volwassenen</option>
@@ -43,7 +43,7 @@
         <label for="summary">Samenvatting</label>
         <textarea name="summary" id="summary" cols="30" rows="10"></textarea>
         <div class="select">
-          <select id="illustrations" class="" name="">
+          <select id="illustrations">
             <option value="">Soort illustraties</option>
             <option value="black">Zwart/wit illustraties</option>
             <option value="color">Gekleurde illustraties</option>
@@ -57,19 +57,19 @@
         <fieldset id="checkboxes">
           <legend>Genre</legend>
           <label for="romantisch">romantisch</label>
-          <input id="romantisch" type="checkbox" name="" value="romantisch-verhaal">
+          <input id="romantisch" type="checkbox" value="romantisch-verhaal">
           <label for="detective">detective</label>
-          <input id="detective" type="checkbox" name="" value="detective">
+          <input id="detective" type="checkbox" value="detective">
           <label for="humor">humor</label>
-          <input id="humor" type="checkbox" name="" value="humor">
+          <input id="humor" type="checkbox" value="humor">
           <label for="thriller">thriller</label>
-          <input id="thriller" type="checkbox" name="" value="thriller">
+          <input id="thriller" type="checkbox" value="thriller">
           <label for="verhalenbundel">verhalenbundel</label>
-          <input id="verhalenbundel" type="checkbox" name="" value="verhalenbundel">
+          <input id="verhalenbundel" type="checkbox" value="verhalenbundel">
         </fieldset>
         <label for="coverDescription">Omschrijving kaft</label>
         <textarea id="coverDescription" cols="30" rows="10"></textarea>
-        <input id="submit" type="submit" name="" value="submit">
+        <input id="submit" type="submit" value="submit">
       </div>
     </article>
   </form>
