@@ -865,15 +865,24 @@ svg {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
   width: 100%;
   position: fixed;
   bottom: 2rem;
   padding: 0 1rem;
 }
-@media (max-width: 21.875em) {
+@media (max-width: 25.4em) {
   .result-navigation button {
     width: 100%;
     margin-bottom: 0.7rem;
+  }
+
+  .result-navigation button.inactive {
+    display: none;
+  }
+
+  .page-position {
+    order: -1;
   }
 }
 
