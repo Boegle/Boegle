@@ -4,6 +4,7 @@ const result = {
       this.currentPage.page = 0
       this.next()
       this.back()
+      this.checkResults()
       this.pageIndicator()
       document.querySelector('.previous-result').classList.add('inactive')
     }
@@ -68,6 +69,14 @@ const result = {
 
       self.pageIndicator()
     })
+  },
+  checkResults: function() {
+    //If there is only one result page make the 'next page' button inactive
+    const resultContainer = document.querySelectorAll('.results').length
+
+    if(resultContainer === 1) {
+      document.querySelector('.next-result').classList.add('inactive')
+    }
   },
   pageIndicator: function() {
     //Count how many result pages we have and put that in the in HTML
