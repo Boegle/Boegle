@@ -64,7 +64,6 @@ const api = {
     } else if(io === 'search') {
       path = io
       let searchUrl = baseUrl + path + '/?authorization=' + publicKey + '&facet=Type(book)&q=' + socket
-      console.log(searchUrl)
       return searchUrl
     } else if(io === 'availability') {
       path = io

@@ -1,6 +1,6 @@
 /* -----------------GLOBAL----------------- */
 
-:root{
+:root {
   --cover-translateY: 0;
   --bookBottom-scale: 0;
   --bookColor: red;
@@ -9,7 +9,7 @@
 
 }
 
-*{
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -28,7 +28,7 @@ body {
 }
 
 body > header img {
-  width: 10rem;
+  width: 5em;
   margin: 1em 0 0 1em;
 }
 
@@ -60,7 +60,7 @@ header {
   transform: perspective(200px) rotateX(20deg) scale(2);
 }
 
-#book.inDepth .bookBottom{
+#book.inDepth .bookBottom {
   opacity: 0;
 }
 
@@ -83,7 +83,7 @@ header {
   flex-direction: column;
 }
 
-.page:last-of-type div{
+.page:last-of-type div {
   width: 80%;
   margin: 2em 10% 0;
 }
@@ -338,7 +338,7 @@ select::-ms-expand {
   opacity: 1;
 }
 
-.cover input:-ms-input-placeholder{
+.cover input:-ms-input-placeholder {
   color: #f3f0f0;
 }
 
@@ -359,7 +359,7 @@ select::-ms-expand {
   margin-top: -1em;
 }
 
-.cover footer{
+.cover footer {
   position: absolute;
   bottom: 1em;
 }
@@ -433,21 +433,21 @@ nav{
   margin: auto 0;
 }
 
-ul{
+ul {
   margin: 0;
   display: flex;
   flex-direction: column;
 }
 
-li:first-of-type{
+li:first-of-type {
   margin-top: 0.5em;
 }
 
-li:last-of-type{
+li:last-of-type {
   margin-bottom: 0.5em;
 }
 
-li{
+li {
   cursor: pointer;
   border: solid 1px rgba(0,0,45,.1);
   list-style: none;
@@ -461,20 +461,20 @@ li{
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 
-li div{
+li div {
   width: 5em;
 }
 
-li:hover, li:focus-within{
+li:hover, li:focus-within {
  transform: translateX(0);
  background-color: gray;
 }
 
-li:hover, li:focus-within, .checked{
+li:hover, li:focus-within, .checked {
  transform: translateX(0);
 }
 
-li:hover a, li:focus-within a{
+li:hover a, li:focus-within a {
  color: white;
 }
 
@@ -487,10 +487,12 @@ li div + p {
   color: white;
 }
 
-a{text-decoration: none;
-color: black;   }
+a {
+  text-decoration: none;
+  color: black;
+}
 
-svg{
+svg {
   width: 60%;
   margin: 20%;
 }
@@ -498,7 +500,7 @@ svg{
 /* -----------------SIDE MENU END----------------- */
 /* -----------------RANGE SLIDER----------------- */
 
-#range{
+#range {
   top: 0;
   position: absolute;
   width: 10em;
@@ -563,7 +565,7 @@ svg{
   background-color: black;
 }
 
-.invisable{
+.invisable {
   opacity: 0;
 }
 
@@ -741,6 +743,8 @@ svg{
   display: flex;
   width: 100%;
   height: 14em;
+  object-fit: cover;
+  object-position: 0 0;
   background-color:rgb(167, 167, 167);
 }
 
@@ -760,8 +764,9 @@ svg{
   width: 50%;
   max-width: 40em;
 }
-@media(min-width: 81.25em){
-  .result-page{
+
+@media(min-width: 81.25em) {
+  .result-page {
     width: 40em;
   }
 }
@@ -802,7 +807,6 @@ svg{
   display: flex;
   position: absolute;
   content: '';
-  /* background-color: rgb(87, 64, 64); */
   height: 100vh;
   width: 100%;
   z-index: -1;
@@ -810,7 +814,6 @@ svg{
   transform-origin: bottom;
   bottom: 0;
   left: 0;
-  /* box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22); */
   perspective: 40vw;
 }
 
@@ -841,12 +844,12 @@ svg{
 .result-navigation {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   width: 100%;
   position: fixed;
   bottom: 2rem;
   padding: 0 1rem;
 }
-
 @media (max-width: 21.875em) {
   .result-navigation button {
     width: 100%;
@@ -872,10 +875,13 @@ svg{
   color: white;
 }
 
+.previous-result {
+  margin-right: auto;
+}
+
 .next-result {
   margin-left: auto;
 }
-
 
 .results {
   display: none;
@@ -894,6 +900,7 @@ svg{
   flex-wrap: wrap;
   flex-wrap: wrap;
   position: relative;
+  margin-bottom: 1em;
 }
 
 .detailCover {
@@ -903,7 +910,7 @@ svg{
   text-align: center;
   display: flex;
   justify-content: center;
-  padding: 5rem 1rem 5rem 5rem;
+  padding: 0 1rem 5rem 5rem;
 }
 
 .detailCover img {
@@ -938,32 +945,47 @@ svg{
 .detailInformation {
   width: 40%;
   height: auto;
-  padding-top: 4rem;
   padding-right: 3rem;
   padding-bottom: 3rem;
+}
+
+#scrollContainer {
+  border-radius: 50%;
+  background-color: #ffffff;
+  position: sticky;
+  display: block;
+  padding-bottom: 1em;
+  bottom: 1rem;
+  width: 4em;
+  margin: 0 auto;
+  height: 4em;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+#scrollContainer:hover, #scrollContainer:focus-within {
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
 .scrollIndicator {
   display: block;
   position: sticky;
-  bottom: 1rem;
-  padding: 2rem;
-  width: 90%;
+  padding-top: 1.2rem;
+  font-size: 0.8em;
   text-align: center;
-  margin-left: auto;
 }
 
 .scrollIndicator span {
   position: absolute;
-  width: 1.5em;
-  height: 1.5em;
-  margin-left: 0.4em;
+  width: 1.2em;
+  height: 1.2em;
+  margin-left: 0.7em;
   border-left: 1px solid #000000;
   border-bottom: 1px solid #000000;
   transform: rotate(-45deg);
   animation: arrowdown 2s infinite;
   box-sizing: border-box;
-  margin-top: 0.5em;
+  margin-top: 0.9em;
 }
 
 @keyframes arrowdown {
@@ -971,7 +993,7 @@ svg{
     transform: rotate(-45deg) translate(0, 0);
   }
   20% {
-    transform: rotate(-45deg) translate(-10px, 10px);
+    transform: rotate(-45deg) translate(-5px, 5px);
   }
   40% {
     transform: rotate(-45deg) translate(0, 0);
@@ -983,7 +1005,7 @@ svg{
   margin-top: 0;
   margin-bottom: 0.1rem;
   font-weight: bold;
-  line-height: 0.9;
+  line-height: 1;
 }
 
 .detailInformation p:nth-of-type(1) {
@@ -1049,6 +1071,7 @@ svg{
 
 #detailRecommendation section img {
   width: 100%;
+  object-fit: cover;
   height: 22em;
 }
 
@@ -1057,8 +1080,6 @@ svg{
   max-width: 17em;
   margin: 2rem;
   transition: 1s all;
-  background-color: #FFFFFF;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
 #detailRecommendation section p {
@@ -1068,10 +1089,12 @@ svg{
   padding: 2rem;
 }
 
-#detailRecommendation section a{
+#detailRecommendation section a {
   color: #000000;
   display: block;
   text-decoration: none;
+  background-color: #FFFFFF;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 }
 
@@ -1093,13 +1116,13 @@ svg{
     }
 
     .detailCover {
-      padding: 5rem 1rem 1rem 1rem;
+      padding: 0 1rem 1rem 1rem;
       width: 100%;
     }
 
     .detailInformation {
       width: 100%;
-      padding: 4rem 4rem 3rem 3rem;
+      padding: 1rem 4rem 3rem 3rem;
     }
 
     .detailInformation h1 {
@@ -1144,11 +1167,7 @@ svg{
       font-size: 1.3em;
   }
 
-  .scrollIndicator {
-    display: none;
-  }
-
-  .scrollIndicator span {
+  #scrollContainer {
     display: none;
   }
 }
