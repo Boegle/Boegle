@@ -14,8 +14,8 @@ const mainBook = {
       document.querySelectorAll('#buttons button').forEach((button) => {
         button.addEventListener('click', this.flipPage)
       })
-      document.querySelector('#pageSlider').addEventListener('change', () => {
-        let value = document.querySelector('#pageSlider').value
+      document.querySelector('#pages').addEventListener('change', () => {
+        let value = document.querySelector('#pages').value
         document.querySelectorAll('.cover')[0].style.setProperty('--cover-translateY', '-' + parseInt(value / 100) + 'em')
         document.querySelectorAll('.bookBottomTwo')[0].style.setProperty('--bookBottom-scale', 1 + parseInt(value / 100))
         console.log(value)
@@ -49,7 +49,6 @@ const mainBook = {
     console.log('naar' + mainBook.flipCount)
     mainBook.actualFlipPage()
     mainBook.sideMenuUpdate()
-    mainBook.whatButtonsToShow()
   },
   actualFlipPage: function() {
     if (this.currentState == 3) {
@@ -161,6 +160,7 @@ const mainBook = {
         page.classList.remove('animationReverse')
       })
     } else if (this.currentState == 3 && this.flipCount == 1) {
+      this.currentState = 1
       this.selectors.page.forEach((page) => {
         page.classList.remove('animationReverse')
       })
@@ -171,6 +171,7 @@ const mainBook = {
       this.selectors.page[1].classList.add('animation')
       this.selectors.page[0].classList.add('animation')
     }
+    this.whatButtonsToShow()
   },
   sideMenuUpdate: function() {
     this.selectors.listItem.forEach((li) => {
