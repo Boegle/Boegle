@@ -198,17 +198,17 @@ const customSelect = {
       document.querySelector('.insideCustomSelect').classList.toggle('hidden')
       document.querySelector('.customSelect').classList.toggle('rotate')
     })
-    this.createCheckboxes()
+    // this.createCheckboxes()
   },
   allGenres : ['Avontureroman', 'Bijbelseroman', 'Biografie', 'Detective', 'Dieren', 'Doktersverhaal', 'Erotiek', 'Experimentele roman', 'Familieroman', 'Feministische roman', 'Homofiel thema', 'Humor', 'Indisch milieu', 'Islamitisch milieu', 'Joods milieu', 'Kinderleven', 'Oorlog en verzet', 'Paarden', 'Politieke roman', 'Protestants milieu', 'Psychologisch verhaal', 'Racisme', 'Romantisch verhaal', 'School', 'Sciencefiction', 'Sociaal/politiek verhaal', 'Spionageroman', 'Sport', 'Sprookjes', 'Streek/boeren-roman', 'Stripverhaal', 'Thriller', 'Verhalenbundel', 'Western', 'Zeeverhaal'],
   createCheckboxes: function() {
-    document.querySelector('.insideCustomSelect').innerHTML += ''
-    this.allGenres.forEach((genre) => {
-      document.querySelector('.insideCustomSelect').innerHTML += `
-      <label for="${genre.toLocaleLowerCase()}">${genre}</label>
-      <input id="${genre.toLocaleLowerCase()}" value="${genre.toLocaleLowerCase()}" type="checkbox">
-      `
-    })
+    // document.querySelector('.insideCustomSelect').innerHTML += ''
+    // this.allGenres.forEach((genre) => {
+    //   document.querySelector('.insideCustomSelect').innerHTML += `
+    //   <label for="${genre.toLocaleLowerCase()}">${genre}</label>
+    //   <input id="${genre.toLocaleLowerCase()}" value="${genre.toLocaleLowerCase()}" type="checkbox">
+    //   `
+    // })
     document.querySelectorAll('.insideCustomSelect input').forEach((checkbox) => {
       checkbox.addEventListener('change', this.customSelect)
     })
