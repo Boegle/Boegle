@@ -174,7 +174,7 @@ select {
 select::-ms-expand {
   display: none;
 }
-/* Arrow */
+
 .select::after {
   content: '\25BC';
   position: absolute;
@@ -184,7 +184,6 @@ select::-ms-expand {
   padding: 0 1em;
   pointer-events: none;
 }
-/* Transition */
 
 .select:hover::after {
   color: black;
@@ -672,7 +671,6 @@ svg {
   width: 100%;
   max-width: 14em;
   margin: 2rem;
-  /* animation: result-show-opacity 0.4s forwards; */
 }
 
 .result-item a {

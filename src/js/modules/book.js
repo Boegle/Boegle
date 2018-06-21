@@ -19,7 +19,6 @@ const mainBook = {
         let value = document.querySelector('#pages').value
         document.querySelectorAll('.cover')[0].style.setProperty('--cover-translateY', '-' + parseInt(value / 100) + 'em')
         document.querySelectorAll('.bookBottomTwo')[0].style.setProperty('--bookBottom-scale', 1 + parseInt(value / 100))
-        console.log(value)
         this.selectors.page.forEach((page) => {
           page.classList.add('none')
         })
@@ -46,8 +45,6 @@ const mainBook = {
       flipTo = flipTo.split('state')
       mainBook.flipCount = flipTo[1]
     }
-    console.log('van' + mainBook.currentState)
-    console.log('naar' + mainBook.flipCount)
     mainBook.actualFlipPage()
     mainBook.sideMenuUpdate()
   },
@@ -137,7 +134,6 @@ const mainBook = {
           document.querySelector('#range').classList.add('sliderSlidesIn')
           document.querySelector('.bookBottomTwo').style.setProperty('--bookBottom-scale', 1)
           document.querySelector('#book').classList.add('inDepth')
-          console.log('sapje')
         }, 500)
       })
     } else if (this.currentState == 3 && this.flipCount == 2) {
@@ -220,18 +216,13 @@ const customSelect = {
   customSelect : function() {
     if (customSelect.amountOfValuesInCustomSelect == 0 && this.checked) {
       customSelect.arrayOfChosenGenres.push(this.id)
-      console.log(customSelect.arrayOfChosenGenres)
       customSelect.amountOfValuesInCustomSelect++
     } else if (customSelect.amountOfValuesInCustomSelect == 1 && this.checked) {
       customSelect.arrayOfChosenGenres.push(this.id)
-      console.log(customSelect.arrayOfChosenGenres)
     } else if (this.checked === false) {
-      console.log('unchecked')
       if(customSelect.arrayOfChosenGenres.includes(this.id)){
-        console.log(this.id + ' will be removed')
         let remove = customSelect.arrayOfChosenGenres.indexOf(this.id)
         customSelect.arrayOfChosenGenres.splice(remove, 1)
-        console.log(customSelect.arrayOfChosenGenres)
       }
     }
     customSelect.checkChangeInGenres()
@@ -239,7 +230,6 @@ const customSelect = {
   checkChangeInGenres : function(){
     {
       document.querySelector('.customSelect p').innerHTML = ''
-      console.log('appel')
       if(customSelect.arrayOfChosenGenres.length >= 1) {
         customSelect.arrayOfChosenGenres.forEach((value) => {
           document.querySelector('.customSelect p').innerHTML += value + ', '
