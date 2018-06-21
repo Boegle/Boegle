@@ -1,6 +1,15 @@
 const mainBook = {
   init: function() {
     if(document.querySelector('form')) {
+      document.querySelector('.customSelect p ').addEventListener('click', () => {
+        document.querySelector('.insideCustomSelect').classList.toggle('hidden')
+        document.querySelector('.customSelect').classList.toggle('rotate')
+      })
+
+      document.querySelectorAll('.insideCustomSelect input').forEach((checkbox) => {
+        checkbox.addEventListener('change', this.customSelect)
+      })
+
       this.whatButtonsToShow()
       document.querySelector('#coverColor').addEventListener('change', () => {
         let that = document.querySelector('#coverColor').value
@@ -179,6 +188,8 @@ const mainBook = {
     })
     this.selectors.listItem[this.flipCount].classList.add('checked')
   },
+  amountOfValuesInCustomSelect : 0,
+  arrayOfGenres : [],
   whatButtonsToShow: function() {
     if (this.flipCount == 0) {
       document.querySelector('#next').classList.remove('inactive')
@@ -189,6 +200,38 @@ const mainBook = {
     } else {
       document.querySelector('#next').classList.remove('inactive')
       document.querySelector('#back').classList.remove('inactive')
+    }
+  },
+  customSelect : function() {
+    if (mainBook.amountOfValuesInCustomSelect == 0 && this.checked) {
+      mainBook.arrayOfGenres.push(this.id)
+      console.log(mainBook.arrayOfGenres)
+      mainBook.amountOfValuesInCustomSelect++
+    } else if (mainBook.amountOfValuesInCustomSelect == 1 && this.checked) {
+      mainBook.arrayOfGenres.push(this.id)
+      console.log(mainBook.arrayOfGenres)
+    } else if (this.checked === false) {
+      console.log('unchecked')
+      if(mainBook.arrayOfGenres.includes(this.id)){
+        console.log(this.id + ' will be removed')
+        let remove = mainBook.arrayOfGenres.indexOf(this.id)
+        mainBook.arrayOfGenres.splice(remove, 1)
+        console.log(mainBook.arrayOfGenres)
+      }
+    }
+    mainBook.checkChangeInGenres()
+  },
+  checkChangeInGenres : function(){
+    {
+      document.querySelector('.customSelect p').innerHTML = ''
+      console.log('appel')
+      if(mainBook.arrayOfGenres.length >= 1) {
+        mainBook.arrayOfGenres.forEach((value) => {
+          document.querySelector('.customSelect p').innerHTML += value + ', '
+        })
+      } else {
+        document.querySelector('.customSelect p').innerHTML = 'Meer Genres...'
+      }
     }
   }
 }
