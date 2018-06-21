@@ -16,14 +16,16 @@ const processData = {
     let dataObj = data.aquabrowser.results[0].result.map((result) => {
       let ppn = ''
       let title = ''
-      if(result.titles[0]['short-title']) {
-        title = result.titles[0]['short-title'][0]._
-      } else {
-        title = result.titles[0]['title'][0]._
+      if(result.titles) {
+        if(result.titles[0]['short-title']) {
+          title = result.titles[0]['short-title'][0]._
+        } else {
+          title = result.titles[0]['title'][0]._
+        }
+        let titleIndex = title.indexOf(':')
+    
+        title = title.substring(0, titleIndex != -1 ? titleIndex : title.length)
       }
-      let titleIndex = title.indexOf(':')
-
-      title = title.substring(0, titleIndex != -1 ? titleIndex : title.length)
 
       if(result.identifiers) {
         if(result.identifiers[0]['ppn-id']) {
@@ -37,7 +39,13 @@ const processData = {
         obaId: result.id[0]._
       }
     })
-    return dataObj
+    let dataArr = []
+    dataObj.forEach((result) => {
+      if(result.title !== '') {
+        dataArr.push(result)
+      }
+    })
+    return dataArr
   },
   detailPage: function(data) {
     let summary = ''
@@ -45,15 +53,18 @@ const processData = {
     let publisher = []
     let year = 'Publicatie jaar onbekend'
     let topic = ''
-    let title = ''
+    let title = 'Geen titel'
     let pages = '?'
     let author = ''
 
-    if(data.aquabrowser.titles[0]['short-title']) {
-      title = data.aquabrowser.titles[0]['short-title'][0]._
-    } else {
-      title = data.aquabrowser.titles[0]['title'][0]._
+    if(data.aquabrowser.titles) {
+      if(data.aquabrowser.titles[0]['short-title']) {
+        title = data.aquabrowser.titles[0]['short-title'][0]._
+      } else {
+        title = data.aquabrowser.titles[0]['title'][0]._
+      }
     }
+
     let titleIndex = title.indexOf(':')
     let undertitle = title.substring(titleIndex != -1 ? titleIndex + 2 : title.length, title.length)
     title = title.substring(0, titleIndex != -1 ? titleIndex : title.length)
