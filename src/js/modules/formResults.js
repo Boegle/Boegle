@@ -3,8 +3,8 @@ import{socket} from './socket.js'
 const bookForm = {
   init: function() {
     if(document.querySelector('form')) {
-      bookForm.select.inputs.forEach(input => input.addEventListener('change', bookForm.search))
-      bookForm.select.selects.forEach(select => select.addEventListener('change', bookForm.search))
+      bookForm.select.inputs.forEach(input => input.addEventListener('change', (e) => bookForm.search(e)))
+      bookForm.select.selects.forEach(select => select.addEventListener('change', (e) => bookForm.search(e)))
     }
     socket.init()
   },
@@ -24,7 +24,8 @@ const bookForm = {
     summary: document.querySelector('#summary'),
     coverColor: document.querySelector('#coverColor')
   },
-  search: function() {
+  search: function(el) {
+    el.preventDefault()
     const genres = []
 
     bookForm.select.checkboxes.forEach((checkbox) => {
