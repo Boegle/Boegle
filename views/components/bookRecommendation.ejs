@@ -1,9 +1,7 @@
 <aside id="detailRecommendation">
   <h2>Alternatieve boeken</h2>
 
-  <%
-  
-  let numberArray = []
+  <% let numberArray = []
   let loop = alternativeData.length
 
   for(i = 0; i < 4; i++) {
@@ -13,9 +11,6 @@
       numberArray.push(randomNumber)
     }
   }
-
-  console.log(numberArray)
-
   numberArray.forEach((number) => { %>
     <section>
       <a href="<%= alternativeData[number].obaId %>">

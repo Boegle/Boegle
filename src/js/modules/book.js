@@ -1,16 +1,15 @@
 const mainBook = {
   init: function() {
-    this.whatButtonsToShow()
-    console.log('appelsap')
+    if(document.querySelector('form')) {
+      this.whatButtonsToShow()
+      document.querySelector('#coverColor').addEventListener('change', () => {
+        let that = document.querySelector('#coverColor').value
+        document.body.style.setProperty('--bookColor', that)
+      })
 
-    document.querySelector('#coverColor').addEventListener('change', () => {
-      let that = document.querySelector('#coverColor').value
-      document.body.style.setProperty('--bookColor', that)
-    })
-
-    this.selectors.listItem.forEach((state) => {
-      state.addEventListener('click', this.flipPage)
-    })
+      this.selectors.listItem.forEach((state) => {
+        state.addEventListener('click', this.flipPage)
+      })
 
     document.querySelectorAll('#buttons button').forEach((button) => {
       button.addEventListener('click', this.flipPage)
@@ -25,7 +24,8 @@ const mainBook = {
       })
       this.selectors.page[0].classList.remove('none')
       document.querySelector('#pageSlideIndicator').innerHTML = value
-    })
+     })
+    }
   },
   selectors : {
     page: document.querySelectorAll('.page'),

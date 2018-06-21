@@ -19,9 +19,9 @@ const result = {
       resultButton.classList.add('noresult')
       resultButton.innerHTML = 'Geen resultaten'
     } else {
+      resultButton.classList.remove('noresult')
       resultButton.classList.add('inactive')
     }
-    console.log(data)
   }
 }
 
