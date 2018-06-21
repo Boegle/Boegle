@@ -802,6 +802,11 @@ svg {
     width: 100%;
   }
 
+  .result-page.left {
+    transform: none;
+    animation: none;
+  }
+
   .result-page.left, .result-page.right {
     justify-content: center;
   }
@@ -814,7 +819,7 @@ svg {
 
 .result-book-background {
   display: flex;
-  position: absolute;
+  position: fixed;
   content: '';
   height: 100vh;
   width: 100%;
@@ -843,6 +848,12 @@ svg {
   z-index: 1;
   position: relative;
   animation: flip-result 0.7s forwards ease-in-out;
+}
+@media(max-width: 55.4em) {
+  .book-left {
+    transform: none;
+    animation: none;
+  }
 }
 
 .book-left.active {
