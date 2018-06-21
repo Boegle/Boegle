@@ -12,7 +12,7 @@ Amsterdam OBA | To search a book
 ## Description
 The OBA Search a Book is an application where an user can search for a book that they vaguely remembered. 
 
-This application is created by Chanakarn Niyornram, Viktor Zumpolle, Emiel Muis and Desley Aalderink commissioned by Openbare Bibliotheek Amsterdam. 
+This application is created by Chanakarn Niyornram, Victor Zumpolle, Emiel Muis and Desley Aalderink commissioned by Openbare Bibliotheek Amsterdam. 
 
 ## Getting started
 
