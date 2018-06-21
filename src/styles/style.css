@@ -1204,11 +1204,13 @@ svg {
 }
 
 .inactive {
+  visibility: hidden;
   opacity: 0;
   pointer-events: none;
 }
 
 .noresult {
+  visibility: visible;
   color: white;
   background: grey;
   opacity: 0.5;
