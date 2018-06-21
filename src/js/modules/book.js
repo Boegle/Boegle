@@ -15,8 +15,8 @@ const mainBook = {
     document.querySelectorAll('#buttons button').forEach((button) => {
       button.addEventListener('click', this.flipPage)
     })
-    document.querySelector('#pageSlider').addEventListener('change', () => {
-      let value = document.querySelector('#pageSlider').value
+    document.querySelector('#pages').addEventListener('change', () => {
+      let value = document.querySelector('#pages').value
       document.querySelectorAll('.cover')[0].style.setProperty('--cover-translateY', '-' + parseInt(value / 100) + 'em')
       document.querySelectorAll('.bookBottomTwo')[0].style.setProperty('--bookBottom-scale', 1 + parseInt(value / 100))
       console.log(value)
