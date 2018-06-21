@@ -20,6 +20,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -75,7 +76,7 @@ header {
   transform-origin: left;
 }
 
-.page div {
+.page > div{
   width: 80%;
   margin: 1em 10% 0;
   display: flex;
@@ -121,6 +122,214 @@ header {
   text-align: center;
 }
 
+/* STYLING 2. */
+
+.page:nth-of-type(2) label, .page:nth-of-type(3) label {
+  margin-top: 1rem;
+  font-weight: 900;
+}
+
+.page:nth-of-type(2) input, .page:nth-of-type(3) input {
+  font-size: 1rem;
+  background-color: rgba(0,0,0,0);
+  border: none;
+  border-bottom: 1px solid black;
+  margin-top: 0.5rem;
+}
+/*
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  box-shadow: none;
+  border: 0 !important;
+  background: none;
+  background-image: none;
+}
+/* Custom Select */
+/*
+.select {
+  font-size: 1rem;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  color: black;
+  cursor: pointer;
+}
+/* select {
+  font-size: 1rem;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  color: black;
+  cursor: pointer;
+}
+select::-ms-expand {
+  display: none;
+}
+
+/* Arrow */
+/*
+.select::after {
+  content: '\25BC';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0 1em;
+  background: none;
+  color: black;
+  pointer-events: none;
+}
+/* Transition */
+/*
+.select:hover::after {
+  color: black;
+}
+.select::after {
+  -webkit-transition: .25s all ease;
+  -o-transition: .25s all ease;
+  transition: .25s all ease;
+} */
+
+textarea {
+  font-size: 1rem;
+  border: none;
+  background-image: repeating-linear-gradient(#ccc, #ccc 2px, #f3f0f0 2px, #f3f0f0 calc(1rem + 4px));
+  /* Based on https://www.quackit.com/css/codes/patterns/css_background_stripes.cfm */
+  outline: 0;
+  resize: none;
+}
+
+.select {
+  border-bottom: 1px solid black;
+  position: relative;
+  display: block;
+  height: 2rem;
+  font-size: 1rem;
+  margin: 0 0 1rem;
+  line-height: 2;
+  background: none;
+  cursor: pointer;
+}
+select {
+  font-size: 1rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  box-shadow: none;
+  border: 0 !important;
+  background: none;
+  line-height: 2;
+  background-image: none;
+}
+select::-ms-expand {
+  display: none;
+}
+/* Arrow */
+.select::after {
+  content: '\25BC';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0 1em;
+  pointer-events: none;
+}
+/* Transition */
+
+.select:hover::after {
+  color: black;
+}
+.select::after {
+  -webkit-transition: .25s all ease;
+  -o-transition: .25s all ease;
+  transition: .25s all ease;
+}
+
+/* STYLING 1. NIET VERWIJDEREN TOT DISCUSSIE
+
+.page:nth-of-type(2) input, .page:nth-of-type(3) input {
+  position: relative;
+  display: block;
+  width: 20em;
+  height: 3em;
+  line-height: 3;
+  background: var(--bookColor);
+  overflow: hidden;
+  border-radius: .25em;
+  border: none;
+  margin-top: 1em;
+  padding: 0 0 0 .5em;
+  color: #fff;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  box-shadow: none;
+  border: 0 !important;
+  background: var(--bookColor);
+  background-image: none;
+}
+/* Custom Select */
+/*
+.select {
+  position: relative;
+  display: block;
+  width: 20em;
+  height: 3em;
+  line-height: 3;
+  background: var(--bookColor);
+  overflow: hidden;
+  border-radius: .25em;
+}
+select {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0 0 0 .5em;
+  color: #fff;
+  cursor: pointer;
+}
+select::-ms-expand {
+  display: none;
+}
+/* Arrow */
+/*
+.select::after {
+  content: '\25BC';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0 1em;
+  background: var(--bookColor);
+  color: white;
+  pointer-events: none;
+}
+/* Transition */
+/*
+.select:hover::after {
+  color: black;
+}
+.select::after {
+  -webkit-transition: .25s all ease;
+  -o-transition: .25s all ease;
+  transition: .25s all ease;
+}
+
+.page:nth-of-type(2) input::placeholder, .page:nth-of-type(3) input::placeholder {
+  color: white;
+}
+*/
 .cover:first-of-type input {
   color: white;
 }

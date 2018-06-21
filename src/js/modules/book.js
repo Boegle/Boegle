@@ -11,20 +11,20 @@ const mainBook = {
         state.addEventListener('click', this.flipPage)
       })
 
-      document.querySelectorAll('#buttons button').forEach((button) => {
-        button.addEventListener('click', this.flipPage)
+    document.querySelectorAll('#buttons button').forEach((button) => {
+      button.addEventListener('click', this.flipPage)
+    })
+    document.querySelector('#pages').addEventListener('change', () => {
+      let value = document.querySelector('#pages').value
+      document.querySelectorAll('.cover')[0].style.setProperty('--cover-translateY', '-' + parseInt(value / 100) + 'em')
+      document.querySelectorAll('.bookBottomTwo')[0].style.setProperty('--bookBottom-scale', 1 + parseInt(value / 100))
+      console.log(value)
+      this.selectors.page.forEach((page) => {
+        page.classList.add('none')
       })
-      document.querySelector('#pageSlider').addEventListener('change', () => {
-        let value = document.querySelector('#pageSlider').value
-        document.querySelectorAll('.cover')[0].style.setProperty('--cover-translateY', '-' + parseInt(value / 100) + 'em')
-        document.querySelectorAll('.bookBottomTwo')[0].style.setProperty('--bookBottom-scale', 1 + parseInt(value / 100))
-        console.log(value)
-        this.selectors.page.forEach((page) => {
-          page.classList.add('none')
-        })
-        this.selectors.page[0].classList.remove('none')
-        document.querySelector('#pageSlideIndicator').innerHTML = value
-      })
+      this.selectors.page[0].classList.remove('none')
+      document.querySelector('#pageSlideIndicator').innerHTML = value
+     })
     }
   },
   selectors : {
@@ -49,7 +49,6 @@ const mainBook = {
     console.log('naar' + mainBook.flipCount)
     mainBook.actualFlipPage()
     mainBook.sideMenuUpdate()
-    mainBook.whatButtonsToShow()
   },
   actualFlipPage: function() {
     if (this.currentState == 3) {
@@ -161,6 +160,7 @@ const mainBook = {
         page.classList.remove('animationReverse')
       })
     } else if (this.currentState == 3 && this.flipCount == 1) {
+      this.currentState = 1
       this.selectors.page.forEach((page) => {
         page.classList.remove('animationReverse')
       })
@@ -171,6 +171,7 @@ const mainBook = {
       this.selectors.page[1].classList.add('animation')
       this.selectors.page[0].classList.add('animation')
     }
+    this.whatButtonsToShow()
   },
   sideMenuUpdate: function() {
     this.selectors.listItem.forEach((li) => {
@@ -179,9 +180,9 @@ const mainBook = {
     this.selectors.listItem[this.flipCount].classList.add('checked')
   },
   whatButtonsToShow: function() {
-    if (this.currentState == 0) {
+    if (this.flipCount == 0) {
       document.querySelector('#back').classList.add('none')
-    } else if (this.currentState == 3) {
+    } else if (this.flipCount == 3) {
       document.querySelector('#next').classList.add('none')
     } else {
       document.querySelector('#next').classList.remove('none')
