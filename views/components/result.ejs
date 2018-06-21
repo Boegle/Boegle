@@ -1,5 +1,10 @@
 <section class="container">
-	<h1 class="result-top-title">Resultaten</h1>
+	<h1 class="result-top-title"><%= data.length %> <% if(data.length === 1) { %>
+	resultaat 
+	<% } else { %> 
+		resultaten
+		<% } %>
+	</h1>
 	<main class="result-container">
 		<% for(let i = 0; i < Math.ceil(data.length / 8); i++) { %>
 			<section class="results <% if(i === 0) { %> active <% } %>">
