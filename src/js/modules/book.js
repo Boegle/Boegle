@@ -1,16 +1,8 @@
 const mainBook = {
   init: function() {
     if(document.querySelector('form')) {
-      document.querySelector('.customSelect p ').addEventListener('click', () => {
-        document.querySelector('.insideCustomSelect').classList.toggle('hidden')
-        document.querySelector('.customSelect').classList.toggle('rotate')
-      })
-
-      document.querySelectorAll('.insideCustomSelect input').forEach((checkbox) => {
-        checkbox.addEventListener('change', this.customSelect)
-      })
-
       this.whatButtonsToShow()
+      customSelect.init()
       document.querySelector('#coverColor').addEventListener('change', () => {
         let that = document.querySelector('#coverColor').value
         document.body.style.setProperty('--bookColor', that)
@@ -188,8 +180,6 @@ const mainBook = {
     })
     this.selectors.listItem[this.flipCount].classList.add('checked')
   },
-  amountOfValuesInCustomSelect : 0,
-  arrayOfGenres : [],
   whatButtonsToShow: function() {
     if (this.flipCount == 0) {
       document.querySelector('#next').classList.remove('inactive')
@@ -201,32 +191,57 @@ const mainBook = {
       document.querySelector('#next').classList.remove('inactive')
       document.querySelector('#back').classList.remove('inactive')
     }
+  }
+}
+
+const customSelect = {
+  amountOfValuesInCustomSelect : 0,
+  arrayOfChosenGenres : [],
+  init : function(){
+    document.querySelector('.customSelect p ').addEventListener('click', () => {
+      document.querySelector('.insideCustomSelect').classList.toggle('hidden')
+      document.querySelector('.customSelect').classList.toggle('rotate')
+    })
+    this.createCheckboxes()
+  },
+  allGenres : ['Avontureroman', 'Bijbelseroman', 'Biografie', 'Detective', 'Dieren', 'Doktersverhaal', 'Erotiek', 'Experimentele roman', 'Familieroman', 'Feministische roman', 'Homofiel thema', 'Humor', 'Indisch milieu', 'Islamitisch milieu', 'Joods milieu', 'Kinderleven', 'Oorlog en verzet', 'Paarden', 'Politieke roman', 'Protestants milieu', 'Psychologisch verhaal', 'Racisme', 'Romantisch verhaal', 'School', 'Sciencefiction', 'Sociaal/politiek verhaal', 'Spionageroman', 'Sport', 'Sprookjes', 'Streek/boeren-roman', 'Stripverhaal', 'Thriller', 'Verhalenbundel', 'Western', 'Zeeverhaal'],
+  createCheckboxes: function() {
+    document.querySelector('.insideCustomSelect').innerHTML += ''
+    this.allGenres.forEach((genre) => {
+      document.querySelector('.insideCustomSelect').innerHTML += `
+      <label for="${genre.toLocaleLowerCase()}">${genre}</label>
+      <input id="${genre.toLocaleLowerCase()}" value="${genre.toLocaleLowerCase()}" type="checkbox">
+      `
+    })
+    document.querySelectorAll('.insideCustomSelect input').forEach((checkbox) => {
+      checkbox.addEventListener('change', this.customSelect)
+    })
   },
   customSelect : function() {
-    if (mainBook.amountOfValuesInCustomSelect == 0 && this.checked) {
-      mainBook.arrayOfGenres.push(this.id)
-      console.log(mainBook.arrayOfGenres)
-      mainBook.amountOfValuesInCustomSelect++
-    } else if (mainBook.amountOfValuesInCustomSelect == 1 && this.checked) {
-      mainBook.arrayOfGenres.push(this.id)
-      console.log(mainBook.arrayOfGenres)
+    if (customSelect.amountOfValuesInCustomSelect == 0 && this.checked) {
+      customSelect.arrayOfChosenGenres.push(this.id)
+      console.log(customSelect.arrayOfChosenGenres)
+      customSelect.amountOfValuesInCustomSelect++
+    } else if (customSelect.amountOfValuesInCustomSelect == 1 && this.checked) {
+      customSelect.arrayOfChosenGenres.push(this.id)
+      console.log(customSelect.arrayOfChosenGenres)
     } else if (this.checked === false) {
       console.log('unchecked')
-      if(mainBook.arrayOfGenres.includes(this.id)){
+      if(customSelect.arrayOfChosenGenres.includes(this.id)){
         console.log(this.id + ' will be removed')
-        let remove = mainBook.arrayOfGenres.indexOf(this.id)
-        mainBook.arrayOfGenres.splice(remove, 1)
-        console.log(mainBook.arrayOfGenres)
+        let remove = customSelect.arrayOfChosenGenres.indexOf(this.id)
+        customSelect.arrayOfChosenGenres.splice(remove, 1)
+        console.log(customSelect.arrayOfChosenGenres)
       }
     }
-    mainBook.checkChangeInGenres()
+    customSelect.checkChangeInGenres()
   },
   checkChangeInGenres : function(){
     {
       document.querySelector('.customSelect p').innerHTML = ''
       console.log('appel')
-      if(mainBook.arrayOfGenres.length >= 1) {
-        mainBook.arrayOfGenres.forEach((value) => {
+      if(customSelect.arrayOfChosenGenres.length >= 1) {
+        customSelect.arrayOfChosenGenres.forEach((value) => {
           document.querySelector('.customSelect p').innerHTML += value + ', '
         })
       } else {
