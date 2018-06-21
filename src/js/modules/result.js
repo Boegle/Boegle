@@ -4,6 +4,7 @@ const result = {
       this.currentPage.page = 0
       this.next()
       this.back()
+      this.pageIndicator()
       document.querySelector('.previous-result').classList.add('inactive')
     }
   },
@@ -32,6 +33,8 @@ const result = {
         resultsContainer[nextPage].classList.add('active')
         self.currentPage.page = nextPage
       }
+
+      self.pageIndicator()
     })
   },
   back: function() {
@@ -62,9 +65,25 @@ const result = {
       } else {
         document.querySelector('.previous-result').classList.add('inactive')
       }
+
+      self.pageIndicator()
     })
   },
-  currentPage: {}
+  pageIndicator: function() {
+    //Count how many result pages we have and put that in the in HTML
+    const totalResultPages = document.querySelectorAll('.results').length
+    document.querySelector('.total-page').innerHTML = totalResultPages
+
+    //+1 because the user starts at page 1 and not 0
+    let position = this.currentPage.page+1 
+
+    //When the user click the next/previous button we will change
+    //the position indicator
+    document.querySelector('.position').innerHTML = position
+  },
+  currentPage: {
+    page : 0
+  }
 }
 
 export {

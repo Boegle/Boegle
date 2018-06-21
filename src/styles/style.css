@@ -636,12 +636,12 @@ svg {
 .result-navigation {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   width: 100%;
   position: fixed;
   bottom: 2rem;
   padding: 0 1rem;
 }
-
 @media (max-width: 21.875em) {
   .result-navigation button {
     width: 100%;
@@ -667,10 +667,13 @@ svg {
   color: white;
 }
 
+.previous-result {
+  margin-right: auto;
+}
+
 .next-result {
   margin-left: auto;
 }
-
 
 .results {
   display: none;
