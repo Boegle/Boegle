@@ -179,13 +179,15 @@ const mainBook = {
     this.selectors.listItem[this.flipCount].classList.add('checked')
   },
   whatButtonsToShow: function() {
-    if (this.currentState == 0) {
-      document.querySelector('#back').classList.add('none')
-    } else if (this.currentState == 3) {
-      document.querySelector('#next').classList.add('none')
+    if (this.flipCount == 0) {
+      document.querySelector('#next').classList.remove('inactive')
+      document.querySelector('#back').classList.add('inactive')
+    } else if (this.flipCount == 3) {
+      document.querySelector('#back').classList.remove('inactive')
+      document.querySelector('#next').classList.add('inactive')
     } else {
-      document.querySelector('#next').classList.remove('none')
-      document.querySelector('#back').classList.remove('none')
+      document.querySelector('#next').classList.remove('inactive')
+      document.querySelector('#back').classList.remove('inactive')
     }
   }
 }

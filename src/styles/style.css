@@ -24,6 +24,7 @@ html {
 
 body {
   font-family: avenir,sans-serif;
+  overflow-x: hidden
 }
 
 body > header img {
@@ -337,19 +338,27 @@ svg {
   text-decoration: none;
   color: black;
   padding: 1rem 2rem;
-  margin: 0 auto;
   color: white;
-  border-radius: em;
-  width: 10em;
-  display: inline-block;
+  min-width: 10em;
   background-color: red;
-  border: 1px solid red;
+  border: none;
   font-size: 1rem;
+  transition: all 0.2s;
+}
+
+#buttons button:hover, .result-navigation button:focus {
+  cursor: pointer;
+  background-color: black;
+  color: white;
 }
 
 #buttons a {
   padding: 1rem 2rem;
   border: 1px solid black;
+}
+
+#buttons a.noresult {
+  border-color: grey;
 }
 
 #buttons a:hover {
@@ -975,6 +984,8 @@ svg {
 }
 
 .noresult {
-  opacity: 1;
+  color: white;
+  background: grey;
+  opacity: 0.5;
   pointer-events: none;
 }
