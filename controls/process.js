@@ -131,6 +131,9 @@ const processData = {
       obaId: data.aquabrowser.id[0]._
     }
   },
+  filterResults: function(data) {
+    console.log(data)
+  },
   availability: function(data) {
     if(data.aquabrowser.locations) {
       let dataObj = data.aquabrowser.locations[0].location.map((location) => {

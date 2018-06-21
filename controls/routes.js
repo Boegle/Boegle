@@ -12,10 +12,24 @@ router.get('/result', (req, res) => {
     .then((data) => {    
       let resultNumber = Number(data.aquabrowser.meta[0].count[0])
       let pages = Math.ceil(resultNumber / 20)
-      if(pages < 6) {
+      console.log(resultNumber)
+      if(pages < 2) {
         return processData.resultPage(data)
       } else {
-        return processData.resultPage(data)
+        let dataArr = processData.resultPage(data)
+        for(let i = 2; i < pages + 1; i++) {
+          console.log(api.dataObj.url)
+          api.getResults(api.dataObj.url + '&page=' + i)
+            .then((data) => processData.resultPage(data))
+            .then((data) => {
+              data.forEach((dataElement) => {
+                dataArr.push(dataElement)
+              })
+              console.log(dataArr)
+            })
+        }
+        console.log(dataArr)
+        Promise.all(dataArr).then((data) => console.log(data))
       }
     })
     .then((processedData) => {
