@@ -1,11 +1,18 @@
 # Boegle
 Amsterdam OBA | To search a book
+![A demo of the OBA searchbook](readme_assets/application-introduction-v1.gif)
 
 ## Table of contents
 
+* [Description](##description)
 * [Getting started](##getting_started)
 * [Progression](##progression)
     * [Week1](###week1)
+
+## Description
+The OBA Search a Book is an application where an user can search for a book that they vaguely remembered. 
+
+This application is created by Chanakarn Niyornram, Viktor Zumpolle, Emiel Muis and Desley Aalderink commissioned by Openbare Bibliotheek Amsterdam. 
 
 ## Getting started
 
