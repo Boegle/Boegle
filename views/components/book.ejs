@@ -54,19 +54,28 @@
     </article>
     <article class="cover back page">
       <div class="mirror">
-        <fieldset id="checkboxes">
-          <legend>Genre</legend>
-          <label for="romantisch">romantisch</label>
-          <input id="romantisch" type="checkbox" value="romantisch-verhaal">
-          <label for="detective">detective</label>
-          <input id="detective" type="checkbox" value="detective">
-          <label for="humor">humor</label>
-          <input id="humor" type="checkbox" value="humor">
-          <label for="thriller">thriller</label>
-          <input id="thriller" type="checkbox" value="thriller">
-          <label for="verhalenbundel">verhalenbundel</label>
-          <input id="verhalenbundel" type="checkbox" value="verhalenbundel">
-        </fieldset>
+        <h3>Genre</h3>
+        <label for="romantisch">romantisch</label>
+        <input id="romantisch" type="checkbox" value="romantisch-verhaal">
+        <label for="detective">detective</label>
+        <input id="detective" type="checkbox" value="detective">
+        <label for="humor">humor</label>
+        <input id="humor" type="checkbox" value="humor">
+        <label for="thriller">thriller</label>
+        <input id="thriller" type="checkbox" value="thriller">
+        <label for="verhalenbundel">verhalenbundel</label>
+        <input id="verhalenbundel" type="checkbox" value="verhalenbundel">
+
+        <section class="customSelect">
+          <p>Meer Genres...</p>
+          <section class="hidden insideCustomSelect">
+            <% var allGenres = ['Avontureroman', 'Bijbelseroman', 'Biografie', 'Detective', 'Dieren', 'Doktersverhaal', 'Erotiek', 'Experimentele roman', 'Familieroman', 'Feministische roman', 'Homofiel thema', 'Humor', 'Indisch milieu', 'Islamitisch milieu', 'Joods milieu', 'Kinderleven', 'Oorlog en verzet', 'Paarden', 'Politieke roman', 'Protestants milieu', 'Psychologisch verhaal', 'Racisme', 'Romantisch verhaal', 'School', 'Sciencefiction', 'Sociaal/politiek verhaal', 'Spionageroman', 'Sport', 'Sprookjes', 'Streek/boeren-roman', 'Stripverhaal', 'Thriller', 'Verhalenbundel', 'Western', 'Zeeverhaal']
+            allGenres.forEach((genre) => { %>
+              <label for="<%=genre.toLocaleLowerCase()%>"><%=genre%></label>
+              <input id="<%=genre.toLocaleLowerCase()%>" value="<%=genre.toLocaleLowerCase()%>" type="checkbox">
+            <%})%>
+          </section>
+        </section>
       </div>
     </article>
   </form>

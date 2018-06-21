@@ -2,6 +2,7 @@ const mainBook = {
   init: function() {
     if(document.querySelector('form')) {
       this.whatButtonsToShow()
+      customSelect.init()
       document.querySelector('#coverColor').addEventListener('change', () => {
         let that = document.querySelector('#coverColor').value
         document.body.style.setProperty('--bookColor', that)
@@ -18,7 +19,6 @@ const mainBook = {
         let value = document.querySelector('#pages').value
         document.querySelectorAll('.cover')[0].style.setProperty('--cover-translateY', '-' + parseInt(value / 100) + 'em')
         document.querySelectorAll('.bookBottomTwo')[0].style.setProperty('--bookBottom-scale', 1 + parseInt(value / 100))
-        console.log(value)
         this.selectors.page.forEach((page) => {
           page.classList.add('none')
         })
@@ -45,8 +45,6 @@ const mainBook = {
       flipTo = flipTo.split('state')
       mainBook.flipCount = flipTo[1]
     }
-    console.log('van' + mainBook.currentState)
-    console.log('naar' + mainBook.flipCount)
     mainBook.actualFlipPage()
     mainBook.sideMenuUpdate()
   },
@@ -136,7 +134,6 @@ const mainBook = {
           document.querySelector('#range').classList.add('sliderSlidesIn')
           document.querySelector('.bookBottomTwo').style.setProperty('--bookBottom-scale', 1)
           document.querySelector('#book').classList.add('inDepth')
-          console.log('sapje')
         }, 500)
       })
     } else if (this.currentState == 3 && this.flipCount == 2) {
@@ -189,6 +186,57 @@ const mainBook = {
     } else {
       document.querySelector('#next').classList.remove('inactive')
       document.querySelector('#back').classList.remove('inactive')
+    }
+  }
+}
+
+const customSelect = {
+  amountOfValuesInCustomSelect : 0,
+  arrayOfChosenGenres : [],
+  init : function(){
+    document.querySelector('.customSelect p ').addEventListener('click', () => {
+      document.querySelector('.insideCustomSelect').classList.toggle('hidden')
+      document.querySelector('.customSelect').classList.toggle('rotate')
+    })
+    // this.createCheckboxes()
+  },
+  allGenres : ['Avontureroman', 'Bijbelseroman', 'Biografie', 'Detective', 'Dieren', 'Doktersverhaal', 'Erotiek', 'Experimentele roman', 'Familieroman', 'Feministische roman', 'Homofiel thema', 'Humor', 'Indisch milieu', 'Islamitisch milieu', 'Joods milieu', 'Kinderleven', 'Oorlog en verzet', 'Paarden', 'Politieke roman', 'Protestants milieu', 'Psychologisch verhaal', 'Racisme', 'Romantisch verhaal', 'School', 'Sciencefiction', 'Sociaal/politiek verhaal', 'Spionageroman', 'Sport', 'Sprookjes', 'Streek/boeren-roman', 'Stripverhaal', 'Thriller', 'Verhalenbundel', 'Western', 'Zeeverhaal'],
+  createCheckboxes: function() {
+    // document.querySelector('.insideCustomSelect').innerHTML += ''
+    // this.allGenres.forEach((genre) => {
+    //   document.querySelector('.insideCustomSelect').innerHTML += `
+    //   <label for="${genre.toLocaleLowerCase()}">${genre}</label>
+    //   <input id="${genre.toLocaleLowerCase()}" value="${genre.toLocaleLowerCase()}" type="checkbox">
+    //   `
+    // })
+    document.querySelectorAll('.insideCustomSelect input').forEach((checkbox) => {
+      checkbox.addEventListener('change', this.customSelect)
+    })
+  },
+  customSelect : function() {
+    if (customSelect.amountOfValuesInCustomSelect == 0 && this.checked) {
+      customSelect.arrayOfChosenGenres.push(this.id)
+      customSelect.amountOfValuesInCustomSelect++
+    } else if (customSelect.amountOfValuesInCustomSelect == 1 && this.checked) {
+      customSelect.arrayOfChosenGenres.push(this.id)
+    } else if (this.checked === false) {
+      if(customSelect.arrayOfChosenGenres.includes(this.id)){
+        let remove = customSelect.arrayOfChosenGenres.indexOf(this.id)
+        customSelect.arrayOfChosenGenres.splice(remove, 1)
+      }
+    }
+    customSelect.checkChangeInGenres()
+  },
+  checkChangeInGenres : function(){
+    {
+      document.querySelector('.customSelect p').innerHTML = ''
+      if(customSelect.arrayOfChosenGenres.length >= 1) {
+        customSelect.arrayOfChosenGenres.forEach((value) => {
+          document.querySelector('.customSelect p').innerHTML += value + ', '
+        })
+      } else {
+        document.querySelector('.customSelect p').innerHTML = 'Meer Genres...'
+      }
     }
   }
 }
