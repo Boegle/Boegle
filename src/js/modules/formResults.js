@@ -11,7 +11,7 @@ const bookForm = {
   select: {
     inputs: document.querySelectorAll('#bookInfo input'),
     selects: document.querySelectorAll('#bookInfo select'),
-    checkboxes: document.querySelectorAll('#checkboxes input'),
+    checkboxes: document.querySelectorAll('.cover:last-of-type input'),
     title: document.querySelector('#title'),
     author: document.querySelector('#author'),
     language: document.querySelector('#language'),
