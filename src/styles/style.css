@@ -442,7 +442,7 @@ svg {
 
 /* Based on : https://medium.com/@_bengarrison/accessing-and-modifying-css-variables-with-javascript-2ccb735bbff0 */
 
-#range{
+#range {
   margin-top: -13rem;
   width: 30rem;
   height: 17rem;
@@ -481,7 +481,7 @@ input[type=range]::-webkit-slider-runnable-track {
   border-radius: 2rem;
 }
 
-input[type=range]{
+input[type=range] {
   margin: 8rem 0;
 }
 
@@ -489,7 +489,7 @@ input[type=range]:focus {
   outline: none;
 }
 
-#range label{
+#range label {
   font-family: avenir;
   font-weight: 550;
   width: 15rem;
