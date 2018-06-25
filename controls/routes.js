@@ -8,34 +8,50 @@ router.get('/', (req, res) => {
 })
 
 router.get('/result', (req, res) => {
+
   api.getResults(api.dataObj.url)
     .then((data) => {    
       let resultNumber = Number(data.aquabrowser.meta[0].count[0])
       let pages = Math.ceil(resultNumber / 20)
-      console.log(resultNumber)
+      let dataArr = processData.resultPage(data)
+
       if(pages < 2) {
-        return processData.resultPage(data)
+        res.render('result', {
+          data: processData.filterData(api.dataObj, dataArr)
+        })
       } else {
-        let dataArr = processData.resultPage(data)
-        for(let i = 2; i < pages + 1; i++) {
-          console.log(api.dataObj.url)
-          api.getResults(api.dataObj.url + '&page=' + i)
-            .then((data) => processData.resultPage(data))
-            .then((data) => {
-              data.forEach((dataElement) => {
-                dataArr.push(dataElement)
+
+        const promise = async () => {
+          for(let i = 2; i < pages + 1; i++) {
+            await api.getResults(api.dataObj.url + '&page=' + i)
+              .then((data) => processData.resultPage(data))
+              .then((data) => {
+                data.forEach((dataElement) => {
+                  dataArr.push(dataElement)
+                })
+                console.log(dataArr)
+                return dataArr
               })
-              console.log(dataArr)
-            })
+          }
+          return dataArr
         }
-        console.log(dataArr)
-        Promise.all(dataArr).then((data) => console.log(data))
+
+        promise()
+          .then((processedData) => {
+            console.log(processedData)
+            return processData.filterData(api.dataObj, processedData)
+          })
+          .then((renderData) => {
+            res.render('result', {
+              data: renderData
+            })
+          })
+
       }
     })
-    .then((processedData) => {
-      res.render('result', {
-        data: processedData
-      })
+    .catch((error) => {
+      console.log(error)
+      res.render('index')
     })
 })
 
@@ -64,6 +80,10 @@ router.get('/book/:id', (req, res) => {
         })
     })
     .then((renderData) => res.render('detail', renderData))
+})
+
+router.get('*', (req, res) => {
+  res.send('Deze pagina bestaat niet')
 })
 
 module.exports = router

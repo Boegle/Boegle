@@ -14,28 +14,76 @@ const processData = {
   },
   resultPage: function(data) {    
     let dataObj = data.aquabrowser.results[0].result.map((result) => {
+      let summary = ''
       let ppn = ''
-      let title = ''
+      let publisher = []
+      let title = 'Geen titel'
+      let pages = '?'
+      let illustrations = 'none'
+      let secondAuthor = ''
+  
       if(result.titles) {
         if(result.titles[0]['short-title']) {
           title = result.titles[0]['short-title'][0]._
         } else {
           title = result.titles[0]['title'][0]._
         }
-        let titleIndex = title.indexOf(':')
-    
-        title = title.substring(0, titleIndex != -1 ? titleIndex : title.length)
       }
+  
+      let titleIndex = title.indexOf(':')
+      title = title.substring(0, titleIndex != -1 ? titleIndex : title.length)
+  
+      if(result.authors) {
+        if(result.authors[0]['author']) {
+          console.log(result.authors)
+          result.authors[0]['author'].forEach((author) => {
+            secondAuthor += ' ' + author._
+          })
+        }
+      }
+  
+      if(result.description) {
+        if(result.description[0]['physical-description']) {
+          pages = result.description[0]['physical-description'][0]._
+          illustrations = result.description[0]['physical-description'][0]._
+        }
+      }
+      
+      let illustrationsIndexBefore = pages.indexOf(':')
+      let illustrationsIndexAfter = pages.indexOf(';')
+      illustrations = illustrations.substring(illustrationsIndexBefore + 2, illustrationsIndexAfter)
 
+      console.log(illustrations, illustrationsIndexBefore, illustrationsIndexAfter)
+      let pagesIndex = pages.indexOf(' ')
+      pages = pages.substring(0, pagesIndex != -1 ? pagesIndex : pages.length)
+  
+      if(result.summaries) {
+        if(result.summaries[0]['summary']) {
+          summary = result.summaries[0]['summary'][0]._
+        }
+      }
+  
       if(result.identifiers) {
         if(result.identifiers[0]['ppn-id']) {
           ppn = result.identifiers[0]['ppn-id'][0]._
         }
       }
-
+    
+      if(result.publication[0].publishers[0]['publisher']) {
+        result.publication[0].publishers[0]['publisher'].forEach(onePublisher => {
+          if(onePublisher._) {
+            publisher.push(onePublisher._)
+          }
+        })
+      }
       return {
         title: title,
+        secondAuthor: secondAuthor,
+        publisher: publisher,
+        illustrations: illustrations,
+        pages: pages,
         ppn: ppn,
+        summary: summary,
         obaId: result.id[0]._
       }
     })
@@ -131,8 +179,19 @@ const processData = {
       obaId: data.aquabrowser.id[0]._
     }
   },
-  filterResults: function(data) {
+  filterData: function(userData, data) {
+    if(userData.illustrator !== '' || userData.publisher !== '' || userData.pages !== '1' || userData.summary !== '' || userData.illustrations !== '' ) {
+      console.log('Check...')
+      data.forEach((dataElement) => {
+        console.log(dataElement)
+        dataElement.point = 0
+        console.log(userData)
+      })
+
+      data.sort((a, b) => a.point + b.point )
+    } 
     console.log(data)
+    return data
   },
   availability: function(data) {
     if(data.aquabrowser.locations) {
