@@ -627,6 +627,12 @@ svg {
 /* -----------------LOADER END----------------- */
 /* -----------------RESULT PAGE START----------------- */
 
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+}
+
 .result-container {
   display: flex;
   justify-content: center;
@@ -866,6 +872,11 @@ svg {
   flex-wrap: wrap;
   position: relative;
   margin-bottom: 1em;
+}
+
+#detailBook .history-back{
+  position: fixed;
+  z-index: 2;
 }
 
 .detailCover {
@@ -1171,4 +1182,34 @@ svg {
   background: grey;
   opacity: 0.5;
   pointer-events: none;
+}
+
+.history-back {
+  display: flex;
+  text-decoration: none;
+  color: black;
+  padding: 1rem 2rem;
+  color: white;
+  background-color: red;
+  border: none;
+  font-size: 1rem;
+  transition: all 0.2s;
+  position: fixed;/*fallback*/
+  position: sticky;
+  z-index: 2;
+  top: 4.4rem;
+  left: 1rem;
+}
+
+.history-back::before {
+  content: '<';
+  position: absolute;
+  left: 1rem;
+  font-weight: 700;
+}
+
+.history-back:hover, .history-back:focus {
+  cursor: pointer;
+  background-color: black;
+  color: white;
 }
