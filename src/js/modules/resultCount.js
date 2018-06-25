@@ -2,7 +2,7 @@ const result = {
   init: function(data) {
     const resultButton = document.querySelector('#resultButton')
     console.log(data)
-    if(data < 401 && data > 1) {
+    if(data < 801 && data > 1) {
       resultButton.classList.remove('inactive')
       resultButton.classList.remove('noresult')
       resultButton.innerHTML = 'Toon ' + data + ' resultaten' 

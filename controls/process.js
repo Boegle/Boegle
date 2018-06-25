@@ -37,6 +37,7 @@ const processData = {
         if(result.authors[0]['author']) {
           result.authors[0]['author'].forEach((author) => {
             illustrator += ' ' + author._
+            illustrator = illustrator.toLowerCase()
           })
         }
       }
@@ -72,7 +73,8 @@ const processData = {
         if(result.publication[0].publishers[0]['publisher']) {
           result.publication[0].publishers[0]['publisher'].forEach(onePublisher => {
             if(onePublisher._) {
-              publisher.push(onePublisher._)
+              let publisherName = onePublisher._
+              publisher.push(publisherName.toLowerCase())
             }
           })
         }
@@ -185,15 +187,15 @@ const processData = {
     }
   },
   filterData: function(userData, data) {
-    if(userData.illustrator !== '' || userData.publisher[0] !== '' || userData.pages !== '1' || userData.summary[0] !== '' || userData.illustrations !== '' ) {
-      console.log(userData.summary)
+    if(userData.illustrator[0] !== '' || userData.publisher[0] !== '' || userData.pages !== '1' || userData.summary[0] !== '' || userData.illustrations !== '' ) {
+      console.log(userData)
       data.forEach((dataElement) => {
         dataElement.point = 0  
 
         if(userData.summary[0] !== '') {
           userData.summary.forEach((word) => {
             if(dataElement.summary.indexOf(word) > -1) {
-              console.log('Add point...')
+              console.log('Add 1 point for summary')
               dataElement.point++
             }   
           })
@@ -202,7 +204,7 @@ const processData = {
         if(userData.illustrator[0] !== '') {
           userData.illustrator.forEach((word) => {
             if(dataElement.illustrator.indexOf(word) > -1) {
-              console.log('Add point...')
+              console.log('Add 10 points for illustrator')
               dataElement.point = dataElement.point + 10
             }
           })
@@ -210,15 +212,36 @@ const processData = {
 
         if(userData.publisher[0] !== '') {
           userData.publisher.forEach((word) => {
-            if(dataElement.publisher.indexOf(word) > -1) {
-              console.log('Add point...')
-              dataElement.point = dataElement.point + 10
-            }
+            dataElement.publisher.forEach((element) => {
+              if(element.indexOf(word) > -1) {
+                console.log('Add 10 points for publisher')
+                dataElement.point = dataElement.point + 10
+              }
+            }) 
           })
         }
 
         if(userData.pages !== '1') {
-          console.log('change...', dataElement.pages)
+          if(Number(userData.pages) + 100 > Number(dataElement.pages) && Number(userData.pages) - 100 < Number(dataElement.pages)) {
+            console.log('Add 5 points for pages')
+            dataElement.point = dataElement.point + 5
+          }
+        }
+
+        if(userData.illustrations !== '') {
+          if(userData.illustrations === 'color' && dataElement.illustrations.indexOf('gekleurde') > -1) {
+            console.log('Add 10 points for color')
+            dataElement.point = dataElement.point + 10
+          } else if (userData.illustrations === 'black' && data.illustrations.indexOf('zwart-wit') > -1) {
+            console.log('Add 10 points for black and white')
+            dataElement.point = dataElement.point + 10
+          }
+
+          if((userData.illustrations === 'color' || userData.illustrations === 'black') && dataElement.illustrations.indexOf('ill') > -1) {
+            console.log('Add 5 points for illustrations')
+            dataElement.point = dataElement.point + 5
+          }
+          console.log(userData.illustrations)
         }
       })
       data.sort(processData.compare)
