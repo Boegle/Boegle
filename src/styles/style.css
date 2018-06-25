@@ -6,7 +6,7 @@
   --bookColor: red;
   --animationTime: 2s;
   --animationTimeTilt: 1s;
-
+  --tooltipPos: 0%;
 }
 
 * {
@@ -440,30 +440,76 @@ svg {
 /* -----------------SIDE MENU END----------------- */
 /* -----------------RANGE SLIDER----------------- */
 
+/* Based on : https://medium.com/@_bengarrison/accessing-and-modifying-css-variables-with-javascript-2ccb735bbff0 */
+
 #range {
-  top: 0;
+  margin-top: -13rem;
+  width: 30rem;
+  height: 17rem;
+  padding: 2rem 7rem 0 7rem;
+  position: relative;
+  transition: all 0.5s;
+  transform: translateX(-100%);
+}
+
+input[type=range] {
+  -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+  width: 100%; /* Specific width is required for Firefox. */
+  background: transparent; /* Otherwise white in Chrome */
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  border: 3px solid red;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 2rem;
+  background: #ffffff;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -14px;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  background: red;
+  border-radius: 2rem;
+}
+
+input[type=range] {
+  margin: 8rem 0;
+}
+
+input[type=range]:focus {
+  outline: none;
+}
+
+#range label {
+  font-family: avenir;
+  font-weight: 550;
+  width: 15rem;
+  background-color: red;
   position: absolute;
-  width: 10em;
-  display: flex;
-  height: 100%;
-  left: 10%;
-  justify-content: center;
-  flex-direction: column;
-  transform: translateX(-250%);
-  transition: all 1s ease-in-out;
+  color: white;
+  padding: 1.5rem 1rem;
+  margin-left: -6.5rem;
+  transform: translate(var(--tooltipPos));
 }
 
-#range p {
-  color: black;
-  justify-content: center;
-  display: flex;
-  color: black;
-  flex-direction: column;
-}
-
-#range input {
-  /* transform: scale(3) rotate(270deg); */
-  /* For later use. Dont remove */
+#range label::after {
+  content: '\25BC';
+  position: absolute;
+  bottom: -1.5rem;
+  font-size: 2rem;
+  color: red;
+  display: block;
+  left: 0;
+  margin:0 calc(50% - 1rem);
 }
 
 .sliderSlidesIn {

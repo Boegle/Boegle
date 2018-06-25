@@ -15,15 +15,22 @@ const mainBook = {
       document.querySelectorAll('#buttons button').forEach((button) => {
         button.addEventListener('click', this.flipPage)
       })
-      document.querySelector('#pages').addEventListener('change', () => {
+      document.querySelector('#pages').addEventListener('mousemove', () => {
         let value = document.querySelector('#pages').value
         document.querySelectorAll('.cover')[0].style.setProperty('--cover-translateY', '-' + parseInt(value / 100) + 'em')
         document.querySelectorAll('.bookBottomTwo')[0].style.setProperty('--bookBottom-scale', 1 + parseInt(value / 100))
+        document.querySelector('#range label').style.setProperty('--tooltipPos', value / 5.3 + '%')
         this.selectors.page.forEach((page) => {
           page.classList.add('none')
         })
         this.selectors.page[0].classList.remove('none')
-        document.querySelector('#pageSlideIndicator').innerHTML = value
+        if (value <= 1) {
+          document.querySelector('#pageSlideIndicator').innerHTML = 'Aantal Pagina\'s : 50 of minder'
+        } else if (value >= 499) {
+          document.querySelector('#pageSlideIndicator').innerHTML = 'Aantal Pagina\'s : 500 of meer'
+        } else {
+          document.querySelector('#pageSlideIndicator').innerHTML = 'Aantal Pagina\'s : ongeveer ' + value
+        }
       })
     }
   },
@@ -60,7 +67,7 @@ const mainBook = {
     if (this.currentState == 0 && this.flipCount == 1) {
       this.selectors.page[0].classList.add('animation')
       this.selectors.page[1].classList.add('animation')
-      this.currentState++
+      this.currentState ++
     } else if (this.currentState == 0 && this.flipCount == 2) {
       this.selectors.page.forEach((page) => {
         page.classList.add('animation')
@@ -84,11 +91,11 @@ const mainBook = {
         this.selectors.page[1].classList.remove('animationReverse')
         this.selectors.page[0].classList.remove('animationReverse')
       }, 1500)
-      this.currentState--
+      this.currentState --
     } else if (this.currentState == 1 && this.flipCount == 2) {
       this.selectors.page[2].classList.add('animation')
       this.selectors.page[3].classList.add('animation')
-      this.currentState++
+      this.currentState ++
     } else if (this.currentState == 1 && this.flipCount == 3) {
       this.currentState = 3
       document.body.style.setProperty('--animationTime', '1s')
@@ -115,7 +122,7 @@ const mainBook = {
         this.selectors.page[2].classList.remove('animationReverse')
         this.selectors.page[3].classList.remove('animationReverse')
       }, 1500)
-      this.currentState--
+      this.currentState --
     } else if (this.currentState == 2 && this.flipCount == 0) {
       this.currentState = 0
       this.selectors.page.forEach((page) => {
@@ -126,7 +133,7 @@ const mainBook = {
         }, 1600)
       })
     } else if (this.currentState == 2 && this.flipCount == 3) {
-      this.currentState++
+      this.currentState ++
       this.selectors.page.forEach((page) => {
         page.classList.add('animationReverse')
         setTimeout(() => {
@@ -142,7 +149,7 @@ const mainBook = {
         page.classList.remove('none')
         page.classList.add('animation')
       })
-      this.currentState--
+      this.currentState --
       document.querySelector('#range').classList.remove('sliderSlidesIn')
       document.querySelectorAll('.cover')[0].style.setProperty('--cover-translateY', 0)
       document.querySelector('.bookBottomTwo').style.setProperty('--bookBottom-scale', 0)
@@ -193,7 +200,7 @@ const mainBook = {
 const customSelect = {
   amountOfValuesInCustomSelect : 0,
   arrayOfChosenGenres : [],
-  init : function(){
+  init : function() {
     document.querySelector('.customSelect p ').addEventListener('click', () => {
       document.querySelector('.insideCustomSelect').classList.toggle('hidden')
       document.querySelector('.customSelect').classList.toggle('rotate')
@@ -227,7 +234,7 @@ const customSelect = {
     }
     customSelect.checkChangeInGenres()
   },
-  checkChangeInGenres : function(){
+  checkChangeInGenres : function() {
     {
       document.querySelector('.customSelect p').innerHTML = ''
       if(customSelect.arrayOfChosenGenres.length >= 1) {
