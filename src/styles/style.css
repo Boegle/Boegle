@@ -874,7 +874,7 @@ svg {
   margin-bottom: 1em;
 }
 
-#detailBook .history-back{
+#detailBook .history-back {
   position: fixed;
   z-index: 2;
 }
