@@ -2,16 +2,11 @@ const result = {
   init: function(data) {
     const resultButton = document.querySelector('#resultButton')
     console.log(data)
-    if(data < 401 && data > 40) {
+    if(data < 401 && data > 1) {
       resultButton.classList.remove('inactive')
       resultButton.classList.remove('noresult')
-      resultButton.innerHTML = 'Toon 40 resultaten' 
+      resultButton.innerHTML = 'Toon ' + data + ' resultaten' 
       resultButton.tabIndex = 0 
-    } else if(data < 41 && data > 1) {
-      resultButton.classList.remove('inactive')
-      resultButton.classList.remove('noresult')
-      resultButton.innerHTML = 'Toon ' + data + ' resultaten'
-      resultButton.tabIndex = 0
     } else if(data === 1) {
       resultButton.classList.remove('inactive')
       resultButton.classList.remove('noresult')
