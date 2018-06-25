@@ -32,31 +32,46 @@ const api = {
   
       if(data.title === '') {
         search += '&q=boek'
+
+        if(data.author) {
+          search += '&facet=Auteur(' + data.author + ')'
+        }
+    
+        if(data.genres.length > 0) {
+          data.genres.forEach((genre) => {
+            search += '&facet=Genre(' + genre + ')'
+          })
+        }
+        
       } else {
         search += '&q=' + data.title
       }
-  
-      if(data.author) {
-        search += '&facet=Auteur(' + data.author + ')'
-      }
-  
+
       if(data.language  !== 'none') {
         search += '&facet=Language(' + data.language + ')'
       }
-  
+
       if(data.age !== 'none') {
         search += '&facet=Doelgroep(' + data.age + ')'
       }
-  
+
       if(data.pubYear) {
-        search += '&facet=pubYear(' + data.pubYear + ')'
+        if(data.pubYear <= 2018 && data.pubYear >= 2010) {
+          search += '&facet=pubYearRange(1_2010)'
+        } else if(data.pubYear <= 2009 && data.pubYear >= 2000) {
+          search += '&facet=pubYearRange(2_2000)'
+        } else if(data.pubYear <= 1999 && data.pubYear >= 1990) {
+          search += '&facet=pubYearRange(3_1990)'
+        } else if(data.pubYear <= 1989 && data.pubYear >= 1980) {
+          search += '&facet=pubYearRange(4_1980)'
+        } else if(data.pubYear <= 1979 && data.pubYear >= 1970) {
+          search += '&facet=pubYearRange(5_1970)'
+        } else if(data.pubYear <= 1969) {
+          search += '&facet=pubYearRange(5_OlderThan50)'
+        }
+        
       }
-  
-      if(data.genres.length > 0) {
-        data.genres.forEach((genre) => {
-          search += '&facet=Genre(' + genre + ')'
-        })
-      }
+
     } else if(io === 'details') {
       path = io
       let detailUrl = baseUrl + path + '/?authorization=' + publicKey + '&id=' + socket
@@ -72,6 +87,7 @@ const api = {
     }
 
     data.url = baseUrl + path + '/?authorization=' + publicKey + '&' + search 
+    console.log(data.url)
     api.dataObj = data
     api.getData(io, socket, data)
   }
