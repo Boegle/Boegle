@@ -10,7 +10,6 @@ let app = {
     mainBook.init()
     result.init()
     bookLocation.init()
-    console.log(bookLocation)
   }
 }
 
