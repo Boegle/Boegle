@@ -15,15 +15,23 @@ const mainBook = {
       document.querySelectorAll('#buttons button').forEach((button) => {
         button.addEventListener('click', this.flipPage)
       })
-      document.querySelector('#pages').addEventListener('change', () => {
+      document.querySelector('#pages').addEventListener('mousemove', () => {
         let value = document.querySelector('#pages').value
         document.querySelectorAll('.cover')[0].style.setProperty('--cover-translateY', '-' + parseInt(value / 100) + 'em')
         document.querySelectorAll('.bookBottomTwo')[0].style.setProperty('--bookBottom-scale', 1 + parseInt(value / 100))
+        document.querySelector('#range label').style.setProperty('--tooltipPos', value/5.3 + '%')
         this.selectors.page.forEach((page) => {
           page.classList.add('none')
         })
         this.selectors.page[0].classList.remove('none')
-        document.querySelector('#pageSlideIndicator').innerHTML = value
+        console.log(value)
+        if (value <= 1) {
+          document.querySelector('#pageSlideIndicator').innerHTML = 'Aantal Pagina\'s : 50 of minder'
+        } else if (value >= 499) {
+          document.querySelector('#pageSlideIndicator').innerHTML = 'Aantal Pagina\'s : 500 of meer'
+        } else {
+          document.querySelector('#pageSlideIndicator').innerHTML = 'Aantal Pagina\'s : ongeveer '+value
+        }
       })
     }
   },
