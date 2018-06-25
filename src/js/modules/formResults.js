@@ -31,7 +31,7 @@ const bookForm = {
     const genres = []
     let summary = bookForm.select.summary.value
     let illustrator = bookForm.select.illustrator.value
-    let publisher = bookForm.select.illustrator.value
+    let publisher = bookForm.select.publisher.value
 
     bookForm.select.checkboxes.forEach((checkbox) => {
       if (checkbox.checked) {
