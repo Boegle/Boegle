@@ -140,7 +140,7 @@ header {
 textarea {
   font-size: 1rem;
   border: none;
-  background-image: repeating-linear-gradient(#ccc, #ccc 2px, #f3f0f0 2px, #f3f0f0 calc(1rem + 4px));
+  background-image: repeating-linear-gradient(#ccc, #ccc 2px, #f3f0f0 2px, #f3f0f0 calc(1rem + 2px));
   /* Based on https://www.quackit.com/css/codes/patterns/css_background_stripes.cfm */
   outline: 0;
   resize: none;
@@ -444,7 +444,7 @@ svg {
 
 #range {
   margin-top: -13rem;
-  width: 30rem;
+  width: 28rem;
   height: 17rem;
   padding: 2rem 7rem 0 7rem;
   position: relative;

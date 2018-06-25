@@ -19,7 +19,7 @@ const mainBook = {
         let value = document.querySelector('#pages').value
         document.querySelectorAll('.cover')[0].style.setProperty('--cover-translateY', '-' + parseInt(value / 100) + 'em')
         document.querySelectorAll('.bookBottomTwo')[0].style.setProperty('--bookBottom-scale', 1 + parseInt(value / 100))
-        document.querySelector('#range label').style.setProperty('--tooltipPos', value / 5.3 + '%')
+        document.querySelector('#range label').style.setProperty('--tooltipPos', value / 6.2 + '%')
         this.selectors.page.forEach((page) => {
           page.classList.add('none')
         })
