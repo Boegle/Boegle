@@ -936,6 +936,30 @@ svg {
   overflow-y: scroll;
 }
 
+.bookLocation.active section {
+  animation: bounce 0.4s ease-in-out;
+}
+
+@keyframes bounce {
+
+  10% {
+    transform: scale(0.75);
+  }
+
+  50% {
+    transform: scale(1.2)
+  }
+
+  80% {
+    transform: scale(0.9);
+  }
+
+  100% {
+    transform: scale(0.99);
+  }
+
+}
+
 .bookLocation section h2{
   display: inline-block;
   width: 100%;
