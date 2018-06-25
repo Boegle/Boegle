@@ -29,7 +29,6 @@ router.get('/result', (req, res) => {
                 data.forEach((dataElement) => {
                   dataArr.push(dataElement)
                 })
-                console.log(dataArr)
                 return dataArr
               })
           }
@@ -38,7 +37,6 @@ router.get('/result', (req, res) => {
 
         promise()
           .then((processedData) => {
-            console.log(processedData)
             return processData.filterData(api.dataObj, processedData)
           })
           .then((renderData) => {

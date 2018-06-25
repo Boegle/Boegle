@@ -12,7 +12,7 @@ const processData = {
     data.resultNumber = Number(parsedData.aquabrowser.meta[0].count[0])
     return data
   },
-  resultPage: function(data) {    
+  resultPage: function(data) {  
     let dataObj = data.aquabrowser.results[0].result.map((result) => {
       let summary = ''
       let ppn = ''
@@ -20,8 +20,8 @@ const processData = {
       let title = 'Geen titel'
       let pages = '?'
       let illustrations = 'none'
-      let secondAuthor = ''
-  
+      let illustrator = ''
+
       if(result.titles) {
         if(result.titles[0]['short-title']) {
           title = result.titles[0]['short-title'][0]._
@@ -35,9 +35,8 @@ const processData = {
   
       if(result.authors) {
         if(result.authors[0]['author']) {
-          console.log(result.authors)
           result.authors[0]['author'].forEach((author) => {
-            secondAuthor += ' ' + author._
+            illustrator += ' ' + author._
           })
         }
       }
@@ -53,13 +52,13 @@ const processData = {
       let illustrationsIndexAfter = pages.indexOf(';')
       illustrations = illustrations.substring(illustrationsIndexBefore + 2, illustrationsIndexAfter)
 
-      console.log(illustrations, illustrationsIndexBefore, illustrationsIndexAfter)
       let pagesIndex = pages.indexOf(' ')
       pages = pages.substring(0, pagesIndex != -1 ? pagesIndex : pages.length)
   
       if(result.summaries) {
         if(result.summaries[0]['summary']) {
           summary = result.summaries[0]['summary'][0]._
+          summary = summary.toLowerCase()
         }
       }
   
@@ -68,17 +67,20 @@ const processData = {
           ppn = result.identifiers[0]['ppn-id'][0]._
         }
       }
-    
-      if(result.publication[0].publishers[0]['publisher']) {
-        result.publication[0].publishers[0]['publisher'].forEach(onePublisher => {
-          if(onePublisher._) {
-            publisher.push(onePublisher._)
-          }
-        })
+
+      if(result.publication) {
+        if(result.publication[0].publishers[0]['publisher']) {
+          result.publication[0].publishers[0]['publisher'].forEach(onePublisher => {
+            if(onePublisher._) {
+              publisher.push(onePublisher._)
+            }
+          })
+        }
       }
+      
       return {
         title: title,
-        secondAuthor: secondAuthor,
+        illustrator: illustrator,
         publisher: publisher,
         illustrations: illustrations,
         pages: pages,
@@ -155,17 +157,20 @@ const processData = {
       topic = titleTopic
     }
 
-    if(data.aquabrowser.publication[0].publishers[0]['publisher']) {
-      data.aquabrowser.publication[0].publishers[0]['publisher'].forEach(onePublisher => {
-        if(onePublisher._) {
-          publisher.push(onePublisher._)
-        }
-
-        if(onePublisher.$.year) {
-          year = onePublisher.$.year
-        }
-      })
+    if(data.aquabrowser.publication) {
+      if(data.aquabrowser.publication[0].publishers[0]['publisher']) {
+        data.aquabrowser.publication[0].publishers[0]['publisher'].forEach(onePublisher => {
+          if(onePublisher._) {
+            publisher.push(onePublisher._)
+          }
+  
+          if(onePublisher.$.year) {
+            year = onePublisher.$.year
+          }
+        })
+      }
     }
+    
     return {
       title: title,
       undertitle: undertitle,
@@ -180,18 +185,58 @@ const processData = {
     }
   },
   filterData: function(userData, data) {
-    if(userData.illustrator !== '' || userData.publisher !== '' || userData.pages !== '1' || userData.summary !== '' || userData.illustrations !== '' ) {
-      console.log('Check...')
+    if(userData.illustrator !== '' || userData.publisher[0] !== '' || userData.pages !== '1' || userData.summary[0] !== '' || userData.illustrations !== '' ) {
+      console.log(userData.summary)
       data.forEach((dataElement) => {
-        console.log(dataElement)
-        dataElement.point = 0
-        console.log(userData)
-      })
+        dataElement.point = 0  
 
-      data.sort((a, b) => a.point + b.point )
+        if(userData.summary[0] !== '') {
+          userData.summary.forEach((word) => {
+            if(dataElement.summary.indexOf(word) > -1) {
+              console.log('Add point...')
+              dataElement.point++
+            }   
+          })
+        }
+
+        if(userData.illustrator[0] !== '') {
+          userData.illustrator.forEach((word) => {
+            if(dataElement.illustrator.indexOf(word) > -1) {
+              console.log('Add point...')
+              dataElement.point = dataElement.point + 10
+            }
+          })
+        }
+
+        if(userData.publisher[0] !== '') {
+          userData.publisher.forEach((word) => {
+            if(dataElement.publisher.indexOf(word) > -1) {
+              console.log('Add point...')
+              dataElement.point = dataElement.point + 10
+            }
+          })
+        }
+
+        if(userData.pages !== '1') {
+          console.log('change...', dataElement.pages)
+        }
+      })
+      data.sort(processData.compare)
+      console.log(data)
     } 
-    console.log(data)
     return data
+  },
+  compare: function(a, b) {
+    const pointA = a.point
+    const pointB = b.point
+
+    let comparison = 0
+    if(pointA > pointB) {
+      comparison = 1
+    } else if(pointA < pointB) {
+      comparison = -1
+    }
+    return comparison * -1
   },
   availability: function(data) {
     if(data.aquabrowser.locations) {
