@@ -1379,12 +1379,8 @@ input[type=range]:focus {
 
 .history-back {
   display: flex;
-  text-decoration: none;
-  color: black;
   padding: 1rem 2rem;
-  color: white;
-  background-color: red;
-  border: none;
+  border: 1px solid black;
   font-size: 1rem;
   transition: all 0.2s;
   position: fixed;/*fallback*/
@@ -1392,13 +1388,6 @@ input[type=range]:focus {
   z-index: 2;
   top: 4.4rem;
   left: 1rem;
-}
-
-.history-back::before {
-  content: '<';
-  position: absolute;
-  left: 1rem;
-  font-weight: 700;
 }
 
 .history-back:hover, .history-back:focus {
