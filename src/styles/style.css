@@ -440,6 +440,8 @@ svg {
 /* -----------------SIDE MENU END----------------- */
 /* -----------------RANGE SLIDER----------------- */
 
+/* Based on : https://medium.com/@_bengarrison/accessing-and-modifying-css-variables-with-javascript-2ccb735bbff0 */
+
 #range{
   margin-top: -13rem;
   width: 30rem;
