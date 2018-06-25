@@ -158,6 +158,7 @@ textarea {
   background: none;
   cursor: pointer;
 }
+
 select {
   font-size: 1rem;
   -webkit-appearance: none;
@@ -165,6 +166,7 @@ select {
   -ms-appearance: none;
   appearance: none;
   outline: 0;
+  width: 100%;
   box-shadow: none;
   border: 0 !important;
   background: none;
