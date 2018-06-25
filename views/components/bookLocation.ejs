@@ -1,0 +1,13 @@
+<div class="bookLocation">
+  <section>
+    <h2>Beschikbaarheid</h2>
+    <% availability.forEach((location) => { %>
+    <h3><%= location.location %></h3>
+     <%  if (location.availability === 'true') { %>
+              <p class="available">Beschikbaar</p>
+            <% } else { %>
+              <p class="unavailable">Niet beschikbaar</p>
+    <% }}) %>
+    <button>Sluiten</button>
+  </section>
+</div>
