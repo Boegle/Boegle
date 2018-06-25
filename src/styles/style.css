@@ -886,6 +886,8 @@ input[type=range]:focus {
   border: none;
   font-size: 1rem;
   transition: all 0.2s;
+  animation: bounce 0.4s ease-in-out;
+  animation-delay: 0.7s;
 }
 
 .result-navigation button:hover, .result-navigation button:focus {
