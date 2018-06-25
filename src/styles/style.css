@@ -65,6 +65,7 @@ header {
 }
 
 .page {
+  transform: translateY(var(--cover-translateY));
   position: absolute;
   background-color: #f3f0f0;
   height: 24em;
