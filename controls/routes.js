@@ -4,13 +4,16 @@ const api = require('./api')
 const processData = require('./process')
 
 router.get('/', (req, res) => {
-  res.render('index')
+  let data = 0
+  res.render('index', {
+    data: data
+  })
 })
 
 router.get('/result', (req, res) => {
 
   api.getResults(api.dataObj.url)
-    .then((data) => {    
+    .then((data) => {
       let resultNumber = Number(data.aquabrowser.meta[0].count[0])
       let pages = Math.ceil(resultNumber / 20)
       let dataArr = processData.resultPage(data)
@@ -49,11 +52,11 @@ router.get('/result', (req, res) => {
     })
     .catch((error) => {
       console.log(error)
-      res.render('index')
+      res.redirect('/')
     })
 })
 
-router.get('/book/:id', (req, res) => { 
+router.get('/book/:id', (req, res) => {
   api.getResults(api.getUrl('details', req.params.id))
     .then((data) => processData.detailPage(data))
     .then((processedData) => {
