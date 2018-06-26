@@ -151,6 +151,7 @@ textarea {
   /* Based on https://www.quackit.com/css/codes/patterns/css_background_stripes.cfm */
   outline: 0;
   resize: none;
+  font-family: avenir, sans-serif;
 }
 
 .select {
