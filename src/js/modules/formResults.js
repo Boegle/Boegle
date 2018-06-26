@@ -3,6 +3,7 @@ import{socket} from './socket.js'
 const bookForm = {
   init: function() {
     if(document.querySelector('form')) {
+      window.onload = bookForm.search
       bookForm.select.inputs.forEach(input => input.addEventListener('change', (e) => bookForm.search(e)))
       bookForm.select.selects.forEach(select => select.addEventListener('change', (e) => bookForm.search(e)))
       bookForm.select.textArea.addEventListener('change', (e) => bookForm.search(e))
