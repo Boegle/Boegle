@@ -962,7 +962,6 @@ input[type=range]:focus {
 }
 @media (max-width: 25.4em) {
   .result-navigation button {
-    min-width: initial;
     margin-bottom: 0.7rem;
   }
 
@@ -975,6 +974,11 @@ input[type=range]:focus {
     width: 100%;
     display: flex;
     justify-content: center;
+  }
+}
+@media (min-width: 25.4em) {
+  .result-navigation button {
+    min-width: 8em;
   }
 }
 
