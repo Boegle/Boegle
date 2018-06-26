@@ -70,13 +70,15 @@ const processData = {
       }
 
       if(result.publication) {
-        if(result.publication[0].publishers[0]['publisher']) {
-          result.publication[0].publishers[0]['publisher'].forEach(onePublisher => {
-            if(onePublisher._) {
-              let publisherName = onePublisher._
-              publisher.push(publisherName.toLowerCase())
-            }
-          })
+        if(result.publication[0].publishers) {
+          if(result.publication[0].publishers[0]['publisher']) {
+            result.publication[0].publishers[0]['publisher'].forEach(onePublisher => {
+              if(onePublisher._) {
+                let publisherName = onePublisher._
+                publisher.push(publisherName.toLowerCase())
+              }
+            })
+          }
         }
       }
       
@@ -160,16 +162,18 @@ const processData = {
     }
 
     if(data.aquabrowser.publication) {
-      if(data.aquabrowser.publication[0].publishers[0]['publisher']) {
-        data.aquabrowser.publication[0].publishers[0]['publisher'].forEach(onePublisher => {
-          if(onePublisher._) {
-            publisher.push(onePublisher._)
-          }
-  
-          if(onePublisher.$.year) {
-            year = onePublisher.$.year
-          }
-        })
+      if(data.aquabrowser.publication[0].publishers) {
+        if(data.aquabrowser.publication[0].publishers[0]['publisher']) {
+          data.aquabrowser.publication[0].publishers[0]['publisher'].forEach(onePublisher => {
+            if(onePublisher._) {
+              publisher.push(onePublisher._)
+            }
+    
+            if(onePublisher.$.year) {
+              year = onePublisher.$.year
+            }
+          })
+        }
       }
     }
     
