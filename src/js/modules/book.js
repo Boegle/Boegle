@@ -163,19 +163,19 @@ const mainBook = {
     } else if (this.currentState == 3 && this.flipCount == 2) {
       document.querySelectorAll('#book .page').forEach((page) => {
         page.classList.remove('animationReverse')
-        page.classList.remove('none')
         page.classList.add('animation')
+        page.classList.remove('none')
       })
       this.currentState --
       document.querySelector('#range').classList.remove('sliderSlidesIn')
-      document.querySelectorAll('.cover')[0].style.setProperty('--cover-translateY', 0)
+      document.querySelector('#book').style.setProperty('--cover-translateY', 0)
       document.querySelector('.bookBottomTwo').style.setProperty('--bookBottom-scale', 0)
       document.querySelector('#book').classList.remove('inDepth')
     } else if (this.currentState == 3 && this.flipCount == 0) {
       this.currentState = 0
       document.querySelector('#range').classList.remove('sliderSlidesIn')
       document.querySelector('#book').classList.remove('inDepth')
-      document.querySelectorAll('.cover')[0].style.setProperty('--cover-translateY', 0)
+      document.querySelector('#book').style.setProperty('--cover-translateY', 0)
       document.querySelector('.bookBottomTwo').style.setProperty('--bookBottom-scale', 0)
       this.selectors.page.forEach((page) => {
         page.classList.remove('animationReverse')
@@ -187,7 +187,7 @@ const mainBook = {
       })
       document.querySelector('#range').classList.remove('sliderSlidesIn')
       document.querySelector('#book').classList.remove('inDepth')
-      document.querySelectorAll('.cover')[0].style.setProperty('--cover-translateY', 0)
+      document.querySelector('#book').style.setProperty('--cover-translateY', 0)
       document.querySelector('.bookBottomTwo').style.setProperty('--bookBottom-scale', 0)
       this.selectors.page[1].classList.add('animation')
       this.selectors.page[0].classList.add('animation')
