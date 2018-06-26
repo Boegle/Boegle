@@ -129,6 +129,17 @@ header {
   text-align: center;
 }
 
+.cover header input:focus::-webkit-input-placeholder{
+  color:rgba(187, 187, 187, 0.7);
+}
+.cover header input:focus::-moz-input-placeholder{
+  color:rgba(187, 187, 187, 0.7);
+}
+.cover header input:focus::-ms-input-placeholder{
+  color:rgba(187, 187, 187, 0.7);
+}
+
+
 /* STYLING 2. */
 
 .page:nth-of-type(2) label, .page:nth-of-type(3) label {
