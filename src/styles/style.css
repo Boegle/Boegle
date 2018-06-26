@@ -988,6 +988,7 @@ input[type=range]:focus {
   height: 4em;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  animation: updown 1.2s ease-in-out;
 }
 
 #scrollContainer:hover, #scrollContainer:focus-within {
@@ -1024,6 +1025,18 @@ input[type=range]:focus {
   }
   40% {
     transform: rotate(-45deg) translate(0, 0);
+  }
+}
+
+@keyframes updown {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-60px);
+  }
+  60% {
+    transform: translateY(-15px);
   }
 }
 
