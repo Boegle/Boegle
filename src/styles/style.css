@@ -675,6 +675,7 @@ input[type=range]:focus {
 .loader.active {
   display: flex;
   opacity: 1;
+  z-index: 7;
 }
 
 #loaderBook {
