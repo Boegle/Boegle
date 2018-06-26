@@ -545,17 +545,24 @@ input[type=range]:focus {
 }
 
 #buttons a {
+  display: inline-block;
   padding: 1rem 2rem;
   border: 1px solid black;
+  background: white;
 }
 
 #buttons a.noresult {
-  border-color: grey;
+  border-color: lightgrey;
+  background: lightgrey;
 }
 
 #buttons a:hover {
   color: white;
   background-color: black;
+}
+
+#buttons a.activeResult {
+  animation: bounce 0.4s ease-in-out;
 }
 
 .invisable {
@@ -566,13 +573,29 @@ input[type=range]:focus {
 /* -----------------BUTTONS END----------------- */
 /* -----------------LOADER----------------- */
 
+.loader {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, .5);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s;
+}
+
+.loader.active {
+  display: flex;
+  opacity: 1;
+}
+
 #loaderBook {
   display: flex;
-  transform: scale(0.4);
-  height: 15em;
   perspective: 1500px;
-  justify-content: center;
-  margin-right: 4em;
+  transform: scale(0.6) translate(-10rem, 10rem);
 }
 
 #loaderCover {
@@ -838,6 +861,7 @@ input[type=range]:focus {
   position: relative;
   animation: flip-result 0.7s forwards ease-in-out;
 }
+
 @media(max-width: 55.4em) {
   .book-left {
     transform: none;
@@ -1389,8 +1413,7 @@ input[type=range]:focus {
 .noresult {
   visibility: visible;
   color: white;
-  background: grey;
-  opacity: 0.5;
+  background: lightgrey;
   pointer-events: none;
 }
 
