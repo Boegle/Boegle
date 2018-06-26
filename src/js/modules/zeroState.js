@@ -7,7 +7,7 @@ const zeroState = {
     }
   },
   showZeroState: function() {
-    document.querySelector('header span').addEventListener('click', () => {
+    document.querySelector('header button').addEventListener('click', () => {
       document.querySelector('.zeroState').classList.remove('inactive')
     })
   },
