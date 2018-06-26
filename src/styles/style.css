@@ -890,10 +890,11 @@ input[type=range]:focus {
   position: fixed;
   bottom: 2rem;
   padding: 0 1rem;
+  z-index: 4;
 }
 @media (max-width: 25.4em) {
   .result-navigation button {
-    width: 100%;
+    min-width: initial;
     margin-bottom: 0.7rem;
   }
 
@@ -903,15 +904,19 @@ input[type=range]:focus {
 
   .page-position {
     order: -1;
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
 }
 
 .result-navigation button {
+  display: inline-flex;
+  justify-content: center;
   text-decoration: none;
   color: black;
   padding: 1rem 2rem;
   color: white;
-  min-width: 10em;
   background-color: red;
   border: none;
   font-size: 1rem;
