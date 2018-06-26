@@ -56,7 +56,7 @@ header button {
   margin-top: 1rem;
 }
 
-header button:hover, header button:focus{
+header button:hover, header button:focus {
   background-color: black;
   color: white;
   cursor: pointer;
