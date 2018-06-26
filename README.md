@@ -4,10 +4,12 @@ Amsterdam OBA | To search a book
 
 ## Table of contents
 
-* [Description](#description)
-* [Getting started](#getting_started)
-* [Progression](#progression)
-    * [Week1](#week1)
+- [Description](#description)
+- [Getting started](#getting_started)
+- [Progression](#progression)
+    - [Week 1](#week1)
+    - [Week 2](#week2)
+
 
 ## Description
 The OBA Search a Book is an application where an user can search for a book that they vaguely remembered. 
@@ -73,3 +75,33 @@ After generating ideas, every member created their own concept of a web applicat
 <p>Zoomed in on a concept</p>
 <img src='readme_assets/concept-one.jpg' alt="A zoomed in photo of one of the concept">
 </details>
+
+### Week 2
+
+The focus of the second week is setting up a development workflow and understand the API that is given from OBA.
+
+#### Automate workflow
+
+To streamline our development enviroment we're creating a taskrunner that will automate some of our work. Those work are:
+
+- compilling sass
+- combine javascript module
+- watch files
+- start server
+- linter
+
+There are a lot of taskrunner that we can use. To choose a correct taskrunner Desley has done research to some of the most used ones. You can find the document [here](). The list is created with a pro and con from each taskrunner and from that we choose one with the most pro. 
+
+The taskrunner that we've settled with is Gulp. Gulp is written in Javascript which mean it's easy for us to start developing the automated task. It's also very easy to add a new automated task to the system.
+
+When presented this to our mentor, he was not very pleased to the conclussion we've come up with. He advised us to use NPM Script, because it use less command and it takes less time to set-up and start developing.
+
+After the presentation we have had a discussion about the feedback that is given by our mentor. We discussed if we're going to rewrite our Gulp taks in NPM Script - that mean a whole day work is gone - or are we're going to keep the Gulp taks.
+
+After a long discussion we're going to rewrite the Gulp task in NPM Script because:
+
+- We're already starting the server with __npm start__ so when we're adding some other automated tasks, than it's very logical to do this within the same command line.
+
+- We have never work with NPM Script before, so NPM Script will be a new learning oppertunity for us. 
+
+- When NPM install, all dependencies of the automated script will be installed, so when someone else clone our repository, than they will also have and understand the task that will be runned. 
