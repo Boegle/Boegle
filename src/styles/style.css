@@ -1313,8 +1313,7 @@ input[type=range]:focus {
     }
 
     #book.inDepth{
-      transform: perspective(200px) rotateX(20deg) scale(1);
-      margin-top: -10rem;
+      transform: perspective(200px) rotateX(20deg) scale(1) translateY(-10rem);
     }
 
     #buttons {
