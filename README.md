@@ -4,10 +4,10 @@ Amsterdam OBA | To search a book
 
 ## Table of contents
 
-* [Description](##description)
-* [Getting started](##getting_started)
-* [Progression](##progression)
-    * [Week1](###week1)
+* [Description](#description)
+* [Getting started](#getting_started)
+* [Progression](#progression)
+    * [Week1](#week1)
 
 ## Description
 The OBA Search a Book is an application where an user can search for a book that they vaguely remembered. 
