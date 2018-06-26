@@ -15,23 +15,8 @@ const mainBook = {
       document.querySelectorAll('#buttons button').forEach((button) => {
         button.addEventListener('click', this.flipPage)
       })
-      document.querySelector('#pages').addEventListener('mousemove', () => {
-        let value = document.querySelector('#pages').value
-        document.querySelectorAll('.cover')[0].style.setProperty('--cover-translateY', '-' + parseInt(value / 100) + 'em')
-        document.querySelectorAll('.bookBottomTwo')[0].style.setProperty('--bookBottom-scale', 1 + parseInt(value / 100))
-        document.querySelector('#range label').style.setProperty('--tooltipPos', value / 6.2 + '%')
-        this.selectors.page.forEach((page) => {
-          page.classList.add('none')
-        })
-        this.selectors.page[0].classList.remove('none')
-        if (value <= 1) {
-          document.querySelector('#pageSlideIndicator').innerHTML = 'Aantal Pagina\'s : 50 of minder'
-        } else if (value >= 499) {
-          document.querySelector('#pageSlideIndicator').innerHTML = 'Aantal Pagina\'s : 500 of meer'
-        } else {
-          document.querySelector('#pageSlideIndicator').innerHTML = 'Aantal Pagina\'s : ongeveer ' + value
-        }
-      })
+      document.querySelector('#pages').addEventListener('mousemove', mainBook.slider)
+      document.querySelector('#pages').addEventListener('touchmove', mainBook.slider)
     }
   },
   selectors : {
@@ -40,9 +25,18 @@ const mainBook = {
   },
   currentState: 0,
   flipCount: 0,
+  phoneState: 0,
   flipPage: function() {
     if (this.id == 'next' || this.id == 'back') {
-      if (this.id == 'next') {
+      if (window.screen.width < 1120 && mainBook.currentState == 1 && this.id == 'next' && mainBook.phoneState == 0) {
+        console.log('aangeroepen')
+        mainBook.phoneState = 1
+        mainBook.flipCount = 1.5
+      } else if (window.screen.width < 1120 && mainBook.currentState == 1 && mainBook.phoneState == 1 && this.id == 'back') {
+        console.log('hier gebeurt iets')
+        mainBook.phoneState = 0
+        mainBook.flipCount = 1.25
+      } else if (this.id == 'next') {
         mainBook.flipCount ++
       } else {
         mainBook.flipCount --
@@ -56,6 +50,7 @@ const mainBook = {
     mainBook.sideMenuUpdate()
   },
   actualFlipPage: function() {
+    console.log('van ' + this.currentState + ' naar ' + this.flipCount)
     if (this.currentState == 3) {
       document.body.style.setProperty('--animationTime', '2s')
     } else {
@@ -67,6 +62,9 @@ const mainBook = {
     if (this.currentState == 0 && this.flipCount == 1) {
       this.selectors.page[0].classList.add('animation')
       this.selectors.page[1].classList.add('animation')
+      if (window.screen.width < 1120) {
+        document.querySelector('#book').classList.add('showLeftSide')
+      }
       this.currentState ++
     } else if (this.currentState == 0 && this.flipCount == 2) {
       this.selectors.page.forEach((page) => {
@@ -87,14 +85,30 @@ const mainBook = {
       this.selectors.page[0].classList.add('animationReverse')
       this.selectors.page[0].classList.remove('animation')
       this.selectors.page[1].classList.remove('animation')
+      if (window.screen.width < 1120) {
+        document.querySelector('#book').classList.remove('showLeftSide')
+      }
       setTimeout (() => {
         this.selectors.page[1].classList.remove('animationReverse')
         this.selectors.page[0].classList.remove('animationReverse')
       }, 1500)
       this.currentState --
+    } else if (this.currentState == 1 && this.flipCount == 1.25) {
+      console.log('handtekening')
+      this.flipCount = 1
+      this.phoneState = 0
+      document.querySelector('#book').classList.add('showLeftSide')
+    } else if (this.currentState == 1 && this.flipCount == 1.5) {
+      console.log('hier ook')
+      document.querySelector('#book').classList.remove('showLeftSide')
+      this.currentState = 1
+      this.flipCount = 1
     } else if (this.currentState == 1 && this.flipCount == 2) {
       this.selectors.page[2].classList.add('animation')
       this.selectors.page[3].classList.add('animation')
+      if (window.screen.width < 1120) {
+        document.querySelector('#book').classList.add('showLeftSide')
+      }
       this.currentState ++
     } else if (this.currentState == 1 && this.flipCount == 3) {
       this.currentState = 3
@@ -118,6 +132,9 @@ const mainBook = {
       this.selectors.page[2].classList.add('animationReverse')
       this.selectors.page[2].classList.remove('animation')
       this.selectors.page[3].classList.remove('animation')
+      if (window.screen.width < 1120) {
+        document.querySelector('#book').classList.remove('showLeftSide')
+      }
       setTimeout (() => {
         this.selectors.page[2].classList.remove('animationReverse')
         this.selectors.page[3].classList.remove('animationReverse')
@@ -193,6 +210,23 @@ const mainBook = {
     } else {
       document.querySelector('#next').classList.remove('inactive')
       document.querySelector('#back').classList.remove('inactive')
+    }
+  },
+  slider : function() {
+    let value = document.querySelector('#pages').value
+    document.querySelectorAll('.cover')[0].style.setProperty('--cover-translateY', '-' + parseInt(value / 100) + 'em')
+    document.querySelectorAll('.bookBottomTwo')[0].style.setProperty('--bookBottom-scale', 1 + parseInt(value / 100))
+    document.querySelector('#range label').style.setProperty('--tooltipPos', value / 6.2 + '%')
+    mainBook.selectors.page.forEach((page) => {
+      page.classList.add('none')
+    })
+    mainBook.selectors.page[0].classList.remove('none')
+    if (value <= 1) {
+      document.querySelector('#pageSlideIndicator').innerHTML = 'Aantal Pagina\'s : 50 of minder'
+    } else if (value >= 499) {
+      document.querySelector('#pageSlideIndicator').innerHTML = 'Aantal Pagina\'s : 500 of meer'
+    } else {
+      document.querySelector('#pageSlideIndicator').innerHTML = 'Aantal Pagina\'s : ongeveer ' + value
     }
   }
 }

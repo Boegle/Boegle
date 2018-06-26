@@ -64,6 +64,12 @@ header {
   opacity: 0;
 }
 
+.clickHack {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
 .page {
   position: absolute;
   background-color: #f3f0f0;
@@ -1245,6 +1251,82 @@ input[type=range]:focus {
 /* -----------------RESPONSIVENESS----------------- */
 
 @media screen and (max-width: 70em) {
+
+/* ------Emiels Amazing Fix ------- */
+
+    nav {
+      display: none;
+    }
+
+    .showLeftSide {
+      transform: translateX(20rem);
+    }
+
+    .checked {
+      background-color: red;
+    }
+
+    #book header {
+      top: auto;
+    }
+
+    #book.inDepth{
+      transform: perspective(200px) rotateX(20deg) scale(1);
+      margin-top: -10rem;
+    }
+
+    #buttons {
+      bottom: 0;
+      display: flex;
+    }
+
+    #buttons a {
+    border: 1px solid black;
+    height: 3.5rem;
+    vertical-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0;
+    padding: 0 1rem;
+    min-width: 51%;
+    }
+
+    #buttons button {
+      min-width: 5rem;
+      padding: 0 1rem;
+    }
+
+    #buttons button:hover {
+      background: red;
+    }
+
+    #buttons button.inactive {
+      background-color: lightgray;
+      visibility: visible;
+      opacity: 0.5
+    }
+
+    #range {
+      transform: scale(0.7) translateX(-120%);
+    }
+
+    input[type=range]::-webkit-slider-thumb {
+      width: 4rem;
+      height: 4rem;
+      border: 6px solid red;
+    }
+
+    .sliderSlidesIn {
+    transform: translateX(-8%) scale(0.7)!important;
+}
+
+    #range label {
+      box-shadow: 0 8px 11px rgba(0,0,0,0.23), 0 8px 11px rgba(0,0,0,0.23);
+      transform: translate(var(--tooltipPos));
+    }
+
+/* ------Emiels Amazing Fix ------- */
 
     #detailBook {
       position: initial;
