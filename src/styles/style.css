@@ -527,7 +527,7 @@ input[type=range]:focus {
 
 #buttons {
   position: fixed;
-  bottom: 2em;
+  bottom: 2rem;
   text-align: center;
   width: 100vw;
   opacity: 1;
@@ -1321,6 +1321,7 @@ input[type=range]:focus {
       bottom: 0;
       display: flex;
       justify-content: center;
+      position: initial;
     }
 
     #buttons a {
