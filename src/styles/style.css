@@ -146,6 +146,17 @@ header span {
   text-align: center;
 }
 
+.cover header input:focus::-webkit-input-placeholder {
+  color:rgba(187, 187, 187, 0.7);
+}
+.cover header input:focus::-moz-input-placeholder {
+  color:rgba(187, 187, 187, 0.7);
+}
+.cover header input:focus::-ms-input-placeholder {
+  color:rgba(187, 187, 187, 0.7);
+}
+
+
 /* STYLING 2. */
 
 .page:nth-of-type(2) label, .page:nth-of-type(3) label {
@@ -168,6 +179,7 @@ textarea {
   /* Based on https://www.quackit.com/css/codes/patterns/css_background_stripes.cfm */
   outline: 0;
   resize: none;
+  font-family: avenir, sans-serif;
 }
 
 .select {
@@ -583,7 +595,7 @@ input[type=range]:focus {
 
 #buttons {
   position: fixed;
-  bottom: 2em;
+  bottom: 2rem;
   text-align: center;
   width: 100vw;
   opacity: 1;
@@ -946,10 +958,11 @@ input[type=range]:focus {
   position: fixed;
   bottom: 2rem;
   padding: 0 1rem;
+  z-index: 4;
 }
 @media (max-width: 25.4em) {
   .result-navigation button {
-    width: 100%;
+    min-width: initial;
     margin-bottom: 0.7rem;
   }
 
@@ -959,15 +972,19 @@ input[type=range]:focus {
 
   .page-position {
     order: -1;
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
 }
 
 .result-navigation button {
+  display: inline-flex;
+  justify-content: center;
   text-decoration: none;
   color: black;
   padding: 1rem 2rem;
   color: white;
-  min-width: 10em;
   background-color: red;
   border: none;
   font-size: 1rem;
@@ -1369,13 +1386,14 @@ input[type=range]:focus {
     }
 
     #book.inDepth{
-      transform: perspective(200px) rotateX(20deg) scale(1);
-      margin-top: -10rem;
+      transform: perspective(200px) rotateX(20deg) scale(1) translateY(-10rem);
     }
 
     #buttons {
       bottom: 0;
       display: flex;
+      justify-content: center;
+      position: initial;
     }
 
     #buttons a {

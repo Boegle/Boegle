@@ -29,11 +29,11 @@ const mainBook = {
   flipPage: function() {
     if (this.id == 'next' || this.id == 'back') {
       if (window.screen.width < 1120 && mainBook.currentState == 1 && this.id == 'next' && mainBook.phoneState == 0) {
-        console.log('aangeroepen')
+        
         mainBook.phoneState = 1
         mainBook.flipCount = 1.5
       } else if (window.screen.width < 1120 && mainBook.currentState == 1 && mainBook.phoneState == 1 && this.id == 'back') {
-        console.log('hier gebeurt iets')
+        
         mainBook.phoneState = 0
         mainBook.flipCount = 1.25
       } else if (this.id == 'next') {
@@ -50,7 +50,7 @@ const mainBook = {
     mainBook.sideMenuUpdate()
   },
   actualFlipPage: function() {
-    console.log('van ' + this.currentState + ' naar ' + this.flipCount)
+    
     if (this.currentState == 3) {
       document.body.style.setProperty('--animationTime', '2s')
     } else {
@@ -94,12 +94,12 @@ const mainBook = {
       }, 1500)
       this.currentState --
     } else if (this.currentState == 1 && this.flipCount == 1.25) {
-      console.log('handtekening')
+      
       this.flipCount = 1
       this.phoneState = 0
       document.querySelector('#book').classList.add('showLeftSide')
     } else if (this.currentState == 1 && this.flipCount == 1.5) {
-      console.log('hier ook')
+      
       document.querySelector('#book').classList.remove('showLeftSide')
       this.currentState = 1
       this.flipCount = 1
