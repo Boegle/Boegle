@@ -41,7 +41,7 @@ header {
   flex-wrap: wrap;
 }
 
-header span {
+header button {
   padding: 0.7rem;
   background-color: white;
   margin-left: auto;
@@ -54,6 +54,12 @@ header span {
   border: 1px solid black;
   border-radius: 0.2rem;
   margin-top: 1rem;
+}
+
+header button:hover, header button:focus{
+  background-color: black;
+  color: white;
+  cursor: pointer;
 }
 
 
@@ -393,13 +399,17 @@ select::-ms-expand {
   background-color: #f9f9f9;
   padding: 3rem;
   width: 100%;
-  max-width: 50em;
+  max-width: 40em;
   position: relative;
   display: flex;
-  justify-content: space-around;
   flex-flow: wrap;
   z-index: 2;
-  max-height: 50%;
+}
+
+.zeroState section h1 {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 1.4rem;
 }
 
 .zeroState button {
