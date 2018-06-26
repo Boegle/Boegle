@@ -129,13 +129,13 @@ header {
   text-align: center;
 }
 
-.cover header input:focus::-webkit-input-placeholder{
+.cover header input:focus::-webkit-input-placeholder {
   color:rgba(187, 187, 187, 0.7);
 }
-.cover header input:focus::-moz-input-placeholder{
+.cover header input:focus::-moz-input-placeholder {
   color:rgba(187, 187, 187, 0.7);
 }
-.cover header input:focus::-ms-input-placeholder{
+.cover header input:focus::-ms-input-placeholder {
   color:rgba(187, 187, 187, 0.7);
 }
 
