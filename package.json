@@ -1,5 +1,5 @@
 {
-  "name": "Boegle",
+  "name": "boegle",
   "version": "1.0.0",
   "description": "Amsterdam OBA | To search a book",
   "main": "app.js",
@@ -25,17 +25,17 @@
   },
   "homepage": "https://github.com/Boegle/Boegle#readme",
   "devDependencies": {
-    "dotenv": "^6.0.0",
-    "ejs": "^2.6.1",
-    "eslint": "^4.19.1",
-    "express": "^4.16.3",
-    "node-fetch": "^2.1.2",
     "nodemon": "^1.17.5",
     "postcss-cli": "^5.0.0",
     "rollup": "^0.59.4",
-    "xml2js": "^0.4.19"
+    "xml2js": "^0.4.19",
+    "eslint": "^4.19.1"
   },
   "dependencies": {
-    "socket.io": "^2.1.1"
+    "socket.io": "^2.1.1",
+    "dotenv": "^6.0.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "node-fetch": "^2.1.2"
   }
 }
