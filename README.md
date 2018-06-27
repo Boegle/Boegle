@@ -150,7 +150,7 @@ We pitch our idea and concept to Mark (product owner) to get feedback and to kno
 
 The focus of week 3 is to create a proof of concept and test this out with real users.
 
-#### product
+#### Product
 
 When we first starting to create this applicatoin, we intentionally didn't focus  on the appearence, because we want this application firstly to work. 
 
@@ -159,3 +159,38 @@ This is an image of the early version of our application.
 ![early version of the Zoek 'n Boek application](readme_assets/earlyVersion.PNG)
 
 
+#### Testing
+To make this application really great and to see if our product really work, we need to test this with real users. Mark created an appoinment with one of the Highschool in the area for us to test. However because of miscomunication we aren't able to test the application further. 
+
+But we still need to know if our app works, so we test our app with our colleague and our mentor.
+
+<details>
+<summary>Click to see: photo of the test</summary>
+<p>Test with colleague</p>
+<img src='readme_assets/testing-colleague.jpg' alt="Photo of the test with a colleage">
+
+<p>Test with mentor</p>
+<img src='readme_assets/testing-mentor.jpg' alt="Photo of the test with our mentor">
+</details>
+
+__Feedback (in dutch)__
+- Doelgroep = Jeugd of none (wegens fout API)
+- Slider
+     - Krijgt mousedown (voor constante feedback)
+     - Min = 50 of minder
+     - Max = 500 of meer
+     - Begint met animatie
+     - Moet meer opvallen
+- Titel, auteur en taal overruled een hoop
+- Form vragen moeten "vragender"
+- Placeholder moet òf meer placeholder-achtig òf verdwijnen na :focus
+- Knoppen onderin moeten een animatie krijgen
+- Kleur van de tekst moet veranderen als de kleur van de kaft verandert
+- Resultatenknop
+     - Font-weight moet hoger
+     - background-color moet worden verandert
+     - moet meer opvallen
+     - animeren na het kunnen tonen van resultaten
+- Cutsom Select moet scrollen na het openen om de mogelijk tot scrollen te verduidelijken
+- State 4 naar 2 na gebruik slider gaat kapot door het verkeerd verwijderen van class "none"
+- Er moet een terugknop komen op de resultaten- en detailpagina
