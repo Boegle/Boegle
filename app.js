@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const env = require('dotenv')
 const routes = require('./controls/routes')
+const port = 3000
 
 const socketIO = require('./controls/socket')
 const http = require('http').Server(app)
@@ -18,6 +19,6 @@ app.use('/', routes)
 
 socketIO.init(io)
 
-http.listen(process.env.PORT || 3000, () => {
+http.listen(process.env.PORT || port, () => {
   console.log('Example app listening on port 3000!')
 })
