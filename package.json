@@ -9,8 +9,9 @@
     "rollup": "rollup src/js/main.js --o dist/js/bundle.js --f iife",
     "css": "postcss src/styles/style.css -o dist/styles/style.css",
     "nodemon": "nodemon --inspect app.js --ignore dist/**",
-    "start": "node app.js & npm run lint & npm run watch",
-    "watch": "nodemon --watch /src/** -e css,js -x \"npm run rollup & npm run css & npm run nodemon\""
+    "start": "node app.js",
+    "watch": "nodemon --watch /src/** -e css,js -x \"npm run rollup & npm run css & npm run nodemon\"",
+    "deploy": "npm run css && npm run rollup"
   },
   "repository": {
     "type": "git",
