@@ -18,6 +18,8 @@ Amsterdam OBA | To search a book
     - [Week 3](#week-3)
         - [Product](#product)
         - [Testing](#testing)
+    - [Week 4](#week-4)
+        - [Testing](#testing)
 
 
 ## Description
@@ -194,3 +196,20 @@ __Feedback (in dutch)__
 - Cutsom Select moet scrollen na het openen om de mogelijk tot scrollen te verduidelijken
 - State 4 naar 2 na gebruik slider gaat kapot door het verkeerd verwijderen van class "none"
 - Er moet een terugknop komen op de resultaten- en detailpagina
+
+### Week 4
+The focus of week 4 is to work further and improve the application with the feedback that is given. And also to test it with real users.
+
+#### Testing
+After improving our applicaton we went to a highschool in our area. We test our application with five users and every test is done individually. 
+
+[Link to our testplan (in dutch)](readme_assets/testplan.pdf)
+
+<details>
+<summary>Click to see: feedback of th test (in dutch)</summary>
+<p>Feedback</p>
+<img src='readme_assets/feedback1.jpeg' alt="Photo of feedback">
+<img src='readme_assets/feedback2.jpeg' alt="Photo of feedback">
+<img src='readme_assets/feedback3.jpeg' alt="Photo of feedback">
+<img src='readme_assets/feedback4.jpeg' alt="Photo of feedback">
+</details>
