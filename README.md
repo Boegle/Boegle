@@ -150,3 +150,12 @@ We pitch our idea and concept to Mark (product owner) to get feedback and to kno
 
 The focus of week 3 is to create a proof of concept and test this out with real users.
 
+#### product
+
+When we first starting to create this applicatoin, we intentionally didn't focus  on the appearence, because we want this application firstly to work. 
+
+This is an image of the early version of our application.
+
+![early version of the Zoek 'n Boek application](readme_assets/earlyVersion.PNG)
+
+
