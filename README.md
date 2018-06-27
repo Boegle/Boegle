@@ -7,8 +7,12 @@ Amsterdam OBA | To search a book
 - [Description](#description)
 - [Getting started](#getting_started)
 - [Progression](#progression)
-    - [Week 1](#week1)
-    - [Week 2](#week2)
+    - [Week 1](#week-1)
+        - [User story](#user-story)
+        - [User scenario](#user-scenario)
+        - [Concept](#concept)
+    - [Week 2](#week-2)
+        - [Automate workflow](#automate-workflow)
 
 
 ## Description
@@ -44,7 +48,7 @@ localhost:3000
 
 *The progression section gives a weekly insight to what the team is working on, what for problems we've encountered and how we've dealth with the problems during our project.*
 
-### Week1
+### Week 1
 
 The focus of the first week lays on understanding and debriefing the client problem. From there we're creating an user story and an user scenario that gives us an idea what the visitors of the OBA wants and how the perfect scenario would be. And last but not least creating a concept for solving this solution.
 
@@ -104,4 +108,5 @@ After a long discussion we're going to rewrite the Gulp task in NPM Script becau
 
 - We have never work with NPM Script before, so NPM Script will be a new learning oppertunity for us. 
 
-- When NPM install, all dependencies of the automated script will be installed, so when someone else clone our repository, than they will also have and understand the task that will be runned. 
+- When NPM install, all dependencies of the automated script will be installed, so when someone else clone our repository, than they will also have and understand the task that will be runned.
+
