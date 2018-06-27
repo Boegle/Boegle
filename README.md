@@ -225,3 +225,17 @@ We also created a poster and a product video for our end presentation.
 #### Mobile
 We made the application useable for mobile and this is how it looks.
 ![Mobile version](readme_assets/boegle-mobile.gif)
+
+#### Poster
+We've also made poster to put at our stand for the end presentation.
+
+<details>
+<summary>Click to see: some posters</summary>
+<p>poster</p>
+<img src='readme_assets/poster1.jpeg' alt="Poster">
+<img src='readme_assets/poster2.jpeg' alt="Poster">
+<img src='readme_assets/poster3.jpeg' alt="Poster">
+<img src='readme_assets/poster4.jpeg' alt="Poster">
+<img src='readme_assets/poster5.jpeg' alt="Poster">
+<img src='readme_assets/poster6.jpeg' alt="Poster">
+</details>
