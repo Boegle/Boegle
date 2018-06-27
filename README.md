@@ -13,6 +13,8 @@ Amsterdam OBA | To search a book
         - [Concept](#concept)
     - [Week 2](#week-2)
         - [Automate workflow](#automate-workflow)
+        - [Coding](#coding)
+        - [Presentation](#presentation)
 
 
 ## Description
@@ -130,4 +132,14 @@ To understand and create a better concept for the problem, we need to know which
 The problem was that they a different module for this. One member worked with  Request module and the other with the Node-fetch module. This create conflict. 
 
 After a discussion we choose to use Node-fetch. We choose this because, it use the same fetch syntax as the front-end. This means that other member of the team are able to understand the code better. Also it creates concistency in the code, between the front- and backend.
+
+#### Presentation
+
+We pitch our idea and concept to Mark (product owner) to get feedback and to know what he's opions is about the concept.
+
+<details>
+<summary>Click to see: photo of the presentation</summary>
+<p>Presentation</p>
+<img src='readme_assets/presentation.jpg' alt="A zoomed in photo of one of the concept">
+</details>
 
