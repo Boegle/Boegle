@@ -224,4 +224,4 @@ We also created a poster and a product video for our end presentation.
 
 #### Mobile
 We made the application useable for mobile and this is how it looks.
-
+![Mobile version](readme_assets/boegle-mobile.gif)
