@@ -110,3 +110,21 @@ After a long discussion we're going to rewrite the Gulp task in NPM Script becau
 
 - When NPM install, all dependencies of the automated script will be installed, so when someone else clone our repository, than they will also have and understand the task that will be runned.
 
+#### Git flow 
+
+To be able to develop in a team, we're using git as our Version Control System and using Github as our platform for uploading our code. To avoid conflict we're are going to create branche whenever any feature is added. 
+
+When presented this to Danny (our advisor), he found it a good idea, but it's not good enough to create consisteny and avoiding conflicts. With the help of Danny he presented idea's that we can use to create a better git flow. Those idea are:
+
+- A convention for commit messages
+- Pull request need to be checked before any merge
+- Create a develop branch and merge this to the master whenever a new version is ready.
+- Create a Github project that keep tracks of tasks and progress
+- ~~Create a template for Issues~~~
+
+With the help of Danny, we've implemented every ideas except the Template part, because we think it's unnecessary because the project is private for now.
+
+#### Coding
+
+
+
