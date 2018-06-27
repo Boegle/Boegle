@@ -126,5 +126,8 @@ With the help of Danny, we've implemented every ideas except the Template part, 
 
 #### Coding
 
+To understand and create a better concept for the problem, we need to know which data the API is giving us. Two members worked on this.
+The problem was that they a different module for this. One member worked with  Request module and the other with the Node-fetch module. This create conflict. 
 
+After a discussion we choose to use Node-fetch. We choose this because, it use the same fetch syntax as the front-end. This means that other member of the team are able to understand the code better. Also it creates concistency in the code, between the front- and backend.
 
