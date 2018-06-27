@@ -15,6 +15,9 @@ Amsterdam OBA | To search a book
         - [Automate workflow](#automate-workflow)
         - [Coding](#coding)
         - [Presentation](#presentation)
+    - [Week 3](#week-3)
+        - [Product](#product)
+        - [Testing](#testing)
 
 
 ## Description
@@ -142,4 +145,8 @@ We pitch our idea and concept to Mark (product owner) to get feedback and to kno
 <p>Presentation</p>
 <img src='readme_assets/presentation.jpg' alt="A zoomed in photo of one of the concept">
 </details>
+
+### Week 3
+
+The focus of week 3 is to create a proof of concept and test this out with real users.
 
