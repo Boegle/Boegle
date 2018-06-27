@@ -19,7 +19,11 @@ Amsterdam OBA | To search a book
         - [Product](#product)
         - [Testing](#testing)
     - [Week 4](#week-4)
-        - [Testing](#testing)
+        - [Testing](#testing-1)
+    - [Week 5](#week-5)
+        - [Mobile](#mobile)
+        - [Poster](#poster)
+        - [Product video](#product-video)
 
 
 ## Description
@@ -206,10 +210,18 @@ After improving our applicaton we went to a highschool in our area. We test our 
 [Link to our testplan (in dutch)](readme_assets/testplan.pdf)
 
 <details>
-<summary>Click to see: feedback of th test (in dutch)</summary>
+<summary>Click to see: feedback of the test (in dutch)</summary>
 <p>Feedback</p>
 <img src='readme_assets/feedback1.jpeg' alt="Photo of feedback">
 <img src='readme_assets/feedback2.jpeg' alt="Photo of feedback">
 <img src='readme_assets/feedback3.jpeg' alt="Photo of feedback">
 <img src='readme_assets/feedback4.jpeg' alt="Photo of feedback">
 </details>
+
+### Week 5
+The focus of week 5 is to improve our application and to make the application useable for mobile so that even a user at home is able to use the application.
+We also created a poster and a product video for our end presentation.
+
+#### Mobile
+We made the application useable for mobile and this is how it looks.
+
