@@ -1,63 +1,91 @@
 <section id="book">
-  <article class="cover page">
-    <header>
-      <input id="title" type="text" name="" value="" placeholder="titel">
-      <input id="author" type="text" name="" value="" placeholder="auteur">
-      <input id="bookColor" type="color" name="" value="">
-      <label for="bookColor">Kaftkleur</label>
-    </header>
-    <footer>
-      <input id="publisher" type="text" name="" value="" placeholder="uitgever">
-    </footer>
-  </article>
-  <article class="page">
-    <div class="mirror">
-      <select id="language" class="" name="">
-        <option value="">Kies Taal</option>
-        <option value="ger">Duits</option>
-        <option value="eng">Engels</option>
-        <option value="fre">Frans</option>
-        <option value="dut">Nederlands</option>
-      </select>
-      <select id="age" class="" name="">
-        <option value="">Kies Doelgroep</option>
-        <option value="ageYouth">Jeugd</option>
-        <option value="ageYoungAdult">Jong-volwassenen</option>
-        <option value="ageAdult">Volwassenen</option>
-      </select>
-      <label for="year">Jaar van uitgave</label>
-      <input id="year" type="number" name="" value="" placeholder="bijv. 2018" min="1700" max="2018">
-      <label for="illustrator">2e auteur/illustrator</label>
-      <input id="illustrator" type="text" name="" value="" placeholder="Illustrator">
-      <label for="pages">Aantal pagina's +/-</label>
-      <input id="pages" type="number" name="" value="" placeholder="bijv. 200">
-    </div>
-  </article>
-  <article class="page">
-    <div class="">
-      <label for="summary">Samenvatting</label>
-      <textarea name="summary" id="summary" cols="30" rows="10"></textarea>
-      <select id="illustrations" class="" name="">
-        <option value="">Soort illustraties</option>
-        <option value="black">Zwart/wit illustraties</option>
-        <option value="color">Gekleurde illustraties</option>
-        <option value="no">Geen illustraties</option>
-      </select>
-      <input id="submit" type="submit" name="" value="submit">
-    </div>
-  </article>
-  <article class="page">
+  <form id="bookInfo">
+    <article class="cover page">
+      <header>
+        <input id="title" type="text" placeholder="titel">
+        <input id="author" type="text" placeholder="auteur">
+        <input id="coverColor" type="color">
+        <label for="coverColor">Kaftkleur</label>
+      </header>
+      <footer>
+        <input id="publisher" type="text" placeholder="uitgever">
+      </footer>
+      <div class="bookBottomTwo">
+      </div>
+    </article>
+    <article class="page insidePage">
+      <div class="mirror">
+        <div class="select">
+          <select id="language">
+            <option value="none">Kies Taal</option>
+            <option value="ger">Duits</option>
+            <option value="eng">Engels</option>
+            <option value="fre">Frans</option>
+            <option value="dut">Nederlands</option>
+          </select>
+        </div>
+        <div class="select">
+          <select id="age">
+            <option value="none">Kies Doelgroep</option>
+            <option value="ageYouth">Jeugd</option>
+            <option value="none">Jong-volwassenen</option>
+            <option value="none">Volwassenen</option>
+          </select>
+        </div>
+        <label for="year">Jaar van uitgave</label>
+        <input id="year" type="number" placeholder="bijv. 2018" min="1700" max="2018">
+        <label for="illustrator">2e auteur/illustrator</label>
+        <input id="illustrator" type="text" placeholder="Illustrator">
+      </div>
+    </article>
+    <article class="page insidePage">
+      <div class="">
+        <label for="summary">Samenvatting</label>
+        <textarea name="summary" id="summary" cols="30" rows="10"></textarea>
+        <div class="select">
+          <select id="illustrations">
+            <option value="">Soort illustraties</option>
+            <option value="black">Zwart/wit illustraties</option>
+            <option value="color">Gekleurde illustraties</option>
+            <option value="">Geen illustraties</option>
+          </select>
+        </div>
+      </div>
+    </article>
+    <article class="cover back page">
+      <div class="mirror">
+        <h3>Genre</h3>
+        <label for="romantisch">romantisch</label>
+        <input id="romantisch" type="checkbox" value="romantisch-verhaal">
+        <label for="detective">detective</label>
+        <input id="detective" type="checkbox" value="detective">
+        <label for="humor">humor</label>
+        <input id="humor" type="checkbox" value="humor">
+        <label for="thriller">thriller</label>
+        <input id="thriller" type="checkbox" value="thriller">
+        <label for="verhalenbundel">verhalenbundel</label>
+        <input id="verhalenbundel" type="checkbox" value="verhalenbundel">
 
-  </article>
-  <article class="page">
-
-  </article>
-  <article class="cover back page">
-
-  </article>
-
+        <section class="customSelect">
+          <p>Meer Genres...</p>
+          <section class="hidden insideCustomSelect">
+            <% var allGenres = ['Avontureroman', 'Bijbelseroman', 'Biografie', 'Detective', 'Dieren', 'Doktersverhaal', 'Erotiek', 'Experimentele roman', 'Familieroman', 'Feministische roman', 'Homofiel thema', 'Humor', 'Indisch milieu', 'Islamitisch milieu', 'Joods milieu', 'Kinderleven', 'Oorlog en verzet', 'Paarden', 'Politieke roman', 'Protestants milieu', 'Psychologisch verhaal', 'Racisme', 'Romantisch verhaal', 'School', 'Sciencefiction', 'Sociaal/politiek verhaal', 'Spionageroman', 'Sport', 'Sprookjes', 'Streek/boeren-roman', 'Stripverhaal', 'Thriller', 'Verhalenbundel', 'Western', 'Zeeverhaal']
+            allGenres.forEach((genre) => { %>
+              <label for="<%=genre.toLocaleLowerCase()%>"><%=genre%></label>
+              <input id="<%=genre.toLocaleLowerCase()%>" value="<%=genre.toLocaleLowerCase()%>" type="checkbox">
+            <%})%>
+          </section>
+        </section>
+      </div>
+    </article>
+  </form>
+</section>
+<section id="range">
+  <label for="pages" id="pageSlideIndicator">Aantal Pagina's : 50 of minder</label>
+  <input type="range" min="0" max="500" value="1" id="pages">
 </section>
 <section id="buttons">
-  <a href="#">Terug</a>
-  <a href="#">Volgende</a>
+  <button id="back">Terug</button>
+  <a href="/result" id="resultButton" class="noresult" tabindex="-1">Nog geen resultaten</a>
+  <button id="next">Volgende</button>
 </section>

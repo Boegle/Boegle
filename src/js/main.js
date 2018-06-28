@@ -1,14 +1,17 @@
-import{test} from './modules/test.js'
 import{bookForm} from './modules/formResults.js'
 import{mainBook} from './modules/book.js'
+import{result} from './modules/result.js'
+import{bookLocation} from './modules/location.js'
+import{zeroState} from './modules/zeroState.js'
 
 
 let app = {
   init: function() {
-    console.log(this)
-    test()
     bookForm.init()
     mainBook.init()
+    result.init()
+    bookLocation.init()
+    zeroState.init()
   }
 }
 

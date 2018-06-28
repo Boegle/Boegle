@@ -1,0 +1,22 @@
+<aside id="detailRecommendation">
+  <h2>Alternatieve boeken</h2>
+
+  <% let numberArray = []
+  let loop = alternativeData.length
+
+  for(i = 0; i < 4; i++) {
+    let randomNumber = Math.floor(Math.random() * loop)
+    let randomNumberTwo = Math.floor(Math.random() * loop)
+    if(!numberArray.some((number) => randomNumber === number)) {
+      numberArray.push(randomNumber)
+    }
+  }
+  numberArray.forEach((number) => { %>
+    <section>
+      <a href="<%= alternativeData[number].obaId %>">
+        <img src="https://nbc.acc1.bibliotheek.nl/thumbnail?uri=http%3A%2F%2Fdata.bibliotheek.nl%2Fggc%2Fppn%2F<%= alternativeData[number].ppn %>&width=1024&token=fe58476d" alt="" />
+        <p><%= alternativeData[number].title %></p>
+      </a>
+    </section>
+   <% }) %>
+</aside>

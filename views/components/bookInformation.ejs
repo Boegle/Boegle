@@ -1,0 +1,32 @@
+<main id="detailBook">
+  <a class="history-back" href="javascript:history.back()">Resultaten</a>
+  <section class="detailCover">
+    <div>
+      <img src="https://nbc.acc1.bibliotheek.nl/thumbnail?uri=http%3A%2F%2Fdata.bibliotheek.nl%2Fggc%2Fppn%2F<%= data.ppn %>&width=1024&token=fe58476d" alt="Cover of the book" />
+    </div>
+  </section>
+  <article class="detailInformation">
+    <h1><%= data.title %></h1>
+    <h2><%= data.undertitle %></h2>
+    <p><%= data.author %></p>
+    <p><%= data.pages %> pagina's | <%= data.publisher %> | <%= data.year %></p>
+    <p><%= data.summary %></p>
+
+    <% let available = function(element) {
+      return element.availability === 'true'
+    }
+    if(availability.some(available)) { %>
+
+      <p>Beschikbaar in een OBA vestiging</p>
+      <button>Zie locaties</button>
+
+    <% } else { %>
+      <p class="unavailable">Niet Beschikbaar bij de OBA</p>
+      <button disabled>Zie locaties</button>
+   <% } %>
+
+  </article>
+  <div id="scrollContainer">
+    <a class="scrollIndicator" href="#detailRecommendation"><span></span>Scroll</a>
+  </div>
+</main>

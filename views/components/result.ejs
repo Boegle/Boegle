@@ -1,0 +1,65 @@
+<div class="container">
+	<a class="history-back" href="javascript:history.back()">Terug</a>
+	<h1 class="result-top-title"><%= data.length %> <% if(data.length === 1) { %>
+	resultaat 
+	<% } else { %> 
+		resultaten
+		<% } %>
+	</h1>
+	<main class="result-container">
+		<% for(let i = 0; i < Math.ceil(data.length / 8); i++) { %>
+			<section class="results <% if(i === 0) { %> active <% } %>">
+				<div class="result-page left">
+
+					<% for(let j = (i * 8); j < ((i * 8) + 4); j++) {
+						if(j > data.length - 1) {
+							break;
+						} %>
+						<section class="result-item">
+							<a href="book/<%= data[j].obaId %>">
+								<img src="https://nbc.acc1.bibliotheek.nl/thumbnail?uri=http%3A%2F%2Fdata.bibliotheek.nl%2Fggc%2Fppn%2F<%= data[j].ppn %>&width=1024&token=fe58476d" alt="">
+								<h2 class="result-title"><%= data[j].title %></h2>
+							</a>
+						</section>
+
+					<% } %>
+
+				</div>
+
+				<div class="result-page right">
+
+						<% for(let k = ((i * 8) + 4); k < ((i * 8) + 8); k++) { 
+							if(k > data.length - 1) {
+								break;
+							} %>
+							<section class="result-item">
+								<a href="book/<%= data[k].obaId %>">
+									<img src="https://nbc.acc1.bibliotheek.nl/thumbnail?uri=http%3A%2F%2Fdata.bibliotheek.nl%2Fggc%2Fppn%2F<%= data[k].ppn %>&width=1024&token=fe58476d" alt="">
+									<h2 class="result-title"><%= data[k].title %></h2>
+								</a>
+							</section>
+	
+						<% } %>
+
+				</div>
+			</section>
+			<% } %>
+	</main>
+
+	<section class="result-navigation">
+		<button class="previous-result" value="back" type="button">Vorige</button>
+		<div class="page-position">
+			<span class="position"></span>
+			<span>/</span>
+			<span class="total-page"></span>
+		</div>
+		<button class="next-result" value="next" type="button">Volgende</button>
+	</section>
+
+	<div class="result-book-background">
+		<div class="book-page book-left">
+		</div>
+		<div class="book-page book-right">
+		</div>
+	</div>
+</div>
