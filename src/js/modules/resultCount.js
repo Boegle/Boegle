@@ -16,7 +16,7 @@ const result = {
       resultButton.classList.remove('activeResult')
       resultButton.innerHTML = 'Nog geen resultaten' 
       resultButton.tabIndex = -1
-    } else if(data < 100000 && data > 1) {
+    } else if(data < 800 && data > 1) {
       resultButton.classList.remove('noresult')
       resultButton.classList.add('activeResult')
       resultButton.innerHTML = 'Toon ' + data + ' resultaten' 
